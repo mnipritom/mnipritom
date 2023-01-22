@@ -16,3 +16,6 @@
 [submodule "quranjson"]
 	path = resources/assets/references/scriptures/quranjson
 	url = https://github.com/semarketir/quranjson
+[submodule "quran-json"]
+	path = resources/assets/references/scriptures/quran-json
+	url = https://github.com/risan/quran-json
