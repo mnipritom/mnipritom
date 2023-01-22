@@ -1,3 +1,6 @@
 [submodule "xdeb"]
 	path = resources/assets/downloads/utilities/scripts/xdeb
 	url = https://github.com/toluschr/xdeb
+[submodule "tdrop"]
+	path = resources/assets/downloads/utilities/scripts/tdrop
+	url = https://github.com/noctuid/tdrop
