@@ -1,0 +1,181 @@
+# Constants
+set                           $mod                           Mod4
+set                           $terminal                      kitty
+
+set                           $browsers                      "1: browsers "
+set                           $editors                       "2: editors "
+set                           $terminals                     "3: terminals "
+
+# Window rules
+assign                        [class="Google-chrome"]        $browsers
+assign                        [class="Microsoft-edge"]       $browsers
+assign                        [class="Firefox"]              $browsers
+assign                        [class="Vivaldi-stable"]       $browsers
+assign                        [class="Opera"]                $browsers
+
+assign                        [class="Code"]                 $editors
+assign                        [class="Atom"]                 $editors
+assign                        [class="obsidian"]             $editors
+assign                        [class="Logseq"]               $editors
+
+assign                        [class="$terminal"]            $terminals
+
+# for_window                  [class="Virt-manager"]         floating              enable
+
+# Removing window borders
+# for_window                  [class="^.*"]                  border                pixel       0 # deprecated
+
+# hide_edge_borders           none
+
+floating_modifier             $mod
+
+# Fonts
+font                          pango:Ubuntu Condensed 15
+
+default_border                pixel                          2
+default_floating_border       pixel                          2
+
+# Keybindings
+
+# Workspaces
+bindsym        $mod+1         workspace        number        $browsers;   exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
+bindsym        $mod+2         workspace        number        $editors;    exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
+bindsym        $mod+3         workspace        number        $terminals;  exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
+bindsym        $mod+4         workspace        number        $ws4;        exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
+
+# Moving windows to a workspace
+bindsym        $mod+Shift+1        move        container to workspace     number        $browsers
+bindsym        $mod+Shift+2        move        container to workspace     number        $editors
+bindsym        $mod+Shift+3        move        container to workspace     number        $terminals
+
+# Layout switching
+bindsym        $mod+s             layout       stacking
+bindsym        $mod+Tab           layout       tabbed
+bindsym        $mod+e             layout       toggle       split
+
+# Terminal
+# bindsym      $mod+t             exec i3-sensible-terminal
+# bindsym      $mod+t             exec --no-startup-id $terminal
+
+# Change focus
+bindsym        $mod+j             focus        left
+bindsym        $mod+k             focus        down
+bindsym        $mod+i             focus        up
+bindsym        $mod+l             focus        right
+
+# Alternatives
+bindsym        $mod+Left          focus        left
+bindsym        $mod+Down          focus        down
+bindsym        $mod+Up            focus        up
+bindsym        $mod+Right         focus        right
+
+# Move focused window
+bindsym        $mod+Shift+j       move         left
+bindsym        $mod+Shift+k       move         down
+bindsym        $mod+Shift+i       move         up
+bindsym        $mod+Shift+l       move         right
+
+# Alternatives
+bindsym        $mod+Shift+Left    move         left
+bindsym        $mod+Shift+Down    move         down
+bindsym        $mod+Shift+Up      move         up
+bindsym        $mod+Shift+Right   move         right
+
+# Fullscreen
+bindsym        Mod1+f             fullscreen   toggle
+bindsym        $mod+Mod1+f        exec --no-startup-id skippy-xd
+
+# resize window
+mode "resize" {
+  bindsym      j                  resize       shrink width 10 px or 10 ppt
+  bindsym      k                  resize       grow height 10 px or 10 ppt
+  bindsym      i                  resize       shrink height 10 px or 10 ppt
+  bindsym      l                  resize       grow width 10 px or 10 ppt
+
+  # same bindings, but for the arrow keys
+  bindsym      Left               resize       shrink width 10 px or 10 ppt
+  bindsym      Down               resize       grow height 10 px or 10 ppt
+  bindsym      Up                 resize       shrink height 10 px or 10 ppt
+  bindsym      Right              resize       grow width 10 px or 10 ppt
+
+  # back to normal: Enter or Escape or $mod+r
+  bindsym      Return             mode         "default"
+  bindsym      Escape             mode         "default"
+  bindsym      $mod+r             mode         "default"
+}
+
+bindsym        $mod+Shift+r       mode         "resize"
+
+# focus the parent container
+bindsym        $mod+a             focus        parent
+
+# focus the child container
+# bindsym      $mod+d             focus        child
+
+# reload the configuration file
+bindsym        $mod+Shift+c       reload
+# restart i3 inplace
+bindsym        $mod+Control+r     restart
+# exit i3
+bindsym        $mod+Shift+e       exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Spliting
+
+# Horizontal
+bindsym        $mod+h             split h
+
+# Vertical
+bindsym        $mod+v             split v
+
+# Close window
+bindsym        $mod+w             kill
+
+# Alt Tab
+bindsym        Mod1+Tab           exec --no-startup-id bash $HOME/.config/rofi/sources/bash/tasks/switchActiveWindow.bash
+
+# Dmenu
+bindsym        $mod+d             exec dmenu_run -fn 'ubuntu-17'
+
+# Toggle tiling/floating
+bindsym        $mod+Shift+space   floating     toggle
+
+# Change focus between tiling/floating windows
+bindsym        $mod+space         focus        mode_toggle
+
+# Color Palette
+# class                 border  backgr. text    indicator child_border
+client.focused          #2b83a6 #2b83a6 #ffffff #dddddd   #2b83a6
+client.focused_inactive #212121 #212121 #86888c #292d2e   #5a5a5a
+client.unfocused        #212121 #212121 #86888c #292d2e   #5a5a5a
+client.urgent           #d64e4e #d64e4e #ffffff #d64e4e   #d64e4e
+client.placeholder      #212121 #0c0c0c #ffffff #212121   #262626
+client.background       #212121
+
+
+# Use pactl to adjust volume in PulseAudio.
+#set $refresh_i3status killall -SIGUSR1 i3status
+bindsym        XF86AudioRaiseVolume           exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym        XF86AudioLowerVolume           exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym        XF86AudioMute                  exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym        XF86AudioMicMute               exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bar {
+  colors {
+    background          #212121
+    statusline          #dddddd
+    separator           #666666
+    # class             border  backgr. text
+    focused_workspace   #2b83a6 #2b83a6 #ffffff
+    active_workspace    #212121 #212121 #ffffff
+    inactive_workspace  #212121 #212121 #86888c
+    urgent_workspace    #d64e4e #d64e4e #ffffff
+    binding_mode        #229c56 #229c56 #ffffff
+  }
+  status_command i3blocks -c $HOME/.config/i3/i3blocks/config
+  position bottom
+  workspace_buttons yes
+  strip_workspace_numbers yes
+  # tray_output none
+  # modifier none
+  # mode invisible
+}
