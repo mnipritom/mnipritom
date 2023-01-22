@@ -4,3 +4,6 @@
 [submodule "tdrop"]
 	path = resources/assets/downloads/utilities/scripts/tdrop
 	url = https://github.com/noctuid/tdrop
+[submodule "deb-get"]
+	path = resources/assets/downloads/utilities/scripts/deb-get
+	url = https://github.com/wimpysworld/deb-get
