@@ -10,3 +10,6 @@
 [submodule "debtap"]
 	path = resources/assets/downloads/utilities/scripts/debtap
 	url = https://github.com/helixarch/debtap
+[submodule "neofetch"]
+	path = resources/assets/downloads/utilities/scripts/neofetch
+	url = https://github.com/dylanaraps/neofetch
