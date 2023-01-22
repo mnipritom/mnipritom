@@ -1,0 +1,10 @@
+# Source : https://github.com/antonpalsson/dotfiles/tree/master/helix
+theme = "dark_plus"
+
+[editor]
+line-number = "relative"
+cursorline = true
+scrolloff = 20
+
+[editor.file-picker]
+hidden = false
