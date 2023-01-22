@@ -1,0 +1,10 @@
+{
+  "enable-web": true,
+  "enable-linux-desktop": true,
+  "enable-macos-desktop": true,
+  "enable-windows-desktop": true,
+  "enable-fuchsia": true,
+  "enable-windows-uwp-desktop": true,
+  "enable-android": true,
+  "enable-ios": true
+}
