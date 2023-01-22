@@ -1,0 +1,57 @@
+"*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#ffd54f"
+      accentColor: "#a28832"
+      genAccent: true
+      paintCursor: true
+      predefinedColor: "Amber"
+    tabs:
+      compactTabs: true
+      noTabMinWidth: true
+      tintedTabBar: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  "atomic-terminal":
+    allowHiddenToStayActive: true
+    allowRelaunchingTerminalsOnStartup: true
+    colors:
+      theme: "Atom Dark"
+    defaultOpenPosition: "Right Dock"
+    fontFamily: "jetbrains, jetbrains, jetbrains Mono, monospace"
+    webgl: true
+  core:
+    autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "markdown-preview"
+      "linter-ui-default"
+      "linter-shellcheck"
+      "linter-luacheck"
+      "linter-lua"
+      "linter"
+      "intentions"
+      "busy-signal"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "darker-one-dark-syntax"
+    ]
+    titleBar: "hidden"
+  editor:
+    fontFamily: "jetbrains, Consolas, jetbrains mono, monospace"
+    fontSize: 10
+    showIndentGuide: true
+    showInvisibles: true
+    softTabs: false
+    tabType: "soft"
+  "linter-ui-default":
+    panelHeight: 310
+  "markdown-preview-plus":
+    saveConfig:
+      defaultSaveFormat: "pdf"
+  "tool-bar":
+    position: "Left"
+    visible: false

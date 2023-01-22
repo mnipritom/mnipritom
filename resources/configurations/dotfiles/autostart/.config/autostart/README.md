@@ -1,0 +1,1 @@
+- reserved for automatically generated `.desktop` files
