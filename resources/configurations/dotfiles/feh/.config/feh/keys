@@ -1,0 +1,10 @@
+prev_img     j
+next_img     l
+scroll_up    I
+scroll_left  L
+scroll_down  K
+scroll_right J
+zoom_in      u
+zoom_out     o
+zoom_fit     n
+zoom_default m
