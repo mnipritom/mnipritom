@@ -1,0 +1,4 @@
+resources/diagnostics/*
+!resources/downloads/utilities
+resources/configurations/dotfiles/nvim/.config/nvim/plugin
+sources/tests/bash/*
