@@ -25,3 +25,6 @@
 [submodule "bash-completion"]
 	path = resources/configurations/dotfiles/bash/bash-completion
 	url = https://github.com/scop/bash-completion
+[submodule "fzf-tab-completion"]
+	path = resources/configurations/dotfiles/fzf/fzf-tab-completion
+	url = https://github.com/lincheney/fzf-tab-completion
