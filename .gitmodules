@@ -19,3 +19,6 @@
 [submodule "quran-json"]
 	path = resources/assets/references/scriptures/quran-json
 	url = https://github.com/risan/quran-json
+[submodule "licenses"]
+	path = resources/assets/references/licenses
+	url = https://github.com/IQAndreas/markdown-licenses
