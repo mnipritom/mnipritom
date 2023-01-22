@@ -1,0 +1,1 @@
+- reserved for `bitbucket-pipelines.yml` and bitbucket automation related files
