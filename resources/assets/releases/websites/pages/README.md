@@ -1,0 +1,1 @@
+- reserved for `github` `gitlab` `bitbucket` pages static website
