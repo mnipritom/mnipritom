@@ -1,0 +1,11 @@
+# ---
+# note:
+#   `conversion-timeout` is for filetype `svg`
+# ---
+feh --recursive \
+    --scale-down \
+    --draw-exif \
+    --draw-filename \
+    --draw-tinted \
+    --image-bg black \
+    --conversion-timeout 1
