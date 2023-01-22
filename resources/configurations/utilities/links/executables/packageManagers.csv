@@ -1,0 +1,4 @@
+Package,    Command,                                                                                          Short description
+brew,       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)",       The missing package manager for MacOS and Linux
+nix,        sh <(curl -L https://nixos.org/nix/install) --daemon,                                             Package manager written in Nix expression language
+pnpm,       curl -fsSL https://get.pnpm.io/install.sh | sh -,                                                 Perfomant node package manager

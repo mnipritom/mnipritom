@@ -1,0 +1,19 @@
+Package name,           Short description
+stow,                   GNU symlink manager
+fzf,                    Command line fuzzy finder
+make,                   GNU build system
+gnu-tar,                GNU tape-archiver
+gawk,                   GNU implementation of awk
+xz,                     Compression utitility
+wget,                   GNU downloader
+curl,                   Downloader client
+git,                    Version control
+#starship,              Cross platform prompt
+#fetch,                 Download assets from a commit branch or tag of GitHub repositories
+gcc,                    GNU compiler collection
+nnn,                    terminal file manager
+ranger,                 terminal file browser written in python
+marp,                   markdown presentation
+mpv,                    media player
+mpd,                    music player
+webp,                   google's lightweight image format

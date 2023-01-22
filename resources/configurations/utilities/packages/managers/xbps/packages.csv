@@ -1,0 +1,134 @@
+Package name,           Distributions,     Short description
+xbps,                   void,              X Binary Package System
+linux,                  void,              kernel
+linux-firmware-amd,     void,              Binary firmware blobs for the Linux kernel - AMD CPU/GPU microcode
+xf86-video-amdgpu,      void,              Xorg AMD Radeon RXXX video driver (amdgpu kernel module
+mesa-vulkan-radeon,     void,              Mesa Radeon Vulkan driver
+mesa-dri,               void,              Mesa DRI drivers
+mesa-vaapi,             void,              Mesa VA-API drivers
+mesa-vdpau,             void,              Mesa VDPAU drivers
+dbus,                   void,              Message bus system
+base-system,            void,              Void Linux base system meta package
+#base-devel,            void,              Void Linux development tools meta package
+#base-voidstrap,        void,              Void Linux base system meta package for containers/chroots
+binutils,               void,              GNU binary utilities
+refind,                 void,              EFI boot manager utility
+#grub,                  void,              GRand Unified Bootloader
+noto-fonts-emoji,       void,              Emoji support
+unicode-emoji,          void,              Emoji support
+vpm,                    void,              XBPS package management helper for VoidLinux
+xtools,                 void,              Opinionated helpers for working with XBPS
+octoxbps,               void,              Qt-based XBPS front-end
+vpnd,                   void,              Package update notifier daemon for Void Linux
+xorg,                   void,              X.org meta-package
+xterm,                  void,              X Terminal Emulator
+xdm,                    void,              X Display Manager
+xvkbd,                  void,              Virtual (graphical) keyboard program for X11
+xsel,                   void,              Command-line getting and setting the contents of the X selection
+xclip,                  void,              Command line interface to the X11 clipboard
+xdo,                    void,              Small X utility to perform elementary actions on windows
+xdotools,               void,              Command-line X11 automation tool
+zrandr,                 void,              Simple Qt5 front end for xrandr
+xdg-utils,              void,              Tools to assist applications with various desktop integration tasks
+xcursorgen,             void,              X cursor generator
+xwallpaper,             void,              Wallpaper setting utility for X
+xscreensaver,           void,              Screen saver and locker for the X Window System
+xzoom,                  void,              Magnify part of X display with real-time updates
+xob,                    void,              Lightweight overlay bar for the X Window System
+skippy-xd,              void,              Expose-like full-screen task-switcher for X11
+#stalonetray,           void,              Standalone system tray (notification area
+sxhkd,                  void,              Simple X HotKey Daemon
+xbindkeys,              void,              Launch shell commands with your keyboard or your mouse under X
+xstarter,               void,              Application launcher for Linux
+#sxiv,                  void,              Simple X Image Viewer
+#xwud,                  void,              Image displayer for X (part of xorg apps)
+awesome,                void,              Awesome window manager
+#i3,                    void,              Improved tiling window manager
+#i3-gaps,               void,              i3 with gaps
+#i3blocks,              void,              Flexible scheduler for i3bar
+#i3blocks-blocklets,    void,              [i3blocks dependency] Flexible scheduler for i3bar
+#i3lock,                void,              Improved screenlocker based upon XCB and PAM
+qemu,                   void,              Open Source Processor Emulator
+bridge-utils,           void,              Layer2 ethernet bridging for Linux (qemu depends
+libvirt,                void,              Virtualization API for controlling virtualization engines
+virt-manager,           void,              User interface for managing virtual machines
+virt-viewer,            void,              Tool for displaying the graphical console of a virtual machine
+nftables,               void,              (iptables don't work with kvm qemu and virtmanager in void
+runit-nftables,         void,              Restore nftables rules on boot
+iptables-nft,           void,              Iptables-compatible wrapper commands for nftables
+unzip,                  void,              List test and extract compressed files in a ZIP archive
+zip,                    void,              Create/update ZIP files compatible with pkzip
+zstd,                   void,              Fast real-time compression algorithm - CLI tool
+p7zip,                  void,              Command-line version of the 7zip compressed file archive
+gzip,                   void,              GNU compression utility (replacement for compress
+bzip2,                  void,              Freely available patent free high-quality data compressor
+pbzip2,                 void,              Parallel bzip2 file compressor
+xz,                     void,              XZ compression utilities
+lxqt-archiver,          void,              Simple & lightweight desktop-agnostic Qt file archiver
+#pcmanfm-qt,            void,              Qt port of PCManFM
+#Featherpad,            void,              Lightweight Qt5 plain-text editor for Linux
+qtfm,                   void,              File manager written in Qt
+lximage-qt,             void,              LXQt image viewer
+lxtask,                 void,              LXDE task manager
+flameshot,              void,              Screenshot tool
+fontmanager,            void,              GTK app to install search remove fonts
+udisks2,                void,              udiskie requirement
+udiskie,                void,              Removable disk automounter using udisk
+fuse,                   void,              AppImage dependency
+fuse3,                  void,              AppImage dependency
+perl-rename,            void,              Bulk rename files
+rofi,                   void,              Window switcher run dialog and dmenu replacement
+tiramisu,               void,              Desktop notifications the UNIX way
+kitty,                  void,              Modern hackable featureful OpenGL based terminal emulator
+qt5ct,                  void,              Qt5 Configuration Tool
+qt6ct,                  void,              Qt6 Configuration Tool
+lxappearance,           void,              LXDE Theme Switcher
+termdown,               void,              Python terminal countdown can also be installed with pip
+fish,                   void,              fish shell
+elvish,                 void,              Go shell
+xonsh,                  void,              Python shell
+nu,                     void,              Rust shell
+libsecret,              void,              gnome-keyring requirement
+gnome-keyring,          void,              Hard dependency for VSCode to work
+#gnome-secrets,         void,              Keepass compatible password manager for GNOME
+#qtkeychain-qt5,        void,              Platform-independent Qt5 API for storing passwords securely
+#kwalletmanager,        void,              KDE Wallet Management Tools
+#python3-keyring,       void,              Python interface to the system keyring service
+#python3-SecretStorage, void,              Python3 bindings to FreeDesktop.org Secret Service API
+#pinentry-qt,           void,              PIN or passphrase entry dialogs for GnuPG based on Qt
+#qtpass,                void,              Multi-platform GUI for pass
+polkit,                 void,              Authorization Toolkit
+polkit-qt5,             void,              Qt-style PolicyKit API (Qt5
+lxqt-sudo,              void,              LXQt GUI frontend for sudo
+lxqt-policykit,         void,              LXQT polkit
+#qsudo,                 void,              Graphical sudo utility from Project Trident
+#lxpolkit,              void,              Simple policykit authentication agent
+pipewire,               void,              Server and user space API to deal with multimedia pipelines
+#pulseaudio,            void,              linux audio solution
+pavucontrol-qt,         void,              PulseAudio Volume Control
+qpwgraph,               void,              Graph manager for PipeWire
+vlc,                    void,              VLC media player
+#pasystray,             void,              PusleAudio System tray
+volctl,                 void,              PulseAudio volume control sys tray
+#cmark,                 void,              CommonMark parsing and rendering library and program in C
+#cmark-gfm,             void,              GitHub's fork of cmark a CommonMark markdown renderer
+#gist,                  void,              Uploads content to gist.github.com
+#github-cli,            void,              GitHub CLI tool
+grip,                   void,              Markdown files renderer in browser through localhost
+gitui,                  void,              Terminal git TUI
+#zenity,                void,              Display GNOME dialogs from the command line
+#kdialog,               void,              Utility for displaying dialog boxes from shell scripts
+#qarma,                 void,              Tool to create dialog boxes based on Qt zenity clone
+#yad,                   void,              Yet Another Dialog - create/interact with GTK+ dialog boxes
+#dialog,                void,              Tool to display dialog boxes from shell scripts
+#dialogbox,             void,              Scriptable engine with customizable GUI for shell scripts
+transmission-qt,        void,              Torrent client
+uget,                   void,              Download manager
+dropbox,                void,              Cloud drive
+#python3-progress,      void,              Easy to use progress bars (Python3
+#pycp,                  void,              Shows progressbar of cp and mv
+#python3-tqdm,          void,              Fast extensible progress bar for Python and CLI
+#python3-ttystatus,     void,              Terminal progress bar and status output for Python3
+#progress,              void,              Tool for showing the progress of cp rm dd and more
+#pv,                    void,              Monitor the progress of data through a pipeline
+tdrop,                  void,              Distro and terminal agnostic dropdown terminals

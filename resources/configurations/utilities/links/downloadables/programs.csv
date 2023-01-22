@@ -1,0 +1,4 @@
+Program name,          Method,   URL,                                                                                        Short description
+PowerISO,              wget,     https://www.poweriso.com/poweriso-x64-1.1.tar.gz,                                           PowerISO
+MegaSync,              wget,     https://mega.nz/linux/repo/Debian_11/amd64/megasync_4.6.6-2.1_amd64.deb,                    MegaSync
+XtremeDownloadManager, wget,     https://github.com/subhra74/xdm/releases/download/7.2.11/xdm-setup-7.2.11.tar.xz,           XtremeDownloadManager

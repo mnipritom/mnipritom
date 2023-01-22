@@ -1,0 +1,5 @@
+Font name,          Method,   URL,                                                                                        Short description
+NerdFonts,          wget,     https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Ubuntu.zip,                Ubuntu Nerd font
+NerdFontsMono,      wget,     https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/UbuntuMono.zip,            Ubuntu Nerd font
+JetBrains,          wget,     https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip,                               JetBrains Mono Nerd font
+FiraCode,           wget,     https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip,                FiraCode font

@@ -1,0 +1,5 @@
+Package name,       Short description
+pnpm,               Performant node package manager
+#bangla-tarikh,     Returns dates according to Bangla calendar.
+cwebp-bin,          `cwebp` wrapper
+gif2webp-bin,       `cwebp` wrapper for `gif` format

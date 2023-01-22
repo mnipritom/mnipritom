@@ -1,0 +1,6 @@
+Package name,         Distributions,                          Short description
+linux-image,          debian devuan kali parrot ubuntu,       kernel
+linux-image-amd64,    debian devuan kali parrot ubuntu,       kernel
+firmware-linux,       debian devuan kali parrot ubuntu,       kernel firmware
+gawk,                 debian devuan kali parrot ubuntu,       GNU implementation of awk
+stow,                 debian devuan kali parrot ubuntu,       GNU symlink manager

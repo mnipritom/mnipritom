@@ -1,0 +1,9 @@
+Crate name,         Short description
+lsd,                `ls` written in Rust
+bat,                `cat` written in Rust
+exa,                `ls` replacement in Rust
+onefetch,           `neofetch` for git repo
+tokei,              count lines of code
+gitui,              git frontend in terminal
+#deno,              `node` replacement in written in Rust
+broot,              terminal file manager
