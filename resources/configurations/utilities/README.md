@@ -1,0 +1,25 @@
+- ### `handler.bash`
+  - ### details:
+    - version: 0.0.9
+  - ### logs:
+    - 0.0.9:
+      - finalized proof of concept
+  - ### milestones:
+    - 2.0.0:
+      - parse files to get `git` `submodules` and instantiate individually
+- ### `parser.gawk`
+  - ### details:
+    - version: 1.0.0
+    - conventions:
+      - heading row is ignored
+      - short description is ignored
+      - package names starting with `#` are ignored
+  - ### logs:
+    - 1.0.0:
+      - finalized mechanisms
+- ### `*.csv`
+  - ### details:
+    - conventions:
+      - whitespace representation: `Spaces`
+        - `indentation width`: 1 Tab = 2 Spaces
+          - should contain appropriate amount of indentation **to retain readability** in plain text view

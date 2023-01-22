@@ -1,0 +1,19 @@
+- ### `gatekeeper.bash`
+  - ### details:
+    - dependencies:
+      - GNU
+        - core:
+          - `tr`
+          - `basename`
+          - `dirname`
+          - `chroot`
+        - utilities:
+          - `bash`
+          - `gawk`
+          - `grep`
+      - util-linux:
+        - `sfdisk`
+      - `sudo`
+    - conventions:
+      - relationships are defined in `hierarchy.svg`
+      - `source` `gatekeeper.bash` before using any of the files
