@@ -1,0 +1,6 @@
+[core]
+	editor = nvim
+[color]
+	ui = true
+[init]
+	defaultBranch = continuous
