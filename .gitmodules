@@ -22,3 +22,6 @@
 [submodule "licenses"]
 	path = resources/assets/references/licenses
 	url = https://github.com/IQAndreas/markdown-licenses
+[submodule "bash-completion"]
+	path = resources/configurations/dotfiles/bash/bash-completion
+	url = https://github.com/scop/bash-completion
