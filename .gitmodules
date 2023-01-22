@@ -1,0 +1,3 @@
+[submodule "xdeb"]
+	path = resources/assets/downloads/utilities/scripts/xdeb
+	url = https://github.com/toluschr/xdeb
