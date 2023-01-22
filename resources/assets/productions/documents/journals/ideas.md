@@ -1,0 +1,29 @@
+- `rofi`-dashboard
+  - rofi
+    - [ ] implement a wallpaper carousel module to list all available wallpapers with thumbnails and set them with `xwallpaper`
+    - [ ] implement clipboard functionality with `xclip`, `xsel`, for text and images
+    - [ ] implement window switcher
+    - [ ] implement `ytfzf` in rofi
+    - [ ] implement tabbed design for various rofi modes, such as `drun` `dmenu` etc
+      - [ ] see reference `catpucchin/rofi`
+    - [ ] implement an overview for the open applications to switch to or to kill, invoked using `super+d` as this keybinding is used in windows to hide all running applications and show desktop.
+    - [ ] implement a list of all running processes to kill
+    - [ ] implement a launch control mechanism to launch multiple apps or presets as manual auto applications startup, instead of hardcoding them in autostart files
+    - [ ] implement `mpv` player audio playback in the background from online public  playlists in `soundcloud` or `youtube` or local media files
+    - [ ] implement `xrandr` resolution switcher by fetching a list of available screen resolutions
+    - [ ] implement notification history by using `tiramisu`
+    - [ ] investigate feasibility of a `dotfiles` management system using `rofi`
+    - [ ] see reference `catpucchin/xresources`
+    - [ ] `rofi` `nmcli` integration
+    - [ ] `rofi` to insert text snippets from clipboard [source](https://www.youtube.com/watch?v=zB_3FIGRWRU)
+- [source](https://github.com/semarketir/quranjson/)
+  - parser written in typeScript
+    - self contained binary format, for node, deno, bun
+      - accessible from command line
+      - wrapped around by GUI libraries [angular](angular.io)
+- bookmark/ inventory manager for stackoverflow answers
+  - usage of stackoverflow api
+    - usage of JSON
+  - in typescript
+  - reference: https://stackoverflow.com/a/69166789
+  - example: https://api.stackexchange.com/2.3/answers/28938235?order=desc&sort=activity&site=stackoverflow&filter=withbody

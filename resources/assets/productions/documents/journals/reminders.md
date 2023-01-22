@@ -1,0 +1,12 @@
+- no degeneracy allowed
+  - do not compete/participate in degeneracy
+  - no seeking attention/validation
+    - no flaunting/showing off
+- no harakah, no barakah
+- spare no khusu
+- avoid explaining intricacies
+  - people only listen to what they want to hear
+  - people only listen to what they already know
+  - people only want confirmation
+- do not even acknowledge unreasonable offenses
+- word of mouth is more powerful than any mass media
