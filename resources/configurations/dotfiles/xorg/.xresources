@@ -1,0 +1,4 @@
+xlogin*greetFont:  : jetbrains-mono--20
+xlogin*font:       : jetbrains-mono--15
+xlogin*promptFont: : jetbrains-mono--15
+xlogin*failFont:   : jetbrains-mono--15
