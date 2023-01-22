@@ -13,3 +13,6 @@
 [submodule "neofetch"]
 	path = resources/assets/downloads/utilities/scripts/neofetch
 	url = https://github.com/dylanaraps/neofetch
+[submodule "quranjson"]
+	path = resources/assets/references/scriptures/quranjson
+	url = https://github.com/semarketir/quranjson
