@@ -1,0 +1,10 @@
+- ### `init.lua`
+  - ### details:
+    - version: 1.0.0
+  - ### logs:
+    - 1.0.0:
+      - finalized mechanisms
+  - ### milestones:
+    - 2.0.0:
+      - entire re-write
+      - read from `.csv` files for plugins
