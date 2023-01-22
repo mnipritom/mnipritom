@@ -7,3 +7,6 @@
 [submodule "deb-get"]
 	path = resources/assets/downloads/utilities/scripts/deb-get
 	url = https://github.com/wimpysworld/deb-get
+[submodule "debtap"]
+	path = resources/assets/downloads/utilities/scripts/debtap
+	url = https://github.com/helixarch/debtap
