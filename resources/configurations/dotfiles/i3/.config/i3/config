@@ -127,14 +127,8 @@ bindsym        $mod+h             split h
 # Vertical
 bindsym        $mod+v             split v
 
-# Close window
-bindsym        $mod+w             kill
-
 # Alt Tab
 bindsym        Mod1+Tab           exec --no-startup-id bash $HOME/.config/rofi/sources/bash/tasks/switchActiveWindow.bash
-
-# Dmenu
-bindsym        $mod+d             exec dmenu_run -fn 'ubuntu-17'
 
 # Toggle tiling/floating
 bindsym        $mod+Shift+space   floating     toggle
