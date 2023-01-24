@@ -1,5 +1,5 @@
 paths() {
-  echo "$PATH" | tr ":" "\n"
+  printf "%s\n" "$PATH" | tr ":" "\n"
 }
 envs() {
   (

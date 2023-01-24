@@ -153,6 +153,7 @@ function getAvailableDistributions {
 function getPrerequisites {
   # [TODO] implement installation for essential programs `pandoc` `fzf` `zathura` etc
   # [TODO] implement submodules initialization
+  # [TODO] utilize `diagnosticsDirectory` for synchronizations by generating and reading generated files
   return 1
 }
 

@@ -1,10 +1,12 @@
-export LANG="en_US.utf8"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export EDITOR=nvim
 export VISUAL=nvim
+
 # [TODO] implement `PAGER`
+
 shopt -s autocd
 shopt -s cdspell
-bind "set completion-ignore-case on"
 shopt -s cmdhist
 shopt -s histappend
 
@@ -36,7 +38,7 @@ source "$bashrcDirectory/.bash_aliases"
 unset bashrcDirectory
 unset worktree
 
-source "$dotfilesDirectory/rofi/.config/rofi/sources/bash/tasks/generatePasswordPrompt.bash"
+source "$dotfilesDirectory/rofi/.config/rofi/scripts/bash/tasks/generatePasswordPrompt.bash"
 SUDO_ASKPASS_PROMPT="$(
   generatePasswordPrompt
 )"
@@ -54,3 +56,7 @@ then
   source "$dotfilesDirectory/fzf/fzf-tab-completion/bash/fzf-bash-completion.sh"
   bind -x '"\t": fzf_bash_completion'
 fi
+
+export PATH=$(
+  printf "%s" "$PATH" | tr ":" "\n" | sort --unique | tr "\n" ":"
+)
