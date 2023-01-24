@@ -1,4 +1,4 @@
-(xbindkey '(Mod4 r) "rofi -show")
+(xbindkey '(Mod4 r) "rofi -show drun")
 (xbindkey '(Mod4 t) "rofi -show run")
 (xbindkey '(Mod4 w) "xdo close")
 (xbindkey '(Mod4 q) "xdo kill")
