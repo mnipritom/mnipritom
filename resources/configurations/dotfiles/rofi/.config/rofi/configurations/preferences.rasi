@@ -1,5 +1,5 @@
 configuration {
-  modi:                                 "drun,run,filebrowser,window";
+  mode:                                 "drun,run,filebrowser,window";
   sidebar-mode:                         true;
   case-sensitive:                       false;
   cycle:                                true;
