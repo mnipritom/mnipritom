@@ -8,11 +8,11 @@ function setLocale {
 
   local status
 
-  # /etc/default/locale 			: "LANG=en_US.UTF-8"
-  # /etc/locale.conf 					: "LANG=en_US.UTF-8"
-  # /etc/default/libc-locale 	: "en_US.UTF-8 UTF-8"
-  # /etc/locale.gen 					: "en_US.UTF-8 UTF-8"
-  # /etc/environment 					: "LC_ALL=en_US.UTF-8"
+  # /etc/default/locale       : "LANG=en_US.UTF-8"
+  # /etc/locale.conf          : "LANG=en_US.UTF-8"
+  # /etc/default/libc-locale  : "en_US.UTF-8 UTF-8"
+  # /etc/locale.gen           : "en_US.UTF-8 UTF-8"
+  # /etc/environment          : "LC_ALL=en_US.UTF-8"
 
   local defaultLocaleFile="$dumpsDirectory/locale"
   local defaultLibcLocaleFile="$dumpsDirectory/libc-locales"
