@@ -9,7 +9,7 @@
 
 [switch]
 full_text= 缾
-command=bash $dotfilesDirectory/rofi/.config/rofi/sources/bash/tasks/switchActiveWindow.bash
+command=bash $dotfilesDirectory/rofi/.config/rofi/scripts/bash/tasks/switchActiveWindow.bash
 separator=false
 align=center
 
@@ -29,14 +29,8 @@ command=i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really wa
 separator=false
 align=center
 
-[Shutdown]
-full_text= 
-command=$HOME/.config/i3/Actions/device-power/shutdown/script.sh
-separator=false
-align=center
-
 [exposé]
-full_text= 﩯 
+full_text= 﩯
 # &>/dev/null still prints logs to stdout
 # command=exec skippy-xd &>/dev/null
 command=$(skippy-xd &>/dev/null)

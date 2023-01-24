@@ -128,7 +128,7 @@ bindsym        $mod+h             split h
 bindsym        $mod+v             split v
 
 # Alt Tab
-bindsym        Mod1+Tab           exec --no-startup-id bash $HOME/.config/rofi/sources/bash/tasks/switchActiveWindow.bash
+bindsym        Mod1+Tab           exec --no-startup-id bash $dotfilesDirectory/.config/rofi/scripts/bash/tasks/switchActiveWindow.bash
 
 # Toggle tiling/floating
 bindsym        $mod+Shift+space   floating     toggle
