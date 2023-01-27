@@ -5,7 +5,7 @@
 [init]
 	defaultBranch = continuous
 [alias]
-	commits = "!git --no-pager log --oneline --no-abbrev-commit \
+	commits = !git --no-pager log --oneline --no-abbrev-commit \
   | fzf --reverse \
   | gawk '{ print $1 }' \
-  | xargs git --no-pager show --name-only --oneline"
+  | xargs git --no-pager show --name-only --oneline
