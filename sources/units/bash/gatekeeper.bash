@@ -14,7 +14,11 @@ export gatekeeperDirectory="$(
 )"
 
 export worktreePath=$(
-  cd "$gatekeeperDirectory/../../../" && pwd
+  cd "$gatekeeperDirectory/../../../"
+  if [ $( git rev-parse --is-inside-work-tree ) ]
+  then
+    printf "%s" "$PWD"
+  fi
 )
 
 export worktreeIdentifier="$(
@@ -22,7 +26,7 @@ export worktreeIdentifier="$(
 )"
 
 export repositoryPath=$(
-  cd "$worktreePath/../../" && pwd
+  cd "$worktreePath" && git rev-parse --absolute-git-dir
 )
 
 export worktreesDirectory="$repositoryPath/states"
