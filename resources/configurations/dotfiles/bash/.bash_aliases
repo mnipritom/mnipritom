@@ -46,22 +46,22 @@ utils() {
   cd "$configuredUtilitiesDirectory"
 }
 status() {
-  # `--is-inside-git-dir` `--is-inside-work-tree` can only report `true`
-  # in `false` cases they print error message to stdout
   (
-    repository=$(
-      git rev-parse --is-inside-git-dir &>/dev/null
-      printf "%s" "$?"
-    )
-    worktree=$(
-      git rev-parse --is-inside-work-tree &>/dev/null
-      printf "%s" "$?"
-    )
-    if [ "$repository" != 0 ] || [ "$worktree" != 0 ]
+    source "$blocksDirectory/fileOutput/checkGitRepositoryStatus.bash"
+    status="$(
+      checkGitRepositoryStatus
+    )"
+    if [ "$status" == "repository" ] || [ "$status" == "worktree" ]
     then
-      git --git-dir "$worktreeRepository" --work-tree "$worktreePath" status
-    else
-      git status
+      if [ "$PWD" == "$worktreePath" ]
+      then
+        git --git-dir "$worktreeRepository" --work-tree "$worktreePath" status
+      else
+        git status
+      fi
+    elif [ "$status" == "none" ]
+    then
+      printf "%s\n" "$failureSymbol Failed to find git repository : $PWD"
     fi
   )
 }
@@ -69,19 +69,27 @@ stats() {
   status
 }
 trees() {
+  source "$blocksDirectory/baseSystem/setStrictExecution.bash"
+  setStrictExecution "on" &>/dev/null
   worktreesPaths=($(
     git --git-dir $repositoryPath worktree list | gawk '{
       print $1
     }'
   ))
+  worktreePathsWithoutBare=($(
+    printf "%s\n" "${worktreesPaths[@]##$repositoryPath}"
+  ))
   worktree=$(
-    printf "%s\n" "${worktreesPaths[@]##$repositoryPath}" | fzf
+    printf "%s\n" "${worktreePathsWithoutBare[@]##${worktreesDirectory##$repositoryPath}/}" | fzf
   )
+  printf "%s\n" "$processingSymbol Switching to worktree : $worktree"
   cd $(
     printf "%s\n" "${worktreesPaths[@]}" | grep "$worktree"
   )
   unset worktreesPaths
+  unset worktreePathsWithoutBare
   unset worktree
+  setStrictExecution "off" &>/dev/null
 }
 tree() {
   if [ "$1" == "status" ] || [ "$1" == "stats" ]
@@ -111,8 +119,12 @@ tree() {
   fi
 }
 repo() {
-   # || [ "$1" == "trees" ]
-  cd "$repositoryPath"
+  if [ "$1" == "trees" ]
+  then
+    trees
+  else
+    cd "$repositoryPath"
+  fi
 }
 ddots() {
   (
