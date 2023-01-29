@@ -45,41 +45,74 @@ refs() {
 utils() {
   cd "$configuredUtilitiesDirectory"
 }
+status() {
+  # `--is-inside-git-dir` `--is-inside-work-tree` can only report `true`
+  # in `false` cases they print error message to stdout
+  (
+    repository=$(
+      git rev-parse --is-inside-git-dir &>/dev/null
+      printf "%s" "$?"
+    )
+    worktree=$(
+      git rev-parse --is-inside-work-tree &>/dev/null
+      printf "%s" "$?"
+    )
+    if [ "$repository" != 0 ] || [ "$worktree" != 0 ]
+    then
+      git --git-dir "$worktreeRepository" --work-tree "$worktreePath" status
+    else
+      git status
+    fi
+  )
+}
+stats() {
+  status
+}
+trees() {
+  worktreesPaths=($(
+    git --git-dir $repositoryPath worktree list | gawk '{
+      print $1
+    }'
+  ))
+  worktree=$(
+    printf "%s\n" "${worktreesPaths[@]##$repositoryPath}" | fzf
+  )
+  cd $(
+    printf "%s\n" "${worktreesPaths[@]}" | grep "$worktree"
+  )
+  unset worktreesPaths
+  unset worktree
+}
 tree() {
   if [ "$1" == "status" ] || [ "$1" == "stats" ]
   then
-    git --git-dir "$worktreeRepository" --work-tree "$worktreePath" "status"
-  else
-    cd "$worktreePath"
-  fi
-}
-repo() {
-  if [ "$1" == "add" ]
+    status
+  elif [ "$1" == "add" ]
   then
     git --git-dir $repositoryPath worktree add "$worktreesDirectory/$2"
     cd "$worktreesDirectory/$2"
   elif [ "$1" == "remove" ]
   then
-    git --git-dir $repositoryPath worktree remove "$2"
-    git --git-dir $repositoryPath branch --delete "$2"
-  elif [ "$1" == "list" ] || [ "$1" == "trees" ]
+    # [TODO] implementation
+    return 0
+  elif [ "$1" == "list" ]
   then
-    worktreesPaths=($(
-      git --git-dir $repositoryPath worktree list | gawk '{
-        print $1
-      }'
-    ))
-    worktree=$(
-      printf "%s\n" "${worktreesPaths[@]##$repositoryPath}" | fzf
-    )
-    cd $(
-      printf "%s\n" "${worktreesPaths[@]}" | grep "$worktree"
-    )
-    unset worktreesPaths
-    unset worktree
+    trees
+  elif [ "$1" != "" ] && [ -d "$worktreesDirectory/$1/." ]
+  then
+    printf "%s\n" "$processingSymbol Switching to worktree : $1"
+    cd "$worktreesDirectory/$1"
+  elif [ "$1" == "" ]
+  then
+    printf "%s\n" "$processingSymbol Switching to default worktree : $worktreePath"
+    cd "$worktreePath"
   else
-    cd "$repositoryPath"
+    printf "%s\n" "$failureSymbol Failed to find worktree : $1"
   fi
+}
+repo() {
+   # || [ "$1" == "trees" ]
+  cd "$repositoryPath"
 }
 ddots() {
   (
