@@ -1,3 +1,13 @@
+# [TODO] alias every `git` command keywords and check if `PWD` is git repo to perform actions
+alias fzf="\
+  fzf \
+  --no-multi \
+  --info hidden \
+  --layout reverse \
+  --height 15 \
+  --prompt '❯ ' \
+  --pointer '❯ ' \
+"
 paths() {
   printf "%s\n" "$PATH" | tr ":" "\n"
 }
@@ -8,7 +18,7 @@ envs() {
     key="$(
       env | gawk --field-separator "=" '{
         print $1
-      }' | fzf --layout reverse --height 20
+      }' | fzf
     )"
     value="$(
       printenv $key
@@ -32,11 +42,44 @@ dots() {
 refs() {
   cd "$referencesDirectory"
 }
-repo() {
-  cd "$worktreePath"
-}
 utils() {
   cd "$configuredUtilitiesDirectory"
+}
+tree() {
+  if [ "$1" == "status" ] || [ "$1" == "stats" ]
+  then
+    git --git-dir "$repositoryPath/worktrees/$worktreeIdentifier" --work-tree "$worktreePath" "status"
+  else
+    cd "$worktreePath"
+  fi
+}
+repo() {
+  if [ "$1" == "add" ]
+  then
+    git --git-dir $repositoryPath worktree add "$worktreesDirectory/$2"
+    cd "$worktreesDirectory/$2"
+  elif [ "$1" == "remove" ]
+  then
+    git --git-dir $repositoryPath worktree remove "$2"
+    git --git-dir $repositoryPath branch --delete "$2"
+  elif [ "$1" == "list" ] || [ "$1" == "trees" ]
+  then
+    worktreesPaths=($(
+      git --git-dir $repositoryPath worktree list | gawk '{
+        print $1
+      }'
+    ))
+    worktree=$(
+      printf "%s\n" "${worktreesPaths[@]##$repositoryPath}" | fzf
+    )
+    cd $(
+      printf "%s\n" "${worktreesPaths[@]}" | grep "$worktree"
+    )
+    unset worktreesPaths
+    unset worktree
+  else
+    cd "$repositoryPath"
+  fi
 }
 ddots() {
   (
@@ -68,12 +111,14 @@ pack() {
   )
 }
 tasks() {
+  # [TODO] implement [source](https://www.youtube.com/watch?v=zB_3FIGRWRU)
   (
     source "$blocksDirectory/fileOutput/readFile.bash"
     readFile "$journalsDirectory/agendas.md" | less
   )
 }
 ideas() {
+  # [TODO] implement [source](https://www.youtube.com/watch?v=zB_3FIGRWRU)
   (
     source "$blocksDirectory/fileOutput/readFile.bash"
     readFile "$journalsDirectory/ideas.md" | less
@@ -81,11 +126,24 @@ ideas() {
 }
 walls() {
   (
-    source "$blocksDirectory/fileOutput/getRandomFile.bash"
-    wallpaperSource="$(
-      getRandomFile $wallpapersDirectory
-    )"
     wallpaper="/tmp/wallpaper.png"
+    if [ "$1" == "list" ]
+    then
+      wallpapersSources=($(
+        find $wallpapersDirectory -type f
+      ))
+      wallpaperIdentifier=$(
+        printf "%s\n" "${wallpapersSources[@]##$wallpapersDirectory/}" | fzf
+      )
+      wallpaperSource=$(
+        printf "%s\n" "${wallpapersSources[@]}" | grep "$wallpaperIdentifier"
+      )
+    else
+      source "$blocksDirectory/fileOutput/getRandomFile.bash"
+      wallpaperSource="$(
+        getRandomFile $wallpapersDirectory
+      )"
+    fi
     dwebp "$wallpaperSource" -o "$wallpaper" -mt &>/dev/null
     if [ "$?" == 0 ]
     then
@@ -105,7 +163,7 @@ play() {
       find "$playlistsDirectory" -type f -name "*.m3u" -nowarn
     ))
     selection=$(
-      printf "%s\n" "${playlists[@]##$playlistsDirectory/}" | fzf --layout reverse --height 20
+      printf "%s\n" "${playlists[@]##$playlistsDirectory/}" | fzf
     )
     playlist=$(
       printf "%s\n" "${playlists[@]}" | grep --fixed-strings  "$selection"

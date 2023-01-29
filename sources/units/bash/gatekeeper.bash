@@ -21,6 +21,12 @@ export worktreeIdentifier="$(
   basename "$worktreePath"
 )"
 
+export repositoryPath=$(
+  cd "$worktreePath/../../" && pwd
+)
+
+export worktreesDirectory="$repositoryPath/states"
+
 export processingSymbol="[⚙]"
 export successSymbol="[✔]"
 export failureSymbol="[✘]"
@@ -76,16 +82,17 @@ function getSystemPackageManager {
   echo "$hostDistributionPackageManager"
 }
 
-function createDiagnosticsDirectories {
+function createRequiredDirectories {
   (
     source "$blocksDirectory/fileSystem/createDirectory.bash"
-    local diagnosticsDirectories=(
+    local requiredDirectories=(
       "$diagnosticsDirectory"
       "$reportsDirectory"
       "$dumpsDirectory"
       "$extractsDirectory"
+      "$worktreesDirectory"
     )
-    for directory in "${diagnosticsDirectories[@]}"
+    for directory in "${requiredDirectories[@]}"
     do
       if [ ! -d "$directory" ]
       then
@@ -157,7 +164,7 @@ function getPrerequisites {
   return 1
 }
 
-createDiagnosticsDirectories
+createRequiredDirectories
 makeScriptsAvailable
 
 export systemPackageManager=$(
@@ -165,6 +172,6 @@ export systemPackageManager=$(
 )
 
 unset getSystemPackageManager
-unset createDiagnosticsDirectories
+unset createRequiredDirectories
 unset makeScriptsAvailable
 unset getPrerequisites
