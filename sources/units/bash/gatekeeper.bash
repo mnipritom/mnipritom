@@ -30,7 +30,7 @@ export worktreeRepository=$(
 )
 
 export repositoryPath=$(
-  cd "$worktreePath" && git rev-parse --git-common-dir
+  cd "$worktreePath" && git rev-parse --path-format=absolute --git-common-dir
 )
 
 export worktreesDirectory="$repositoryPath/states"
