@@ -48,7 +48,7 @@ utils() {
 tree() {
   if [ "$1" == "status" ] || [ "$1" == "stats" ]
   then
-    git --git-dir "$repositoryPath/worktrees/$worktreeIdentifier" --work-tree "$worktreePath" "status"
+    git --git-dir "$worktreeRepository" --work-tree "$worktreePath" "status"
   else
     cd "$worktreePath"
   fi

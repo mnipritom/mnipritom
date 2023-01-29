@@ -25,8 +25,12 @@ export worktreeIdentifier="$(
   basename "$worktreePath"
 )"
 
-export repositoryPath=$(
+export worktreeRepository=$(
   cd "$worktreePath" && git rev-parse --absolute-git-dir
+)
+
+export repositoryPath=$(
+  cd "$worktreePath" && git rev-parse --git-common-dir
 )
 
 export worktreesDirectory="$repositoryPath/states"
