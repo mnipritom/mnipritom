@@ -1,0 +1,20 @@
+#define foreground  #C7C7CA
+#define background  #1C212A
+#define aqua        #7AB0DF
+#define blue        #5FB0FC
+#define cyan        #70C0BA
+#define gray        #222730
+#define green       #79DCAA
+#define lime        #54CED6
+#define orange      #FFD064
+#define yellow      #FFE59E
+#define pink        #D997C8
+#define purple      #C397D8
+#define red         #F87070
+#define darkred     #FB7373
+
+
+! xlogin*greetFont:
+! xlogin*font:
+! xlogin*promptFont:
+! xlogin*failFont:
