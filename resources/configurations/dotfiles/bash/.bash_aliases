@@ -68,6 +68,7 @@ status() {
 stats() {
   status
 }
+# [TODO] make `trees` `tree` context aware like `status` `stats` to work with any `git` repo
 trees() {
   source "$blocksDirectory/baseSystem/setStrictExecution.bash"
   setStrictExecution "on" &>/dev/null

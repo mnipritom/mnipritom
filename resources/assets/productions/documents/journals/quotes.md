@@ -2,6 +2,8 @@
   - the path of righteousness is somewhere in between, because there is nothing `so right` or `too right`, there is just right
 - tate
   - baseline of masculinity is that bad things are gonna happen to you and you're gonna absorb them and use them into grow into a more competent individual
+  - it's the scarcity of something that gives it it's value
+  - weaponize your attention
   - dhalsim
     - my fire was just an illusion, it burnt you because you believed it was real
   - money is an amplifier, money amplifies, man can make money, money does not make man, if you're a dork and you get rich, you're a rich dork, if you're a G and you get rich, you're a top G
