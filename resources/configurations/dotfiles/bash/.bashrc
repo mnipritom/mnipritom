@@ -15,10 +15,9 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
-
-eval "$( starship init bash )"
-eval "$( /home/linuxbrew/.linuxbrew/bin/brew shellenv )"
-eval "$( pandoc --bash-completion )"
+export PATH=$(
+  printf "%s" "$PATH" | tr ":" "\n" | sort --unique | tr "\n" ":"
+)
 
 export bashrcDirectory="$(
   cd "$(
@@ -28,15 +27,15 @@ export bashrcDirectory="$(
   )" && pwd
 )"
 
-export worktree="$(
+export currentWorktree="$(
   cd "$bashrcDirectory/../../../../" && pwd
 )"
 
-source "$worktree/sources/units/bash/gatekeeper.bash"
+source "$currentWorktree/sources/units/bash/gatekeeper.bash"
 source "$bashrcDirectory/.bash_aliases"
 
 unset bashrcDirectory
-unset worktree
+unset currentWorktree
 
 source "$dotfilesDirectory/rofi/.config/rofi/scripts/bash/tasks/generatePasswordPrompt.bash"
 SUDO_ASKPASS_PROMPT="$(
@@ -46,17 +45,22 @@ unset generatePasswordPrompt
 export SUDO_ASKPASS="$SUDO_ASKPASS_PROMPT"
 unset SUDO_ASKPASS_PROMPT
 
+eval "$( starship init bash )"
+eval "$( /home/linuxbrew/.linuxbrew/bin/brew shellenv )"
+eval "$( pandoc --bash-completion )"
+eval "$( wezterm shell-completion --shell bash )"
+
 if [ -f "$dotfilesDirectory/bash/bash-completion/bash_completion" ]
 then
   source "$dotfilesDirectory/bash/bash-completion/bash_completion"
+else
+  printf "%s\n" "$failureSymbol Failed to find bash completion script"
 fi
 
 if [ -f "$dotfilesDirectory/fzf/fzf-tab-completion/bash/fzf-bash-completion.sh" ]
 then
   source "$dotfilesDirectory/fzf/fzf-tab-completion/bash/fzf-bash-completion.sh"
   bind -x '"\t": fzf_bash_completion'
+else
+  printf "%s\n" "$failureSymbol Failed to find fzf bash completion wrapper script"
 fi
-
-export PATH=$(
-  printf "%s" "$PATH" | tr ":" "\n" | sort --unique | tr "\n" ":"
-)
