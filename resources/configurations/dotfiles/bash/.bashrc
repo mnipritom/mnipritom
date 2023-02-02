@@ -64,3 +64,13 @@ then
 else
   printf "%s\n" "$failureSymbol Failed to find fzf bash completion wrapper script"
 fi
+
+# [TODO] implement `FZF_DEFAULT_COMMAND`
+export FZF_DEFAULT_OPTS="\
+  --no-multi \
+  --info hidden \
+  --layout reverse \
+  --height 15 \
+  --prompt '❯ ' \
+  --pointer '❯ ' \
+"

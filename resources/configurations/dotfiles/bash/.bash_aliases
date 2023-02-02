@@ -1,13 +1,4 @@
 # [TODO] alias every `git` command keywords and check if `PWD` is git repo to perform actions
-alias fzf="\
-  fzf \
-  --no-multi \
-  --info hidden \
-  --layout reverse \
-  --height 15 \
-  --prompt '❯ ' \
-  --pointer '❯ ' \
-"
 paths() {
   printf "%s\n" "$PATH" | tr ":" "\n"
 }
@@ -172,6 +163,8 @@ ideas() {
 }
 walls() {
   (
+    source "$blocksDirectory/baseSystem/setStrictExecution.bash"
+    setStrictExecution "on" &>/dev/null
     wallpaper="/tmp/wallpaper.png"
     if [ "$1" == "list" ]
     then
@@ -199,6 +192,7 @@ walls() {
       echo "$failureSymbol Failed to set wallpaper : $wallpaperSource"
       return 1
     fi
+    setStrictExecution "off" &>/dev/null
   )
 }
 play() {
