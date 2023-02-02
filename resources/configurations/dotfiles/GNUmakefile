@@ -4,6 +4,7 @@ entries = $(foreach entry, $(shell ls --directory $(dotfiles)/*/), $(shell basen
 handle = $(bash) $(dotfiles)/handler.bash handleDotfiles
 deploy = $(handle) "deploy"
 retract = $(handle) "retract"
+reload-shell = "exec $SHELL -l"
 shell:
 	@ $(deploy) "bash"
 cleanup-shell:
