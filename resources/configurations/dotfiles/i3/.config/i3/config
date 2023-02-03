@@ -9,4 +9,4 @@ include $dotfilesDirectory/i3/.config/i3/settings/keybindings.conf
 include $dotfilesDirectory/i3/.config/i3/settings/rules.conf
 include $dotfilesDirectory/i3/.config/i3/settings/preferences.conf
 include $dotfilesDirectory/i3/.config/i3/themes/colors.conf
-include $dotfilesDirectory/i3/.config/i3/settings/visuals.conf
+include $dotfilesDirectory/i3/.config/i3/components/statusbar.conf
