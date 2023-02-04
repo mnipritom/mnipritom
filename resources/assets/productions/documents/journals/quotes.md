@@ -1,12 +1,16 @@
-- personal
-  - the path of righteousness is somewhere in between, because there is nothing `so right` or `too right`, there is just right
-- tate
-  - baseline of masculinity is that bad things are gonna happen to you and you're gonna absorb them and use them into grow into a more competent individual
+- tates
   - it's the scarcity of something that gives it it's value
   - weaponize your attention
-  - a man losing a woman is like losing a child, because you protect her and take care of her, whereas a women losing a man is like losing a parent, and i think we are evolutionarily, biologically designed to deal with losing parents better than we are to deal with losing children, so i think breakups are harder for men
-  - dhalsim
-    - my fire was just an illusion, it burnt you because you believed it was real
-  - money is an amplifier, money amplifies, man can make money, money does not make man, if you're a dork and you get rich, you're a rich dork, if you're a G and you get rich, you're a top G
+  - GBNews
+    - baseline of masculinity is that bad things are gonna happen to you and you're gonna absorb them and use them into grow into a more competent individual
+  - fellas
+    - a man losing a woman is like losing a child, because you protect her and take care of her, whereas a women losing a man is like losing a parent, and i think we are evolutionarily, biologically designed to deal with losing parents better than we are to deal with losing children, so i think breakups are harder for men
+  - pbd
+    - emotions are feedback, but stoicism is the ability to process them and that's what you need to learn as a man, you're never gonna be able to turn them off, you're gonna feel 'em, but you have to learn how to process 'em and turn 'em into positives
+  - emergency meeting
+    - dhalsim
+      - my fire was just an illusion, it burnt you because you believed it was real
+  - pregame
+    - money is an amplifier, money amplifies, man can make money, money does not make man, if you're a dork and you get rich, you're a rich dork, if you're a G and you get rich, you're a top G
   - emory
     - i allow manipulation to find out where my enemy wants me to go, then i use my mind to break the trap and punish the perpetrators
