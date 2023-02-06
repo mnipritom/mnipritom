@@ -62,6 +62,8 @@ if [ -f "$downloadedHelpersDirectory/fzf-tab-completion/bash/fzf-bash-completion
 then
   source "$downloadedHelpersDirectory/fzf-tab-completion/bash/fzf-bash-completion.sh"
   bind -x '"\t": fzf_bash_completion'
+  # export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
+  # export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
 else
   printf "%s\n" "$failureSymbol Failed to find fzf bash completion wrapper script"
 fi
