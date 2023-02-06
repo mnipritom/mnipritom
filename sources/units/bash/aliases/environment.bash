@@ -1,0 +1,25 @@
+paths() {
+  printf "%s\n" "$PATH" | tr ":" "\n"
+}
+envs() {
+  (
+    source "$blocksDirectory/baseSystem/setStrictExecution.bash"
+    setStrictExecution "on" &>/dev/null
+    key="$(
+      env | gawk --field-separator "=" '{
+        print $1
+      }' | fzf
+    )"
+    value="$(
+      printenv $key
+    )"
+    echo "$processingSymbol Fetching values: $key"
+    if [ "$key" == "PATH" ]
+    then
+      paths
+    else
+      echo "$value"
+    fi
+    setStrictExecution "off" &>/dev/null
+  )
+}
