@@ -1,5 +1,6 @@
 [core]
 	editor = nvim
+	symlinks = true
 [color]
 	ui = true
 [init]
