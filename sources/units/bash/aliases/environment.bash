@@ -23,3 +23,9 @@ envs() {
     setStrictExecution "off" &>/dev/null
   )
 }
+linc() {
+  (
+    source "$blocksDirectory/fileSystem/createSymbolicLink.bash"
+    promptCreateSymbolicLink "$1" "$2"
+  )
+}
