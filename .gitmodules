@@ -1,17 +1,17 @@
 [submodule "xdeb"]
-	path = resources/assets/downloads/utilities/scripts/xdeb
+	path = resources/assets/downloads/utilities/scripts/executables/xdeb
 	url = https://github.com/toluschr/xdeb
 [submodule "tdrop"]
-	path = resources/assets/downloads/utilities/scripts/tdrop
+	path = resources/assets/downloads/utilities/scripts/executables/tdrop
 	url = https://github.com/noctuid/tdrop
 [submodule "deb-get"]
-	path = resources/assets/downloads/utilities/scripts/deb-get
+	path = resources/assets/downloads/utilities/scripts/executables/deb-get
 	url = https://github.com/wimpysworld/deb-get
 [submodule "debtap"]
-	path = resources/assets/downloads/utilities/scripts/debtap
+	path = resources/assets/downloads/utilities/scripts/executables/debtap
 	url = https://github.com/helixarch/debtap
 [submodule "neofetch"]
-	path = resources/assets/downloads/utilities/scripts/neofetch
+	path = resources/assets/downloads/utilities/scripts/executables/neofetch
 	url = https://github.com/dylanaraps/neofetch
 [submodule "quranjson"]
 	path = resources/assets/references/scriptures/quranjson
@@ -23,8 +23,8 @@
 	path = resources/assets/references/licenses
 	url = https://github.com/IQAndreas/markdown-licenses
 [submodule "bash-completion"]
-	path = resources/configurations/dotfiles/bash/bash-completion
+	path = resources/assets/downloads/utilities/scripts/helpers/bash-completion
 	url = https://github.com/scop/bash-completion
 [submodule "fzf-tab-completion"]
-	path = resources/configurations/dotfiles/fzf/fzf-tab-completion
+	path = resources/assets/downloads/utilities/scripts/helpers/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
