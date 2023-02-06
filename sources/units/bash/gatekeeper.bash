@@ -63,7 +63,9 @@ export configuredUtilitiesDirectory="$configurationsDirectory/utilities"
 export configuredTemplatesDirectory="$configurationsDirectory/templates"
 
 export downloadedUtilitiesDirectory="$downloadsDirectory/utilities"
-export downloadedExecutablesDirectory="$downloadedUtilitiesDirectory/scripts/executables"
+export downloadedScriptsDirectory="$downloadedUtilitiesDirectory/scripts"
+export downloadedExecutablesDirectory="$downloadedScriptsDirectory/executables"
+export downloadedHelpersDirectory="$downloadedScriptsDirectory/helpers"
 
 export dotfilesDirectory="$configurationsDirectory/dotfiles"
 export wallpapersDirectory="$downloadsDirectory/wallpapers"

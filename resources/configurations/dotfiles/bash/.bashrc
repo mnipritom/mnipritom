@@ -51,16 +51,16 @@ eval "$( /home/linuxbrew/.linuxbrew/bin/brew shellenv )"
 eval "$( pandoc --bash-completion )"
 eval "$( wezterm shell-completion --shell bash )"
 
-if [ -f "$dotfilesDirectory/bash/bash-completion/bash_completion" ]
+if [ -f "$downloadedHelpersDirectory/bash-completion/bash_completion" ]
 then
-  source "$dotfilesDirectory/bash/bash-completion/bash_completion"
+  source "$downloadedHelpersDirectory/bash-completion/bash_completion"
 else
   printf "%s\n" "$failureSymbol Failed to find bash completion script"
 fi
 
-if [ -f "$dotfilesDirectory/fzf/fzf-tab-completion/bash/fzf-bash-completion.sh" ]
+if [ -f "$downloadedHelpersDirectory/fzf-tab-completion/bash/fzf-bash-completion.sh" ]
 then
-  source "$dotfilesDirectory/fzf/fzf-tab-completion/bash/fzf-bash-completion.sh"
+  source "$downloadedHelpersDirectory/fzf-tab-completion/bash/fzf-bash-completion.sh"
   bind -x '"\t": fzf_bash_completion'
 else
   printf "%s\n" "$failureSymbol Failed to find fzf bash completion wrapper script"
