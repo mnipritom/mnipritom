@@ -63,7 +63,7 @@ export configuredUtilitiesDirectory="$configurationsDirectory/utilities"
 export configuredTemplatesDirectory="$configurationsDirectory/templates"
 
 export downloadedUtilitiesDirectory="$downloadsDirectory/utilities"
-export downloadedScriptsDirectory="$downloadedUtilitiesDirectory/scripts"
+export downloadedExecutablesDirectory="$downloadedUtilitiesDirectory/scripts/executables"
 
 export dotfilesDirectory="$configurationsDirectory/dotfiles"
 export wallpapersDirectory="$downloadsDirectory/wallpapers"
@@ -110,15 +110,15 @@ function createRequiredDirectories {
   )
 }
 
-function makeScriptsAvailable {
+function makeExecutablesAvailable {
   (
     local availableScriptsEntries=($(
-      # find "$downloadedScriptsDirectory" -maxdepth 2 -type f -executable -not -path "$downloadedScriptsDirectory" -nowarn
-      find "$downloadedScriptsDirectory" -maxdepth 1 -type d -not -path "$downloadedScriptsDirectory" -nowarn
+      # find "$downloadedExecutablesDirectory" -maxdepth 2 -type f -executable -not -path "$downloadedExecutablesDirectory" -nowarn
+      find "$downloadedExecutablesDirectory" -maxdepth 1 -type d -not -path "$downloadedExecutablesDirectory" -nowarn
     ))
     for script in "${availableScriptsEntries[@]}"
     do
-      local scriptEntry="${script##$downloadedScriptsDirectory/}"
+      local scriptEntry="${script##$downloadedExecutablesDirectory/}"
       if [ ! -x "$script/$scriptEntry" ]
       then
         echo "$processingSymbol Making executable : $scriptEntry"
@@ -173,7 +173,7 @@ function getPrerequisites {
 }
 
 createRequiredDirectories
-makeScriptsAvailable
+makeExecutablesAvailable
 
 export systemPackageManager=$(
   getSystemPackageManager
@@ -181,5 +181,5 @@ export systemPackageManager=$(
 
 unset getSystemPackageManager
 unset createRequiredDirectories
-unset makeScriptsAvailable
+unset makeExecutablesAvailable
 unset getPrerequisites
