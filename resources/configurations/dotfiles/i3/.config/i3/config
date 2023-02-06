@@ -1,5 +1,5 @@
 set $mod Mod4
-# set $terminal $TERM
+set $terminal $TERM
 set $browsers "1: browsers "
 set $editors "2: editors "
 set $terminals "3: terminals "
