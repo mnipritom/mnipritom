@@ -28,23 +28,31 @@ export bashrcDirectory="$(
   )" && pwd
 )"
 
-export currentWorktree="$(
-  cd "$bashrcDirectory/../../../../" && pwd
-)"
+source "$bashrcDirectory/sources/gatekeeper.bash"
 
-source "$currentWorktree/sources/units/bash/gatekeeper.bash"
-source "$bashrcDirectory/.bash_aliases"
+aliases=($(
+  find "$bashrcDirectory/sources/aliases" -type f
+))
+for aliasFile in "${aliases[@]}"
+do
+  source "$aliasFile"
+  if [ "$?" != 0 ]
+  then
+    printf "%s\n $failureSymbol Failed to load alias file : $aliasFile"
+  fi
+done
 
-unset bashrcDirectory
-unset currentWorktree
+unset aliases
 
-source "$dotfilesDirectory/rofi/.config/rofi/scripts/bash/tasks/generatePasswordPrompt.bash"
+source "$bashrcDirectory/sources/blocks/baseSystem/generatePasswordPrompt.bash"
 SUDO_ASKPASS_PROMPT="$(
   generatePasswordPrompt
 )"
 unset generatePasswordPrompt
 export SUDO_ASKPASS="$SUDO_ASKPASS_PROMPT"
 unset SUDO_ASKPASS_PROMPT
+
+unset bashrcDirectory
 
 eval "$( starship init bash )"
 eval "$( /home/linuxbrew/.linuxbrew/bin/brew shellenv )"

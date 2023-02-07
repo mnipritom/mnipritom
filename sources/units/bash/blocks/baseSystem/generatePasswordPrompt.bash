@@ -16,12 +16,3 @@ function generatePasswordPrompt {
   chmod +x "$promptScript"
   echo "$promptScript"
 }
-# Checking if the function being called exists
-if declare -f "$1" &>/dev/null
-then
-  "$@"
-# Ignoring when used with a `source` command
-elif [ "$1" == "" ]
-then
-  return 0
-fi
