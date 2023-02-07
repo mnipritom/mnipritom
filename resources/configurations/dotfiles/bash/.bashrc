@@ -42,6 +42,7 @@ do
   fi
 done
 
+unset aliasFile
 unset aliases
 
 source "$bashrcDirectory/sources/blocks/baseSystem/generatePasswordPrompt.bash"
