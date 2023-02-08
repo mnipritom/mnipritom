@@ -93,26 +93,6 @@ function getSystemPackageManager {
   echo "$hostDistributionPackageManager"
 }
 
-function getExecutableScripts {
-  local availableExecutableScriptsEntries=($(
-    # find "$downloadedExecutablesDirectory" -maxdepth 2 -type f -executable -not -path "$downloadedExecutablesDirectory" -nowarn
-    find "$downloadedExecutablesDirectory" -maxdepth 1 -type d -not -path "$downloadedExecutablesDirectory" -nowarn
-  ))
-  for script in "${availableExecutableScriptsEntries[@]}"
-  do
-    local scriptEntry="${script##$downloadedExecutablesDirectory/}"
-    if [ ! -x "$script/$scriptEntry" ]
-    then
-      echo "$processingSymbol Making executable : $scriptEntry"
-      chmod +x "$script/$scriptEntry"
-    fi
-  done
-  local availableExecutableScripts=$(
-    printf "%s\n" "${availableExecutableScriptsEntries[@]}" | tr "\n" ":"
-  )
-  printf "%s" "$availableExecutableScripts"
-}
-
 function getWorkingDistributions {
   local hostDistribution=$(
     source "$snippetsDirectory/baseSystem/getHostDistribution.bash"
@@ -182,20 +162,10 @@ export systemPackageManager=$(
 export workingDistributions=($(
   getWorkingDistributions
 ))
-export PATH="$(
-  getExecutableScripts
-):$PATH"
 
 createRequiredDirectories
 
 unset getSystemPackageManager
-unset getExecutableScripts
 unset getWorkingDistributions
 unset getPrerequisites
 unset createRequiredDirectories
-
-source "$blocksDirectory/baseSystem/getUniquePathEntries.bash"
-export PATH="$(
-  getUniquePathEntries
-)"
-unset getUniquePathEntries

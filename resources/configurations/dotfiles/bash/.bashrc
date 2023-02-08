@@ -12,16 +12,57 @@ shopt -s cdspell
 shopt -s cmdhist
 shopt -s histappend
 
-export bashrcDirectory="$(
+bashrcDirectory="$(
   cd "$(
     dirname "$(
       readlink --canonicalize "${BASH_SOURCE[0]:-$0}"
     )"
   )" && pwd
 )"
-
 source "$bashrcDirectory/sources/gatekeeper.bash"
+bashHelperScripts="$bashrcDirectory/resources/scripts/helpers"
+
+if [ -f "$bashHelperScripts/bash-completion/bash_completion" ]
+then
+  source "$bashHelperScripts/bash-completion/bash_completion"
+else
+  printf "%s\n" "$failureSymbol Failed to find bash completion script"
+fi
+
+if [ -f "$bashHelperScripts/fzf-tab-completion/bash/fzf-bash-completion.sh" ]
+then
+  source "$bashHelperScripts/fzf-tab-completion/bash/fzf-bash-completion.sh"
+  bind -x '"\t": fzf_bash_completion'
+  # export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
+  # export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
+else
+  printf "%s\n" "$failureSymbol Failed to find fzf bash completion wrapper script"
+fi
+
 unset bashrcDirectory
+unset bashHelperScripts
+
+eval "$( pandoc --bash-completion )"
+eval "$( wezterm shell-completion --shell bash )"
+
+function getExecutableScripts {
+  local availableExecutableScriptsEntries=($(
+    find "$downloadedExecutablesDirectory" -maxdepth 1 -type d -not -path "$downloadedExecutablesDirectory" -nowarn
+  ))
+  for script in "${availableExecutableScriptsEntries[@]}"
+  do
+    local scriptEntry="${script##$downloadedExecutablesDirectory/}"
+    if [ ! -x "$script/$scriptEntry" ]
+    then
+      echo "$processingSymbol Making executable : $scriptEntry"
+      chmod +x "$script/$scriptEntry"
+    fi
+  done
+  local availableExecutableScripts=$(
+    printf "%s\n" "${availableExecutableScriptsEntries[@]}" | tr "\n" ":"
+  )
+  printf "%s" "$availableExecutableScripts"
+}
 
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -29,10 +70,17 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
 
+export PATH="$(
+  getExecutableScripts
+):$PATH"
+
 source "$blocksDirectory/baseSystem/getUniquePathEntries.bash"
+
 export PATH="$(
   getUniquePathEntries
 )"
+
+unset getExecutableScripts
 unset getUniquePathEntries
 
 aliases=($(
@@ -59,25 +107,6 @@ unset SUDO_ASKPASS_PROMPT
 
 eval "$( starship init bash )"
 eval "$( /home/linuxbrew/.linuxbrew/bin/brew shellenv )"
-eval "$( pandoc --bash-completion )"
-eval "$( wezterm shell-completion --shell bash )"
-
-if [ -f "$downloadedHelpersDirectory/bash-completion/bash_completion" ]
-then
-  source "$downloadedHelpersDirectory/bash-completion/bash_completion"
-else
-  printf "%s\n" "$failureSymbol Failed to find bash completion script"
-fi
-
-if [ -f "$downloadedHelpersDirectory/fzf-tab-completion/bash/fzf-bash-completion.sh" ]
-then
-  source "$downloadedHelpersDirectory/fzf-tab-completion/bash/fzf-bash-completion.sh"
-  bind -x '"\t": fzf_bash_completion'
-  # export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
-  # export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
-else
-  printf "%s\n" "$failureSymbol Failed to find fzf bash completion wrapper script"
-fi
 
 # [TODO] implement `FZF_DEFAULT_COMMAND`
 export FZF_DEFAULT_OPTS="\
