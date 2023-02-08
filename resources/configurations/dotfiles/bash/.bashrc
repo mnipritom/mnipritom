@@ -12,15 +12,6 @@ shopt -s cdspell
 shopt -s cmdhist
 shopt -s histappend
 
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
-export PATH=$(
-  printf "%s" "$PATH" | tr ":" "\n" | sort --unique | tr "\n" ":"
-)
-
 export bashrcDirectory="$(
   cd "$(
     dirname "$(
@@ -30,31 +21,41 @@ export bashrcDirectory="$(
 )"
 
 source "$bashrcDirectory/sources/gatekeeper.bash"
+unset bashrcDirectory
+
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+
+source "$blocksDirectory/baseSystem/getUniquePathEntries.bash"
+export PATH="$(
+  getUniquePathEntries
+)"
+unset getUniquePathEntries
 
 aliases=($(
-  find "$bashrcDirectory/sources/aliases" -type f
+  find "$aliasesDirectory" -type f
 ))
-for aliasFile in "${aliases[@]}"
+for aliasesEntry in "${aliases[@]}"
 do
-  source "$aliasFile"
+  source "$aliasesEntry"
   if [ "$?" != 0 ]
   then
-    printf "%s\n $failureSymbol Failed to load alias file : $aliasFile"
+    printf "%s\n $failureSymbol Failed to load alias file : $aliasesEntry"
   fi
 done
-
-unset aliasFile
+unset aliasesEntry
 unset aliases
 
-source "$bashrcDirectory/sources/blocks/baseSystem/generatePasswordPrompt.bash"
+source "$blocksDirectory/baseSystem/generatePasswordPrompt.bash"
 SUDO_ASKPASS_PROMPT="$(
   generatePasswordPrompt
 )"
 unset generatePasswordPrompt
 export SUDO_ASKPASS="$SUDO_ASKPASS_PROMPT"
 unset SUDO_ASKPASS_PROMPT
-
-unset bashrcDirectory
 
 eval "$( starship init bash )"
 eval "$( /home/linuxbrew/.linuxbrew/bin/brew shellenv )"

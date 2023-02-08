@@ -44,7 +44,8 @@ export snippetsDirectory="$gatekeeperDirectory/snippets"
 export modulesDirectory="$gatekeeperDirectory/modules"
 export actionsDirectory="$gatekeeperDirectory/actions"
 export chunksDirectory="$gatekeeperDirectory/chunks"
-export tasksDirectory="$gatekeeperDirectory/tasks"
+export handlersDirectory="$gatekeeperDirectory/handlers"
+export aliasesDirectory="$gatekeeperDirectory/aliases"
 
 export resourcesDirectory="$(
   cd "$gatekeeperDirectory/../../../resources" && pwd
@@ -92,6 +93,69 @@ function getSystemPackageManager {
   echo "$hostDistributionPackageManager"
 }
 
+function getExecutableScripts {
+  local availableExecutableScriptsEntries=($(
+    # find "$downloadedExecutablesDirectory" -maxdepth 2 -type f -executable -not -path "$downloadedExecutablesDirectory" -nowarn
+    find "$downloadedExecutablesDirectory" -maxdepth 1 -type d -not -path "$downloadedExecutablesDirectory" -nowarn
+  ))
+  for script in "${availableExecutableScriptsEntries[@]}"
+  do
+    local scriptEntry="${script##$downloadedExecutablesDirectory/}"
+    if [ ! -x "$script/$scriptEntry" ]
+    then
+      echo "$processingSymbol Making executable : $scriptEntry"
+      chmod +x "$script/$scriptEntry"
+    fi
+  done
+  local availableExecutableScripts=$(
+    printf "%s\n" "${availableExecutableScriptsEntries[@]}" | tr "\n" ":"
+  )
+  printf "%s" "$availableExecutableScripts"
+}
+
+function getWorkingDistributions {
+  local hostDistribution=$(
+    source "$snippetsDirectory/baseSystem/getHostDistribution.bash"
+    getHostDistribution
+  )
+  local availableDistributionsEntries=(
+    "void"
+    "devuan"
+    "debian"
+    "ubuntu"
+    "kali"
+    "parrot"
+  )
+  # [TODO] implement support for `nix` `guix` `hyperbola` `parabola` `trisquel`
+  local supportedDistributionsEntries=(
+    "artix"
+    "arch"
+    "fedora"
+    "opensuse"
+  )
+  local workingDistributionsEntries+=($(
+    printf "%s\n" "${availableDistributionsEntries[@]}"
+  ))
+  for supportedDistribution in "${supportedDistributionsEntries[@]}"
+  do
+    if grep --ignore-case --quiet "$supportedDistribution" <<< "$hostDistribution"
+    then
+      workingDistributionsEntries+=(
+        "$supportedDistribution"
+      )
+      break
+    fi
+  done
+  printf "%s\n" "${workingDistributionsEntries[@]}"
+}
+
+function getPrerequisites {
+  # [TODO] implement installation for essential programs `pandoc` `fzf` `zathura` etc
+  # [TODO] implement submodules initialization
+  # [TODO] utilize `diagnosticsDirectory` for synchronizations by generating and reading generated files
+  return 1
+}
+
 function createRequiredDirectories {
   (
     source "$blocksDirectory/fileSystem/createDirectory.bash"
@@ -112,76 +176,26 @@ function createRequiredDirectories {
   )
 }
 
-function makeExecutablesAvailable {
-  (
-    local availableScriptsEntries=($(
-      # find "$downloadedExecutablesDirectory" -maxdepth 2 -type f -executable -not -path "$downloadedExecutablesDirectory" -nowarn
-      find "$downloadedExecutablesDirectory" -maxdepth 1 -type d -not -path "$downloadedExecutablesDirectory" -nowarn
-    ))
-    for script in "${availableScriptsEntries[@]}"
-    do
-      local scriptEntry="${script##$downloadedExecutablesDirectory/}"
-      if [ ! -x "$script/$scriptEntry" ]
-      then
-        echo "$processingSymbol Making executable : $scriptEntry"
-        chmod +x "$script/$scriptEntry"
-      fi
-    done
-    local availableScripts=$(
-      printf "%s\n" "${availableScriptsEntries[@]}" | tr "\n" ":"
-    )
-    export PATH="$PATH:$availableScripts"
-  )
-}
-
-function getAvailableDistributions {
-  local hostDistribution=$(
-    source "$snippetsDirectory/baseSystem/getHostDistribution.bash"
-    getHostDistribution
-  )
-  local availableDistributions=(
-    "void"
-    "devuan"
-    "debian"
-    "ubuntu"
-    "kali"
-    "parrot"
-  )
-  # [TODO] implement support for `nix` `guix` `hyperbola` `parabola` `trisquel`
-  local supportedDistributions=(
-    "artix"
-    "arch"
-    "fedora"
-    "opensuse"
-  )
-  for supported in "${supportedDistributions[@]}"
-  do
-    if grep --ignore-case --quiet "$supported" <<< "$hostDistribution"
-    then
-      availableDistributions+=(
-        "$supported"
-      )
-      break
-    fi
-  done
-  echo "${availableDistributions[@]}"
-}
-
-function getPrerequisites {
-  # [TODO] implement installation for essential programs `pandoc` `fzf` `zathura` etc
-  # [TODO] implement submodules initialization
-  # [TODO] utilize `diagnosticsDirectory` for synchronizations by generating and reading generated files
-  return 1
-}
-
-createRequiredDirectories
-makeExecutablesAvailable
-
 export systemPackageManager=$(
   getSystemPackageManager
 )
+export workingDistributions=($(
+  getWorkingDistributions
+))
+export PATH="$(
+  getExecutableScripts
+):$PATH"
+
+createRequiredDirectories
 
 unset getSystemPackageManager
-unset createRequiredDirectories
-unset makeExecutablesAvailable
+unset getExecutableScripts
+unset getWorkingDistributions
 unset getPrerequisites
+unset createRequiredDirectories
+
+source "$blocksDirectory/baseSystem/getUniquePathEntries.bash"
+export PATH="$(
+  getUniquePathEntries
+)"
+unset getUniquePathEntries
