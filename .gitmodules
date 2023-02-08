@@ -13,6 +13,9 @@
 [submodule "neofetch"]
 	path = resources/assets/downloads/utilities/scripts/executables/neofetch
 	url = https://github.com/dylanaraps/neofetch
+[submodule "distrobox"]
+	path = resources/assets/downloads/utilities/scripts/executables/distrobox
+	url = https://github.com/89luca89/distrobox
 [submodule "quranjson"]
 	path = resources/assets/references/scriptures/quranjson
 	url = https://github.com/semarketir/quranjson
