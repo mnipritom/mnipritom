@@ -16,6 +16,18 @@
 [submodule "distrobox"]
 	path = resources/assets/downloads/utilities/scripts/executables/distrobox
 	url = https://github.com/89luca89/distrobox
+[submodule "git-fuzzy"]
+	path = resources/assets/downloads/utilities/scripts/executables/git-fuzzy
+	url = https://github.com/bigH/git-fuzzy
+[submodule "git-forgit"]
+	path = resources/assets/downloads/utilities/scripts/executables/git-forgit
+	url = https://github.com/wfxr/forgit
+[submodule "bash-completion"]
+	path = resources/assets/downloads/utilities/scripts/helpers/bash-completion
+	url = https://github.com/scop/bash-completion
+[submodule "fzf-tab-completion"]
+	path = resources/assets/downloads/utilities/scripts/helpers/fzf-tab-completion
+	url = https://github.com/lincheney/fzf-tab-completion
 [submodule "quranjson"]
 	path = resources/assets/references/scriptures/quranjson
 	url = https://github.com/semarketir/quranjson
@@ -25,9 +37,3 @@
 [submodule "licenses"]
 	path = resources/assets/references/licenses
 	url = https://github.com/IQAndreas/markdown-licenses
-[submodule "bash-completion"]
-	path = resources/assets/downloads/utilities/scripts/helpers/bash-completion
-	url = https://github.com/scop/bash-completion
-[submodule "fzf-tab-completion"]
-	path = resources/assets/downloads/utilities/scripts/helpers/fzf-tab-completion
-	url = https://github.com/lincheney/fzf-tab-completion
