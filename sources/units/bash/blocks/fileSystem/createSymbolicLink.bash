@@ -1,17 +1,14 @@
 function createSymbolicLink {
   local source="$1"
   local target="$2"
-  local sourceFile="$(
+  local sourcePath="$(
     realpath "$source"
   )"
-  local targetDirectory="$(
-    dirname "$target"
-  )"
-  local targetFile="$(
-    basename $target
+  local targetPath="$(
+    realpath "$target"
   )"
   local status=$(
-    cd "$targetDirectory" && ln --symbolic "$sourceFile" "./$targetFile" &>/dev/null
+    ln --symbolic "$sourcePath" "$targetPath" &>/dev/null
     printf "%s" "$?"
   )
   printf "%s" "$status"
