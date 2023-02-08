@@ -3,6 +3,7 @@ export LC_ALL="en_US.UTF-8"
 export EDITOR=nvim
 export VISUAL=nvim
 
+# [TODO] implement `BROWSER`
 # [TODO] implement `TERM`
 # [TODO] implement `PAGER`
 
