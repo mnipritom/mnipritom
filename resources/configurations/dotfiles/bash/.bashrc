@@ -46,20 +46,37 @@ eval "$( pandoc --bash-completion )"
 eval "$( wezterm shell-completion --shell bash )"
 
 function getExecutableScripts {
-  local availableExecutableScriptsEntries=($(
+  local executableScriptsEntries=($(
     find "$downloadedExecutablesDirectory" -maxdepth 1 -type d -not -path "$downloadedExecutablesDirectory" -nowarn
   ))
-  for script in "${availableExecutableScriptsEntries[@]}"
+  local executableScriptsPaths
+  for script in "${executableScriptsEntries[@]}"
   do
     local scriptEntry="${script##$downloadedExecutablesDirectory/}"
-    if [ ! -x "$script/$scriptEntry" ]
+    if [ -f "$script/$scriptEntry" ]
     then
-      echo "$processingSymbol Making executable : $scriptEntry"
-      chmod +x "$script/$scriptEntry"
+      if [ ! -x "$script/$scriptEntry" ]
+      then
+        chmod +x "$script/$scriptEntry"
+      else
+        executableScriptsPaths+=(
+          "$script"
+        )
+      fi
+    elif [ -f "$script/bin/$scriptEntry" ]
+    then
+      if [ ! -x "$script/bin/$scriptEntry" ]
+      then
+        chmod +x "$script/bin/$scriptEntry"
+      else
+        executableScriptsPaths+=(
+          "$script/bin"
+        )
+      fi
     fi
   done
   local availableExecutableScripts=$(
-    printf "%s\n" "${availableExecutableScriptsEntries[@]}" | tr "\n" ":"
+    printf "%s\n" "${executableScriptsPaths[@]}" | tr "\n" ":"
   )
   printf "%s" "$availableExecutableScripts"
 }
@@ -94,6 +111,7 @@ do
     printf "%s\n $failureSymbol Failed to load alias file : $aliasesEntry"
   fi
 done
+
 unset aliasesEntry
 unset aliases
 
