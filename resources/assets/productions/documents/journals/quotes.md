@@ -1,6 +1,8 @@
 - tates
   - it's the scarcity of something that gives it it's value
   - weaponize your attention
+  - fresh and fit
+    - you're nothing but lucky, bacteria coulda stole your eyesight at the age of 3 and it didn't, you coulda been in a car crash and lost both your parents, never happened, blind luck has given you a favorable hand and you've managed to fuck it up
   - GBNews
     - baseline of masculinity is that bad things are gonna happen to you and you're gonna absorb them and use them into grow into a more competent individual
   - fellas
