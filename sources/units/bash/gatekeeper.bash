@@ -64,7 +64,7 @@ export configuredUtilitiesDirectory="$configurationsDirectory/utilities"
 export configuredTemplatesDirectory="$configurationsDirectory/templates"
 
 export downloadedUtilitiesDirectory="$downloadsDirectory/utilities"
-export downloadedScriptsDirectory="$downloadedUtilitiesDirectory/scripts"
+export downloadedScriptsDirectory="$downloadedUtilitiesDirectory/scripts/bash"
 export downloadedExecutablesDirectory="$downloadedScriptsDirectory/executables"
 export downloadedHelpersDirectory="$downloadedScriptsDirectory/helpers"
 

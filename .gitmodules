@@ -1,32 +1,32 @@
 [submodule "xdeb"]
-	path = resources/assets/downloads/utilities/scripts/executables/xdeb
+	path = resources/assets/downloads/utilities/scripts/bash/executables/xdeb
 	url = https://github.com/toluschr/xdeb
 [submodule "tdrop"]
-	path = resources/assets/downloads/utilities/scripts/executables/tdrop
+	path = resources/assets/downloads/utilities/scripts/bash/executables/tdrop
 	url = https://github.com/noctuid/tdrop
 [submodule "deb-get"]
-	path = resources/assets/downloads/utilities/scripts/executables/deb-get
+	path = resources/assets/downloads/utilities/scripts/bash/executables/deb-get
 	url = https://github.com/wimpysworld/deb-get
 [submodule "debtap"]
-	path = resources/assets/downloads/utilities/scripts/executables/debtap
+	path = resources/assets/downloads/utilities/scripts/bash/executables/debtap
 	url = https://github.com/helixarch/debtap
 [submodule "neofetch"]
-	path = resources/assets/downloads/utilities/scripts/executables/neofetch
+	path = resources/assets/downloads/utilities/scripts/bash/executables/neofetch
 	url = https://github.com/dylanaraps/neofetch
 [submodule "distrobox"]
-	path = resources/assets/downloads/utilities/scripts/executables/distrobox
+	path = resources/assets/downloads/utilities/scripts/bash/executables/distrobox
 	url = https://github.com/89luca89/distrobox
 [submodule "git-fuzzy"]
-	path = resources/assets/downloads/utilities/scripts/executables/git-fuzzy
+	path = resources/assets/downloads/utilities/scripts/bash/executables/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy
 [submodule "git-forgit"]
-	path = resources/assets/downloads/utilities/scripts/executables/git-forgit
+	path = resources/assets/downloads/utilities/scripts/bash/executables/git-forgit
 	url = https://github.com/wfxr/forgit
 [submodule "bash-completion"]
-	path = resources/assets/downloads/utilities/scripts/helpers/bash-completion
+	path = resources/assets/downloads/utilities/scripts/bash/helpers/bash-completion
 	url = https://github.com/scop/bash-completion
 [submodule "fzf-tab-completion"]
-	path = resources/assets/downloads/utilities/scripts/helpers/fzf-tab-completion
+	path = resources/assets/downloads/utilities/scripts/bash/helpers/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
 [submodule "lain"]
 	path = resources/assets/downloads/utilities/libraries/awesome/lain
