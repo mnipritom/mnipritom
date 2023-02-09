@@ -12,8 +12,8 @@ base-system,            void,              Void Linux base system meta package
 #base-devel,            void,              Void Linux development tools meta package
 #base-voidstrap,        void,              Void Linux base system meta package for containers/chroots
 binutils,               void,              GNU binary utilities
-refind,                 void,              EFI boot manager utility
-#grub,                  void,              GRand Unified Bootloader
+#refind,                void,              EFI boot manager utility
+grub,                   void,              GRand Unified Bootloader
 noto-fonts-emoji,       void,              Emoji support
 unicode-emoji,          void,              Emoji support
 vpm,                    void,              XBPS package management helper for VoidLinux
@@ -132,3 +132,4 @@ dropbox,                void,              Cloud drive
 #progress,              void,              Tool for showing the progress of cp rm dd and more
 #pv,                    void,              Monitor the progress of data through a pipeline
 tdrop,                  void,              Distro and terminal agnostic dropdown terminals
+bc,                     void,              An arbitrary precision calculator language
