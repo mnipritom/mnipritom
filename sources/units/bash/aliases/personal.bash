@@ -12,18 +12,6 @@ ideas() {
     readFile "$journalsDirectory/ideas.md" | less
   )
 }
-ddots() {
-  (
-    source "$dotfilesDirectory/handler.bash"
-    handleDotfiles "deploy" "$1"
-  )
-}
-rdots() {
-  (
-    source "$dotfilesDirectory/handler.bash"
-    handleDotfiles "retract" "$1"
-  )
-}
 pack() {
   (
     source "$actionsDirectory/baseSystem/installPackage.bash"
