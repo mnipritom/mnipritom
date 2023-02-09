@@ -1,3 +1,0 @@
-Package,    Command,                                        Short description
-starship,   curl -sS https://starship.rs/install.sh | sh,   Cross platform shell prompt
-deno,       curl -fsSL https://deno.land/install.sh | sh,   `node` replacement written in Rust

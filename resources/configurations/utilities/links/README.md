@@ -1,4 +1,0 @@
-- ### `*.csv`
-  - ### details:
-    - conventions:
-      - ensure there are no spaces in the first column entry

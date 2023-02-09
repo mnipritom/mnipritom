@@ -1,6 +1,0 @@
-Repository name,  Method,       URL,                                    Short description
-xdeb,             git,          https://github.com/toluschr/xdeb,       Script to convert `deb` files `xbps` compatible
-deb-get,          git,          https://github.com/wimpysworld/deb-get, `apt-get` for `deb` packages
-tdrop,            git,          https://github.com/noctuid/tdrop,       wm agnostic dropdown terminal wrapper script
-debtap,           git,          https://github.com/helixarch/debtap,    Script to convert `deb` files to arch packages
-neofetch,         git,          https://github.com/dylanaraps/neofetch, Script to display system information

@@ -60,7 +60,6 @@ export productionsDirectory="$assetsDirectory/productions"
 export referencesDirectory="$assetsDirectory/references"
 export releasesDirectory="$assetsDirectory/releases"
 
-export configuredUtilitiesDirectory="$configurationsDirectory/utilities"
 export configuredTemplatesDirectory="$configurationsDirectory/templates"
 
 export downloadedUtilitiesDirectory="$downloadsDirectory/utilities"

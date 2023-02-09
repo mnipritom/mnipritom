@@ -24,20 +24,10 @@ rdots() {
     handleDotfiles "retract" "$1"
   )
 }
-list() {
-  (
-    source "$configuredUtilitiesDirectory/handler.bash"
-    if [ "$1" != "" ]
-    then
-      handleUtilities "parse" "packages" "$1"
-    else
-      handleUtilities "parse" "packages" "$systemPackageManager"
-    fi
-  )
-}
 pack() {
   (
     source "$actionsDirectory/baseSystem/installPackage.bash"
     installPackage "$1" "$systemPackageManager"
   )
 }
+# [TODO] implement `packs` to list packages installed
