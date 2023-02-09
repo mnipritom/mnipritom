@@ -28,6 +28,12 @@
 [submodule "fzf-tab-completion"]
 	path = resources/assets/downloads/utilities/scripts/helpers/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
+[submodule "lain"]
+	path = resources/assets/downloads/utilities/libraries/awesome/lain
+	url = https://github.com/lcpz/lain
+[submodule "redflat"]
+	path = resources/assets/downloads/utilities/libraries/awesome/redflat
+	url = https://github.com/worron/redflat
 [submodule "quranjson"]
 	path = resources/assets/references/scriptures/quranjson
 	url = https://github.com/semarketir/quranjson
