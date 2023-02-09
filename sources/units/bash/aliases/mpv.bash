@@ -13,7 +13,7 @@ play() {
       printf "%s\n" "${playlists[@]}" | grep --fixed-strings  "$selection"
     )
     echo "$processingSymbol Playing: $selection"
-    mpv --playlist="$playlist" --no-resume-playback
+    mpv --playlist="$playlist" --no-resume-playback &
     setStrictExecution "off" &>/dev/null
   )
 }
