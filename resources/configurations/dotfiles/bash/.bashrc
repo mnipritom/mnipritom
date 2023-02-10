@@ -20,6 +20,9 @@ bashrcDirectory="$(
   )" && pwd
 )"
 source "$bashrcDirectory/sources/gatekeeper.bash"
+setEnvironmentParameters "on"
+unset setEnvironmentParameters
+
 bashHelperScripts="$bashrcDirectory/resources/scripts/helpers"
 
 if [ -f "$bashHelperScripts/bash-completion/bash_completion" ]
