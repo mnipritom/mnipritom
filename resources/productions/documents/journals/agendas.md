@@ -1,0 +1,51 @@
+- bash:
+  - [ ] implement `tmpfs` in `/etc/fstab`
+    - [ ] fix `fstab` false reporting
+  - [ ] implement checks for `init` system
+    - [ ] implement `runnit` `init` system service handler
+    - [ ] implement `systemd` specific `systemd-firstboot` usage to configure system
+  - [ ] `dab`: Distribution Agnostic and/or Assisted Bootstrapper
+    - `void` can cross bootstrap as long as the architectures are compatible
+      - example: `x86_64` can bootstrap `aarch64`
+    - `debian` derivatives can "partially" cross bootstrap
+      - `/debootstrap/debootstrap` is created at target where `debootstrap --second-stage` is needed to be run to complete bootstrap
+      - `x86_64` is referred to as `amd64` in `debootstrap`
+    - `fedora` can not cross bootstrap, needs emulation to target foreign architecture
+    - information regarding `arch`, `opensuse` `nix` derivatives are unavailable
+- `/etc`:
+  - [ ] /etc/rc.local
+  - [ ] /etc/sudoers
+- xdg-compliance:
+  - [ ] implement xdg-compliant environment variables
+  - [ ] dex:
+    - [ ] generate `.desktop` files from `.xinitrc` entries with `dex`
+- resources:
+  - [ ] explore audio format `webm`
+  - [ ] `stow` tree
+    - `$HOME`
+      - .dmrc
+      - .Xdefaults
+      - .Xresources
+      - .xinitrc
+      - .xprofile
+      - .xsession
+      - .bash_profile
+      - .bashrc
+      - .bash_logout
+      - .wgetrc
+      - .tmux.conf
+      - .npmrc
+      - .guile
+      - .gitconfig
+      - .gemrc
+      - .cargo/config.toml
+    - `.config`
+      - [ ] flutter
+      - [ ] starship
+    - `.config/directory`
+      - [ ] neofetch
+      - [ ] nixpkgs
+      - [ ] ranger
+      - [ ] mimeapps.list
+      - [ ] user-dirs.dirs
+      - [ ] user-dirs.locale

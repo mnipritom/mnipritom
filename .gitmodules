@@ -1,45 +1,45 @@
 [submodule "xdeb"]
-	path = resources/assets/downloads/utilities/scripts/bash/executables/xdeb
+	path = resources/references/utilities/scripts/bash/executables/xdeb
 	url = https://github.com/toluschr/xdeb
 [submodule "tdrop"]
-	path = resources/assets/downloads/utilities/scripts/bash/executables/tdrop
+	path = resources/references/utilities/scripts/bash/executables/tdrop
 	url = https://github.com/noctuid/tdrop
 [submodule "deb-get"]
-	path = resources/assets/downloads/utilities/scripts/bash/executables/deb-get
+	path = resources/references/utilities/scripts/bash/executables/deb-get
 	url = https://github.com/wimpysworld/deb-get
 [submodule "debtap"]
-	path = resources/assets/downloads/utilities/scripts/bash/executables/debtap
+	path = resources/references/utilities/scripts/bash/executables/debtap
 	url = https://github.com/helixarch/debtap
 [submodule "neofetch"]
-	path = resources/assets/downloads/utilities/scripts/bash/executables/neofetch
+	path = resources/references/utilities/scripts/bash/executables/neofetch
 	url = https://github.com/dylanaraps/neofetch
 [submodule "distrobox"]
-	path = resources/assets/downloads/utilities/scripts/bash/executables/distrobox
+	path = resources/references/utilities/scripts/bash/executables/distrobox
 	url = https://github.com/89luca89/distrobox
 [submodule "git-fuzzy"]
-	path = resources/assets/downloads/utilities/scripts/bash/executables/git-fuzzy
+	path = resources/references/utilities/scripts/bash/executables/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy
 [submodule "git-forgit"]
-	path = resources/assets/downloads/utilities/scripts/bash/executables/git-forgit
+	path = resources/references/utilities/scripts/bash/executables/git-forgit
 	url = https://github.com/wfxr/forgit
 [submodule "bash-completion"]
-	path = resources/assets/downloads/utilities/scripts/bash/helpers/bash-completion
+	path = resources/references/utilities/scripts/bash/helpers/bash-completion
 	url = https://github.com/scop/bash-completion
 [submodule "fzf-tab-completion"]
-	path = resources/assets/downloads/utilities/scripts/bash/helpers/fzf-tab-completion
+	path = resources/references/utilities/scripts/bash/helpers/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
 [submodule "lain"]
-	path = resources/assets/downloads/utilities/libraries/awesome/lain
+	path = resources/references/utilities/libraries/awesome/lain
 	url = https://github.com/lcpz/lain
 [submodule "redflat"]
-	path = resources/assets/downloads/utilities/libraries/awesome/redflat
+	path = resources/references/utilities/libraries/awesome/redflat
 	url = https://github.com/worron/redflat
 [submodule "quranjson"]
-	path = resources/assets/references/scriptures/quranjson
+	path = resources/references/documents/scriptures/quranjson
 	url = https://github.com/semarketir/quranjson
 [submodule "quran-json"]
-	path = resources/assets/references/scriptures/quran-json
+	path = resources/references/documents/scriptures/quran-json
 	url = https://github.com/risan/quran-json
 [submodule "licenses"]
-	path = resources/assets/references/licenses
+	path = resources/references/documents/licenses
 	url = https://github.com/IQAndreas/markdown-licenses
