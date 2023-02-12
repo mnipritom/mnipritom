@@ -221,7 +221,7 @@ function setEnvironmentParameters {
   requiredParametersRecords["systemPackageManager"]="$(
     getSystemPackageManager
   )" && requiredParametersIdentifiers+=(
-    "getSystemPackageManager"
+    "systemPackageManager"
   )
 
   requiredParametersRecords["workingDistributions"]="$(
