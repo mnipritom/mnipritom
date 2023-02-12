@@ -1,20 +1,9 @@
-docs() {
+pdocs() {
   cd "$producedDocumentsDirectory"
 }
-dots() {
-  cd "$dotfilesDirectory"
-}
-refs() {
-  cd "$referencesDirectory"
-}
-utils() {
-  cd "$configuredUtilitiesDirectory"
+rdocs() {
+  cd "$referencedDocumentsDirectory"
 }
 repo() {
-  if [ "$1" == "trees" ]
-  then
-    trees
-  else
-    cd "$repositoryPath"
-  fi
+  cd "$repositoryPath"
 }

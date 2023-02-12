@@ -23,7 +23,7 @@ function setEnvironmentParameters {
   )
 
   requiredParametersRecords["worktreePath"]=$(
-    cd "${requiredParametersRecords[gatekeeperDirectory]}/../../../"
+    cd "${requiredParametersRecords["gatekeeperDirectory"]}/../../../"
     if [ $( git rev-parse --is-inside-work-tree ) ]
     then
       printf "%s" "$PWD"
@@ -33,24 +33,37 @@ function setEnvironmentParameters {
   )
 
   requiredParametersRecords["worktreeIdentifier"]=$(
-    basename "${requiredParametersRecords[worktreePath]}"
+    worktreesDirectoryIdentifier=$(
+      basename "${requiredParametersRecords["worktreePath"]}"
+    )
+    worktreeRepositoryIdentifier=$(
+      cd "${requiredParametersRecords["worktreePath"]}" && git branch --show-current
+    )
+    if [ "$worktreesDirectoryIdentifier" == "$worktreeRepositoryIdentifier" ]
+    then
+      printf "$worktreesDirectoryIdentifier"
+    else
+      printf "$worktreeRepositoryIdentifier"
+    fi
+    unset worktreesDirectoryIdentifier
+    unset worktreeRepositoryIdentifier
   ) && requiredParametersIdentifiers+=(
     "worktreeIdentifier"
   )
 
   requiredParametersRecords["worktreeRepository"]=$(
-    cd "${requiredParametersRecords[worktreePath]}" && git rev-parse --absolute-git-dir
+    cd "${requiredParametersRecords["worktreePath"]}" && git rev-parse --absolute-git-dir
   ) && requiredParametersIdentifiers+=(
     "worktreeRepository"
   )
 
   requiredParametersRecords["repositoryPath"]=$(
-    cd "${requiredParametersRecords[worktreePath]}" && git rev-parse --path-format=absolute --git-common-dir
+    cd "${requiredParametersRecords["worktreePath"]}" && git rev-parse --path-format=absolute --git-common-dir
   ) && requiredParametersIdentifiers+=(
     "repositoryPath"
   )
 
-  requiredParametersRecords["worktreesDirectory"]="${requiredParametersRecords[repositoryPath]}/states" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["worktreesDirectory"]="${requiredParametersRecords["repositoryPath"]}/states" && requiredParametersIdentifiers+=(
     "worktreesDirectory"
   )
 
@@ -70,127 +83,96 @@ function setEnvironmentParameters {
     "warningSymbol"
   )
 
-  requiredParametersRecords["blocksDirectory"]="${requiredParametersRecords[gatekeeperDirectory]}/blocks" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["blocksDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/blocks" && requiredParametersIdentifiers+=(
     "blocksDirectory"
   )
 
-  requiredParametersRecords["snippetsDirectory"]="${requiredParametersRecords[gatekeeperDirectory]}/snippets" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["snippetsDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/snippets" && requiredParametersIdentifiers+=(
     "snippetsDirectory"
   )
 
-  requiredParametersRecords["modulesDirectory"]="${requiredParametersRecords[gatekeeperDirectory]}/modules" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["modulesDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/modules" && requiredParametersIdentifiers+=(
     "modulesDirectory"
   )
 
-  requiredParametersRecords["actionsDirectory"]="${requiredParametersRecords[gatekeeperDirectory]}/actions" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["actionsDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/actions" && requiredParametersIdentifiers+=(
     "actionsDirectory"
   )
 
-  requiredParametersRecords["chunksDirectory"]="${requiredParametersRecords[gatekeeperDirectory]}/chunks" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["chunksDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/chunks" && requiredParametersIdentifiers+=(
     "chunksDirectory"
   )
 
-  requiredParametersRecords["handlersDirectory"]="${requiredParametersRecords[gatekeeperDirectory]}/handlers" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["handlersDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/handlers" && requiredParametersIdentifiers+=(
     "handlersDirectory"
   )
 
-  requiredParametersRecords["aliasesDirectory"]="${requiredParametersRecords[gatekeeperDirectory]}/aliases" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["aliasesDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/aliases" && requiredParametersIdentifiers+=(
     "aliasesDirectory"
   )
 
   requiredParametersRecords["resourcesDirectory"]=$(
-    cd "${requiredParametersRecords[gatekeeperDirectory]}/../../../resources" && pwd
+    cd "${requiredParametersRecords["gatekeeperDirectory"]}/../../../resources" && pwd
   ) && requiredParametersIdentifiers+=(
     "resourcesDirectory"
   )
 
-  requiredParametersRecords["assetsDirectory"]="${requiredParametersRecords[resourcesDirectory]}/assets" && requiredParametersIdentifiers+=(
-    "assetsDirectory"
-  )
-
-  requiredParametersRecords["configurationsDirectory"]="${requiredParametersRecords[resourcesDirectory]}/configurations" && requiredParametersIdentifiers+=(
-    "configurationsDirectory"
-  )
-
-  requiredParametersRecords["diagnosticsDirectory"]="${requiredParametersRecords[resourcesDirectory]}/diagnostics" && requiredParametersIdentifiers+=(
+  # [TODO] add lacking paths
+  requiredParametersRecords["diagnosticsDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/diagnostics" && requiredParametersIdentifiers+=(
     "diagnosticsDirectory"
   )
 
-  requiredParametersRecords["downloadsDirectory"]="${requiredParametersRecords[assetsDirectory]}/downloads" && requiredParametersIdentifiers+=(
-    "downloadsDirectory"
+  requiredParametersRecords["diagnosedDumpsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/dumps" && requiredParametersIdentifiers+=(
+    "diagnosedDumpsDirectory"
   )
 
-  requiredParametersRecords["productionsDirectory"]="${requiredParametersRecords[assetsDirectory]}/productions" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["diagnosedReportsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/reports" && requiredParametersIdentifiers+=(
+    "diagnosedReportsDirectory"
+  )
+
+  requiredParametersRecords["diagnosedExtractsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/extracts" && requiredParametersIdentifiers+=(
+    "diagnosedExtractsDirectory"
+  )
+
+  requiredParametersRecords["productionsDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/productions" && requiredParametersIdentifiers+=(
     "productionsDirectory"
   )
 
-  requiredParametersRecords["referencesDirectory"]="${requiredParametersRecords[assetsDirectory]}/references" && requiredParametersIdentifiers+=(
-    "referencesDirectory"
-  )
-
-  requiredParametersRecords["releasesDirectory"]="${requiredParametersRecords[assetsDirectory]}/releases" && requiredParametersIdentifiers+=(
-    "releasesDirectory"
-  )
-
-  requiredParametersRecords["configuredTemplatesDirectory"]="${requiredParametersRecords[configurationsDirectory]}/templates" && requiredParametersIdentifiers+=(
-    "configuredTemplatesDirectory"
-  )
-
-  requiredParametersRecords["downloadedUtilitiesDirectory"]="${requiredParametersRecords[downloadsDirectory]}/utilities" && requiredParametersIdentifiers+=(
-    "downloadedUtilitiesDirectory"
-  )
-
-  requiredParametersRecords["downloadedScriptsDirectory"]="${requiredParametersRecords[downloadedUtilitiesDirectory]}/scripts/bash" && requiredParametersIdentifiers+=(
-    "downloadedScriptsDirectory"
-  )
-
-  requiredParametersRecords["downloadedExecutablesDirectory"]="${requiredParametersRecords[downloadedScriptsDirectory]}/executables" && requiredParametersIdentifiers+=(
-    "downloadedExecutablesDirectory"
-  )
-
-  requiredParametersRecords["downloadedHelpersDirectory"]="${requiredParametersRecords[downloadedScriptsDirectory]}/helpers" && requiredParametersIdentifiers+=(
-    "downloadedHelpersDirectory"
-  )
-
-  requiredParametersRecords["dotfilesDirectory"]="${requiredParametersRecords[configurationsDirectory]}/dotfiles" && requiredParametersIdentifiers+=(
-    "dotfilesDirectory"
-  )
-
-  requiredParametersRecords["wallpapersDirectory"]="${requiredParametersRecords[downloadsDirectory]}/wallpapers" && requiredParametersIdentifiers+=(
-    "wallpapersDirectory"
-  )
-
-  requiredParametersRecords["logosDirectory"]="${requiredParametersRecords[referencesDirectory]}/logos" && requiredParametersIdentifiers+=(
-    "logosDirectory"
-  )
-
-  requiredParametersRecords["producedDocumentsDirectory"]="${requiredParametersRecords[productionsDirectory]}/documents" && requiredParametersIdentifiers+=(
+  requiredParametersRecords["producedDocumentsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/documents" && requiredParametersIdentifiers+=(
     "producedDocumentsDirectory"
   )
 
-  requiredParametersRecords["journalsDirectory"]="${requiredParametersRecords[producedDocumentsDirectory]}/journals" && requiredParametersIdentifiers+=(
-    "journalsDirectory"
+  requiredParametersRecords["producedIllustrationsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/illustrations" && requiredParametersIdentifiers+=(
+    "producedIllustrationsDirectory"
   )
 
-  requiredParametersRecords["playlistsDirectory"]="${requiredParametersRecords[producedDocumentsDirectory]}/playlists" && requiredParametersIdentifiers+=(
-    "playlistsDirectory"
+  requiredParametersRecords["producedRecordingsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/recordings" && requiredParametersIdentifiers+=(
+    "producedRecordingsDirectory"
   )
 
-  requiredParametersRecords["reportsDirectory"]="${requiredParametersRecords[diagnosticsDirectory]}/reports" && requiredParametersIdentifiers+=(
-    "reportsDirectory"
+  requiredParametersRecords["referencesDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/references" && requiredParametersIdentifiers+=(
+    "referencesDirectory"
   )
 
-  requiredParametersRecords["dumpsDirectory"]="${requiredParametersRecords[diagnosticsDirectory]}/dumps" && requiredParametersIdentifiers+=(
-    "dumpsDirectory"
+  requiredParametersRecords["referencedDocumentsDirectory"]="${requiredParametersRecords["referencesDirectory"]}/documents" && requiredParametersIdentifiers+=(
+    "referencedDocumentsDirectory"
   )
 
-  requiredParametersRecords["extractsDirectory"]="${requiredParametersRecords[diagnosticsDirectory]}/extracts" && requiredParametersIdentifiers+=(
-    "extractsDirectory"
+  requiredParametersRecords["referencedIllustrationsDirectory"]="${requiredParametersRecords["referencesDirectory"]}/illustrations" && requiredParametersIdentifiers+=(
+    "referencedIllustrationsDirectory"
+  )
+
+  requiredParametersRecords["referencedUtilitiesDirectory"]="${requiredParametersRecords["referencesDirectory"]}/utilities" && requiredParametersIdentifiers+=(
+    "referencedUtilitiesDirectory"
+  )
+
+  requiredParametersRecords["releasesDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/releases" && requiredParametersIdentifiers+=(
+    "releasesDirectory"
   )
 
   function getSystemPackageManager {
-    source "${requiredParametersRecords[snippetsDirectory]}/baseSystem/getHostDistribution.bash"
-    source "${requiredParametersRecords[modulesDirectory]}/baseSystem/getHostDistributionPackageManager.bash"
+    source "${requiredParametersRecords["snippetsDirectory"]}/baseSystem/getHostDistribution.bash"
+    source "${requiredParametersRecords["modulesDirectory"]}/baseSystem/getHostDistributionPackageManager.bash"
     local hostDistribution=$(
       getHostDistribution
     )
@@ -202,7 +184,7 @@ function setEnvironmentParameters {
 
   function getWorkingDistributions {
     local hostDistribution=$(
-      source "${requiredParametersRecords[snippetsDirectory]}/baseSystem/getHostDistribution.bash"
+      source "${requiredParametersRecords["snippetsDirectory"]}/baseSystem/getHostDistribution.bash"
       getHostDistribution
     )
     local availableDistributionsEntries=(
@@ -248,15 +230,53 @@ function setEnvironmentParameters {
     "workingDistributions"
   )
 
+  function loadExecutableScripts {
+    local executableScriptsEntries=($(
+      find $requiredParametersRecords["referencedUtilitiesDirectory"] -maxdepth 1 -type d -not -path $requiredParametersRecords["referencedUtilitiesDirectory"] -nowarn
+    ))
+    local executableScriptsPaths
+    for script in "${executableScriptsEntries[@]}"
+    do
+      local scriptEntry="${script##$requiredParametersRecords["referencedUtilitiesDirectory"]/}"
+      if [ -f "$script/$scriptEntry" ]
+      then
+        if [ ! -x "$script/$scriptEntry" ]
+        then
+          chmod +x "$script/$scriptEntry"
+        else
+          executableScriptsPaths+=(
+            "$script"
+          )
+        fi
+      elif [ -f "$script/bin/$scriptEntry" ]
+      then
+        if [ ! -x "$script/bin/$scriptEntry" ]
+        then
+          chmod +x "$script/bin/$scriptEntry"
+        else
+          executableScriptsPaths+=(
+            "$script/bin"
+          )
+        fi
+      fi
+    done
+    local availableExecutableScripts=$(
+      printf "%s\n" "${executableScriptsPaths[@]}" | tr "\n" ":"
+    )
+    export PATH="$PATH:$(
+      printf "%s" "$availableExecutableScripts"
+    )"
+  }
+
   function createRequiredDirectories {
     (
-      source "${requiredParametersRecords[blocksDirectory]}/fileSystem/createDirectory.bash"
+      source "${requiredParametersRecords["blocksDirectory"]}/fileSystem/createDirectory.bash"
       local requiredDirectories=(
-        "${requiredParametersRecords[diagnosticsDirectory]}"
-        "${requiredParametersRecords[reportsDirectory]}"
-        "${requiredParametersRecords[dumpsDirectory]}"
-        "${requiredParametersRecords[extractsDirectory]}"
-        "${requiredParametersRecords[worktreesDirectory]}"
+        "${requiredParametersRecords["diagnosticsDirectory"]}"
+        "${requiredParametersRecords["diagnosedReportsDirectory"]}"
+        "${requiredParametersRecords["diagnosedDumpsDirectory"]}"
+        "${requiredParametersRecords["diagnosedExtractsDirectory"]}"
+        "${requiredParametersRecords["worktreesDirectory"]}"
       )
       # [TODO] implement better evaluation to work within `distrobox` containers
       for directory in "${requiredDirectories[@]}"
@@ -269,18 +289,36 @@ function setEnvironmentParameters {
     )
   }
 
+  function loadAliasesEntries {
+    local aliasesEntries=($(
+      find "${requiredParametersRecords["aliasesDirectory"]}" -type f
+    ))
+    for aliasesEntry in "${aliasesEntries[@]}"
+    do
+      source "$aliasesEntry"
+      if [ "$?" != 0 ]
+      then
+        printf "%s\n ${requiredParametersRecords["failureSymbol"]} Failed to load alias file : $aliasesEntry"
+      fi
+    done
+    unset aliasesEntry
+    unset aliasesEntries
+  }
+
   createRequiredDirectories
+  loadAliasesEntries
+  loadExecutableScripts
 
   for parameter in "${requiredParametersIdentifiers[@]}"
   do
     if [ "$state" == "on" ]
     then
-      export "$parameter=${requiredParametersRecords[$parameter]}"
+      export "$parameter=${requiredParametersRecords["$parameter"]}"
     elif [ "$state" == "off" ]
     then
       unset "$parameter"
     else
-      printf "%s\n" "${requiredParametersRecords[failureSymbol]} Failed to find state : $state"
+      printf "%s\n" "${requiredParametersRecords["failureSymbol"]} Failed to find state : $state"
     fi
   done
 
@@ -289,4 +327,6 @@ function setEnvironmentParameters {
   unset getWorkingDistributions
   unset getPrerequisites
   unset createRequiredDirectories
+  unset loadAliasesEntries
+  unset loadExecutableScripts
 }

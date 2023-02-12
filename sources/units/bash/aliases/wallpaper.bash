@@ -6,10 +6,10 @@ walls() {
     if [ "$1" == "list" ]
     then
       wallpapersSources=($(
-        find $wallpapersDirectory -type f
+        find $referencedIllustrationsDirectory/wallpapers -type f
       ))
       wallpaperIdentifier=$(
-        printf "%s\n" "${wallpapersSources[@]##$wallpapersDirectory/}" | fzf
+        printf "%s\n" "${wallpapersSources[@]##$referencedIllustrationsDirectory/wallpapers/}" | fzf
       )
       wallpaperSource=$(
         printf "%s\n" "${wallpapersSources[@]}" | grep "$wallpaperIdentifier"
@@ -17,13 +17,13 @@ walls() {
     else
       source "$blocksDirectory/fileOutput/getRandomFile.bash"
       wallpaperSource="$(
-        getRandomFile $wallpapersDirectory
+        getRandomFile $referencedIllustrationsDirectory/wallpapers
       )"
     fi
     dwebp "$wallpaperSource" -o "$wallpaper" -mt &>/dev/null
     if [ "$?" == 0 ]
     then
-      echo "$processingSymbol Setting wallpaper : ${wallpaperSource##$wallpapersDirectory/}"
+      echo "$processingSymbol Setting wallpaper : ${wallpaperSource##$referencedIllustrationsDirectory/wallpapers}"
       xwallpaper --zoom "$wallpaper"
     else
       echo "$failureSymbol Failed to set wallpaper : $wallpaperSource"
