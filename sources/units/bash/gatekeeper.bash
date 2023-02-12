@@ -230,6 +230,28 @@ function setEnvironmentParameters {
     "workingDistributions"
   )
 
+  function createRequiredDirectories {
+    (
+      source "${requiredParametersRecords["blocksDirectory"]}/fileSystem/createDirectory.bash"
+      local requiredDirectories=(
+        "${requiredParametersRecords["diagnosticsDirectory"]}"
+        "${requiredParametersRecords["diagnosedReportsDirectory"]}"
+        "${requiredParametersRecords["diagnosedDumpsDirectory"]}"
+        "${requiredParametersRecords["diagnosedExtractsDirectory"]}"
+        "${requiredParametersRecords["worktreesDirectory"]}"
+      )
+      # [TODO] implement better evaluation to work within `distrobox` containers
+      for directory in "${requiredDirectories[@]}"
+      do
+        if [ ! -d "$directory" ]
+        then
+          promptCreateDirectory "$directory"
+        fi
+      done
+    )
+  }
+
+  # [TODO] set status `requiredParametersRecords["executablesStatus"]`
   function loadExecutableScripts {
     local executableScriptsEntries=($(
       find $requiredParametersRecords["referencedUtilitiesDirectory"] -maxdepth 1 -type d -not -path $requiredParametersRecords["referencedUtilitiesDirectory"] -nowarn
@@ -268,27 +290,7 @@ function setEnvironmentParameters {
     )"
   }
 
-  function createRequiredDirectories {
-    (
-      source "${requiredParametersRecords["blocksDirectory"]}/fileSystem/createDirectory.bash"
-      local requiredDirectories=(
-        "${requiredParametersRecords["diagnosticsDirectory"]}"
-        "${requiredParametersRecords["diagnosedReportsDirectory"]}"
-        "${requiredParametersRecords["diagnosedDumpsDirectory"]}"
-        "${requiredParametersRecords["diagnosedExtractsDirectory"]}"
-        "${requiredParametersRecords["worktreesDirectory"]}"
-      )
-      # [TODO] implement better evaluation to work within `distrobox` containers
-      for directory in "${requiredDirectories[@]}"
-      do
-        if [ ! -d "$directory" ]
-        then
-          promptCreateDirectory "$directory"
-        fi
-      done
-    )
-  }
-
+  # [TODO] set status `requiredParametersRecords["aliasesStatus"]`
   function loadAliasesEntries {
     local aliasesEntries=($(
       find "${requiredParametersRecords["aliasesDirectory"]}" -type f
@@ -309,20 +311,20 @@ function setEnvironmentParameters {
   loadAliasesEntries
   loadExecutableScripts
 
-  for parameter in "${requiredParametersIdentifiers[@]}"
+  for parameterIdentifier in "${requiredParametersIdentifiers[@]}"
   do
     if [ "$state" == "on" ]
     then
-      export "$parameter=${requiredParametersRecords["$parameter"]}"
+      export "$parameterIdentifier=${requiredParametersRecords["$parameterIdentifier"]}"
     elif [ "$state" == "off" ]
     then
-      unset "$parameter"
+      unset "$parameterIdentifier"
     else
       printf "%s\n" "${requiredParametersRecords["failureSymbol"]} Failed to find state : $state"
     fi
   done
 
-  unset parameter
+  unset parameterIdentifier
   unset getSystemPackageManager
   unset getWorkingDistributions
   unset getPrerequisites
