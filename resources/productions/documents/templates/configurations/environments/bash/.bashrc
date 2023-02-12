@@ -50,12 +50,7 @@ source "$bashHelperScripts/fzf-tab-completion/bash/fzf-bash-completion.sh"
 bind -x '"\t": fzf_bash_completion'
 unset bashHelperScripts
 
-source "$bashrcDirectory/sources/blocks/baseSystem/getUniquePathEntries.bash"
 source "$bashrcDirectory/sources/blocks/baseSystem/generatePasswordPrompt.bash"
-export PATH="$(
-  getUniquePathEntries
-)"
-unset getUniquePathEntries
 SUDO_ASKPASS_PROMPT="$(
   generatePasswordPrompt
 )"

@@ -253,13 +253,15 @@ function setEnvironmentParameters {
 
   # [TODO] set status `requiredParametersRecords["executablesStatus"]`
   function loadExecutableScripts {
+    source "${requiredParametersRecords["blocksDirectory"]}/baseSystem/getUniquePathEntries.bash"
+    local executableScriptsDirectory="${requiredParametersRecords["referencedUtilitiesDirectory"]}/scripts/bash/executables"
     local executableScriptsEntries=($(
-      find $requiredParametersRecords["referencedUtilitiesDirectory"] -maxdepth 1 -type d -not -path $requiredParametersRecords["referencedUtilitiesDirectory"] -nowarn
+      find "$executableScriptsDirectory" -maxdepth 1 -type d -not -path "$executableScriptsDirectory" -nowarn
     ))
     local executableScriptsPaths
     for script in "${executableScriptsEntries[@]}"
     do
-      local scriptEntry="${script##$requiredParametersRecords["referencedUtilitiesDirectory"]/}"
+      local scriptEntry="${script##$executableScriptsDirectory/}"
       if [ -f "$script/$scriptEntry" ]
       then
         if [ ! -x "$script/$scriptEntry" ]
@@ -282,11 +284,15 @@ function setEnvironmentParameters {
         fi
       fi
     done
+    unset script
     local availableExecutableScripts=$(
       printf "%s\n" "${executableScriptsPaths[@]}" | tr "\n" ":"
     )
     export PATH="$PATH:$(
       printf "%s" "$availableExecutableScripts"
+    )"
+    export PATH="$(
+      getUniquePathEntries
     )"
   }
 
@@ -304,7 +310,6 @@ function setEnvironmentParameters {
       fi
     done
     unset aliasesEntry
-    unset aliasesEntries
   }
 
   createRequiredDirectories
