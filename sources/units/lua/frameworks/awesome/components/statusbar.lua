@@ -2,6 +2,8 @@ local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
 
+local icons = os.getenv("referencedIllustrationsDirectory").."/logos"
+
 local tagButtons = gears.table.join(
   awful.button(
     {},
@@ -132,20 +134,20 @@ local layoutButtons = gears.table.join(
 awful.screen.connect_for_each_screen(
   function(self)
     awful.tag.add("browsers",{
-      icon = os.getenv("logosDirectory").."/languages/javascript.svg",
+      icon = icons.."/languages/javascript.svg",
       layout = awful.layout.layouts[1],
       gap_single_client = true,
       screen = self,
       selected = true
     })
     awful.tag.add("editors",{
-      icon = os.getenv("logosDirectory").."/languages/typescript.svg",
+      icon = icons.."/languages/typescript.svg",
       layout = awful.layout.layouts[1],
       gap_single_client = true,
       screen = self
     })
     awful.tag.add("terminals",{
-      icon = os.getenv("logosDirectory").."/frameworks/electron.svg",
+      icon = icons.."/frameworks/electron.svg",
       layout = awful.layout.layouts[1],
       gap_single_client = true,
       screen = self

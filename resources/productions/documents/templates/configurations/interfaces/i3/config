@@ -1,12 +1,13 @@
-set $mod          Mod4
-set $terminal     $TERM
-set $browsers     "1: browsers "
-set $editors      "2: editors "
-set $terminals    "3: terminals "
-floating_modifier $mod
+set $i3Configurations $producedDocumentsDirectory/templates/configurations/interfaces/i3
+set $mod              Mod4
+set $terminal         $TERM
+set $browsers         "1: browsers "
+set $editors          "2: editors "
+set $terminals        "3: terminals "
+floating_modifier     $mod
 
-include $dotfilesDirectory/i3/.config/i3/settings/keybindings.conf
-include $dotfilesDirectory/i3/.config/i3/settings/rules.conf
-include $dotfilesDirectory/i3/.config/i3/settings/preferences.conf
-include $dotfilesDirectory/i3/.config/i3/themes/colors.conf
-include $dotfilesDirectory/i3/.config/i3/components/statusbar.conf
+include $i3Configurations/settings/keybindings.conf
+include $i3Configurations/settings/rules.conf
+include $i3Configurations/settings/preferences.conf
+include $i3Configurations/themes/colors.conf
+include $i3Configurations/components/statusbar.conf
