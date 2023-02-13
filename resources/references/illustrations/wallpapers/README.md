@@ -1,0 +1,30 @@
+- sources:
+  - あずまんが大王
+    - [1.webp](./あずまんが大王/1.webp): [source](https://wall.alphacoders.com/big.php?i=26562)
+    - [2.webp](./あずまんが大王/2.webp): [source](https://wall.alphacoders.com/big.php?i=66108)
+  - サムライチャンプルー
+    - [1.webp](./サムライチャンプルー/1.webp): [source](https://wallpapercave.com/w/gBcECJp)
+    - [2.webp](./サムライチャンプルー/2.webp): [source](https://wallpaperaccess.com/full/28188.jpg)
+    - [3.webp](./サムライチャンプルー/3.webp): [source](https://wallpaperaccess.com/full/12.jpg)
+    - [4.webp](./サムライチャンプルー/4.webp): [source](https://coolwallpapers.me/1192273-samurai-champloo.html)
+    - [5.webp](./サムライチャンプルー/5.webp): [source](https://coolwallpapers.me/1192292-samurai-champloo.html)
+    - [6.webp](./サムライチャンプルー/6.webp): [source](https://wallpaperaccess.com/full/44384.jpg)
+    - [7.webp](./サムライチャンプルー/7.webp): [source](https://wallpapercave.com/w/2LwtV5a)
+  - たまこまーけっと
+    - [1.webp](./たまこまーけっと/1.webp): [source](https://wallpaperaccess.com/full/3442975.jpg)
+    - [2.webp](./たまこまーけっと/2.webp): [source](https://wallpaperaccess.com/full/5201112.jpg)
+    - [3.webp](./たまこまーけっと/3.webp): [source](https://wallpaperaccess.com/full/5201115.png)
+    - [4.webp](./たまこまーけっと/4.webp): [source](https://wall.alphacoders.com/big.php?i=954778)
+  - 恋は雨上がりのように
+    - [1.webp](./恋は雨上がりのように/1.webp): [source](https://wall.alphacoders.com/big.php?i=963055)
+    - [2.webp](./恋は雨上がりのように/2.webp): [source](https://wall.alphacoders.com/big.php?i=967256)
+    - [3.webp](./恋は雨上がりのように/3.webp): [source](https://wall.alphacoders.com/big.php?i=999766)
+    - [4.webp](./恋は雨上がりのように/4.webp): [source](https://wall.alphacoders.com/big.php?i=999767)
+    - [5.webp](./恋は雨上がりのように/5.webp): [source](https://wall.alphacoders.com/big.php?i=999772)
+    - [6.webp](./恋は雨上がりのように/6.webp): [source](https://wallpapercave.com/w/wp10325075)
+    - [7.webp](./恋は雨上がりのように/7.webp): [source](https://wallpapercave.com/w/wp10325077)
+    - [8.webp](./恋は雨上がりのように/8.webp): [source](https://wallpapercave.com/w/wp10325085)
+    - [9.webp](./恋は雨上がりのように/9.webp): [source](https://wallpapercave.com/w/wp10325106)
+    - [10.webp](./恋は雨上がりのように/10.webp): [source](https://wallpapercave.com/w/wp10325115)
+    - [11.webp](./恋は雨上がりのように/11.webp): [source](https://wallpapercave.com/w/wp10325125)
+    - [12.webp](./恋は雨上がりのように/12.webp): [source](https://wallpapercave.com/w/wp4630263)
