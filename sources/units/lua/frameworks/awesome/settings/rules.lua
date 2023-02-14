@@ -88,6 +88,7 @@ awful.rules.rules = {
         "atom" and "Atom",
         "code" and "Code",
         "logseq" and "Logseq",
+        "workflowy" and "WorkFlowy",
         "obsidian",
         "marktext"
       }

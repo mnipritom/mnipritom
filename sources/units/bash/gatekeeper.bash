@@ -225,7 +225,7 @@ function setEnvironmentParameters {
   )
 
   requiredParametersRecords["workingDistributions"]="$(
-    getWorkingDistributions
+    getWorkingDistributions | tr "\n" " "
   )" && requiredParametersIdentifiers+=(
     "workingDistributions"
   )
