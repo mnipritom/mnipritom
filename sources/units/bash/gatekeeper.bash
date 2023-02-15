@@ -294,6 +294,7 @@ function setEnvironmentParameters {
     export PATH="$(
       getUniquePathEntries
     )"
+    unset getUniquePathEntries
   }
 
   # [TODO] set status `requiredParametersRecords["aliasesStatus"]`
