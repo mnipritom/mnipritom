@@ -1,8 +1,12 @@
 # ---
 # note:
-#   `conversion-timeout` is for filetype `svg`
+#   - `conversion-timeout` is for filetype `svg`
+#   - add `--start-at %F` in the `exec` section of `feh.desktop` entry
+#     - to cycle through all the files in the directory
+#     - not just the selected file, when `feh` is launched from a GUI file manager
 # ---
-feh --recursive \
+feh --no-recursive \
+    --edit \
     --scale-down \
     --draw-exif \
     --draw-filename \
