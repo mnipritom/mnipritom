@@ -33,8 +33,14 @@ eval "$( /home/linuxbrew/.linuxbrew/bin/brew shellenv )"
 
 shopt -s autocd
 shopt -s cdspell
+shopt -s cdable_vars
 shopt -s cmdhist
-shopt -s histappend
+shopt -s histappend histreedit histverify
+shopt -s checkhash
+shopt -s checkwinsize
+shopt -s sourcepath
+shopt -s no_empty_cmd_completion
+shopt -s extglob
 
 bashrcDirectory="$(
   cd "$(
