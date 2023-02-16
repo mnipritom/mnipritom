@@ -3,6 +3,7 @@
 # note: requires SUDO_ASKPASS environment variable to be set
 # ---
 function generatePasswordPrompt {
+  # [TODO] generalize into generatePromptScript `draft`
   local bash="$(
     which bash
   )"
@@ -10,9 +11,9 @@ function generatePasswordPrompt {
     which rofi
   )"
   local promptCommand="$rofi -dmenu -password -i -no-fixed-num-lines -p 'Password'"
-  local promptScript="$HOME/.SUDO_ASKPASS_PROMPT"
+  local promptScript="$HOME/.local/bin/SUDO_ASKPASS_PROMPT"
   touch "$promptScript"
   printf "%s\n%s" "#!$bash" "$promptCommand" > "$promptScript"
   chmod +x "$promptScript"
-  echo "$promptScript"
+  printf "%s" "$promptScript"
 }
