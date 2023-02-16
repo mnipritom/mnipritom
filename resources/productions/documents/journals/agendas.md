@@ -1,4 +1,5 @@
 - bash:
+  - [ ] redesign architecture
   - [ ] implement `tmpfs` in `/etc/fstab`
     - [ ] fix `fstab` false reporting
   - [ ] implement checks for `init` system
