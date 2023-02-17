@@ -8,10 +8,10 @@ function setEnvironmentParameters {
   local requiredParametersIdentifiers
   declare -A requiredParametersRecords
 
-  requiredParametersIdentifiers+=( "gatekeeperStatus" ) && \
+  requiredParametersIdentifiers+=( "gatekeeperStatus" )
   requiredParametersRecords["gatekeeperStatus"]="available"
 
-  requiredParametersIdentifiers+=( "gatekeeperDirectory" ) && \
+  requiredParametersIdentifiers+=( "gatekeeperDirectory" )
   requiredParametersRecords["gatekeeperDirectory"]=$(
     dirname $(
       realpath --canonicalize-existing $(
@@ -20,7 +20,7 @@ function setEnvironmentParameters {
     )
   )
 
-  requiredParametersIdentifiers+=( "worktreePath" ) && \
+  requiredParametersIdentifiers+=( "worktreePath" )
   requiredParametersRecords["worktreePath"]=$(
     cd "${requiredParametersRecords["gatekeeperDirectory"]}/../../../"
     if [ $( git rev-parse --is-inside-work-tree ) ]
@@ -29,7 +29,7 @@ function setEnvironmentParameters {
     fi
   )
 
-  requiredParametersIdentifiers+=( "worktreeIdentifier" ) && \
+  requiredParametersIdentifiers+=( "worktreeIdentifier" )
   requiredParametersRecords["worktreeIdentifier"]=$(
     worktreesDirectoryIdentifier=$(
       basename "${requiredParametersRecords["worktreePath"]}"
@@ -48,97 +48,97 @@ function setEnvironmentParameters {
     unset worktreeRepositoryIdentifier
   )
 
-  requiredParametersIdentifiers+=( "worktreeRepository" ) && \
+  requiredParametersIdentifiers+=( "worktreeRepository" )
   requiredParametersRecords["worktreeRepository"]=$(
     cd "${requiredParametersRecords["worktreePath"]}" && \
     git rev-parse --absolute-git-dir
   )
 
-  requiredParametersIdentifiers+=( "repositoryPath" ) && \
+  requiredParametersIdentifiers+=( "repositoryPath" )
   requiredParametersRecords["repositoryPath"]=$(
     cd "${requiredParametersRecords["worktreePath"]}" && \
     git rev-parse --path-format=absolute --git-common-dir
   )
 
-  requiredParametersIdentifiers+=( "worktreesDirectory" ) && \
+  requiredParametersIdentifiers+=( "worktreesDirectory" )
   requiredParametersRecords["worktreesDirectory"]="${requiredParametersRecords["repositoryPath"]}/states"
 
-  requiredParametersIdentifiers+=( "processingSymbol" ) && \
+  requiredParametersIdentifiers+=( "processingSymbol" )
   requiredParametersRecords["processingSymbol"]="[⚙]"
 
-  requiredParametersIdentifiers+=( "successSymbol" ) && \
+  requiredParametersIdentifiers+=( "successSymbol" )
   requiredParametersRecords["successSymbol"]="[✔]"
 
-  requiredParametersIdentifiers+=( "failureSymbol" ) && \
+  requiredParametersIdentifiers+=( "failureSymbol" )
   requiredParametersRecords["failureSymbol"]="[✘]"
 
-  requiredParametersIdentifiers+=( "warningSymbol" ) && \
+  requiredParametersIdentifiers+=( "warningSymbol" )
   requiredParametersRecords["warningSymbol"]="[!]"
 
-  requiredParametersIdentifiers+=( "blocksDirectory" ) && \
+  requiredParametersIdentifiers+=( "blocksDirectory" )
   requiredParametersRecords["blocksDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/blocks"
 
-  requiredParametersIdentifiers+=( "snippetsDirectory" ) && \
+  requiredParametersIdentifiers+=( "snippetsDirectory" )
   requiredParametersRecords["snippetsDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/snippets"
 
-  requiredParametersIdentifiers+=( "modulesDirectory" ) && \
+  requiredParametersIdentifiers+=( "modulesDirectory" )
   requiredParametersRecords["modulesDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/modules"
 
-  requiredParametersIdentifiers+=( "actionsDirectory" ) && \
+  requiredParametersIdentifiers+=( "actionsDirectory" )
   requiredParametersRecords["actionsDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/actions"
 
-  requiredParametersIdentifiers+=( "chunksDirectory" ) && \
+  requiredParametersIdentifiers+=( "chunksDirectory" )
   requiredParametersRecords["chunksDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/chunks"
 
-  requiredParametersIdentifiers+=( "handlersDirectory" ) && \
+  requiredParametersIdentifiers+=( "handlersDirectory" )
   requiredParametersRecords["handlersDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/handlers"
 
-  requiredParametersIdentifiers+=( "aliasesDirectory" ) && \
+  requiredParametersIdentifiers+=( "aliasesDirectory" )
   requiredParametersRecords["aliasesDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/aliases"
 
-  requiredParametersIdentifiers+=( "resourcesDirectory" ) && \
+  requiredParametersIdentifiers+=( "resourcesDirectory" )
   requiredParametersRecords["resourcesDirectory"]=$(
     realpath "${requiredParametersRecords["gatekeeperDirectory"]}/../../../resources"
   )
 
   # [TODO] add lacking paths
-  requiredParametersIdentifiers+=( "diagnosticsDirectory" ) && \
+  requiredParametersIdentifiers+=( "diagnosticsDirectory" )
   requiredParametersRecords["diagnosticsDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/diagnostics"
 
-  requiredParametersIdentifiers+=( "diagnosedDumpsDirectory" ) && \
+  requiredParametersIdentifiers+=( "diagnosedDumpsDirectory" )
   requiredParametersRecords["diagnosedDumpsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/dumps"
 
-  requiredParametersIdentifiers+=( "diagnosedReportsDirectory" ) && \
+  requiredParametersIdentifiers+=( "diagnosedReportsDirectory" )
   requiredParametersRecords["diagnosedReportsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/reports"
 
-  requiredParametersIdentifiers+=( "diagnosedExtractsDirectory" ) && \
+  requiredParametersIdentifiers+=( "diagnosedExtractsDirectory" )
   requiredParametersRecords["diagnosedExtractsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/extracts"
 
-  requiredParametersIdentifiers+=( "productionsDirectory" ) && \
+  requiredParametersIdentifiers+=( "productionsDirectory" )
   requiredParametersRecords["productionsDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/productions"
 
-  requiredParametersIdentifiers+=( "producedDocumentsDirectory" ) && \
+  requiredParametersIdentifiers+=( "producedDocumentsDirectory" )
   requiredParametersRecords["producedDocumentsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/documents"
 
-  requiredParametersIdentifiers+=( "producedIllustrationsDirectory" ) && \
+  requiredParametersIdentifiers+=( "producedIllustrationsDirectory" )
   requiredParametersRecords["producedIllustrationsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/illustrations"
 
-  requiredParametersIdentifiers+=( "producedRecordingsDirectory" ) && \
+  requiredParametersIdentifiers+=( "producedRecordingsDirectory" )
   requiredParametersRecords["producedRecordingsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/recordings"
 
-  requiredParametersIdentifiers+=( "referencesDirectory" ) && \
+  requiredParametersIdentifiers+=( "referencesDirectory" )
   requiredParametersRecords["referencesDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/references"
 
-  requiredParametersIdentifiers+=( "referencedDocumentsDirectory" ) && \
+  requiredParametersIdentifiers+=( "referencedDocumentsDirectory" )
   requiredParametersRecords["referencedDocumentsDirectory"]="${requiredParametersRecords["referencesDirectory"]}/documents"
 
-  requiredParametersIdentifiers+=( "referencedIllustrationsDirectory" ) && \
+  requiredParametersIdentifiers+=( "referencedIllustrationsDirectory" )
   requiredParametersRecords["referencedIllustrationsDirectory"]="${requiredParametersRecords["referencesDirectory"]}/illustrations"
 
-  requiredParametersIdentifiers+=( "referencedUtilitiesDirectory" ) && \
+  requiredParametersIdentifiers+=( "referencedUtilitiesDirectory" )
   requiredParametersRecords["referencedUtilitiesDirectory"]="${requiredParametersRecords["referencesDirectory"]}/utilities"
 
-  requiredParametersIdentifiers+=( "releasesDirectory" ) && \
+  requiredParametersIdentifiers+=( "releasesDirectory" )
   requiredParametersRecords["releasesDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/releases"
 
   function getSystemPackageManager {
