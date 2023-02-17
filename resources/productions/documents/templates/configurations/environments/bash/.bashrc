@@ -43,11 +43,11 @@ shopt -s no_empty_cmd_completion
 shopt -s extglob
 
 bashrcDirectory="$(
-  cd "$(
-    dirname "$(
-      readlink --canonicalize "${BASH_SOURCE[0]:-$0}"
-    )"
-  )" && pwd
+  dirname $(
+    realpath --canonicalize-existing $(
+      readlink --canonicalize ${BASH_SOURCE[0]:-$0}
+    )
+  )
 )"
 
 bashHelperScripts="$bashrcDirectory/resources/scripts/helpers"
