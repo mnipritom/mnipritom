@@ -1,3 +1,0 @@
-function getAdministrativePrivileges {
-  sudo --validate
-}

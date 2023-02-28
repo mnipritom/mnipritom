@@ -1,38 +1,38 @@
 [submodule "xdeb"]
-	path = resources/references/utilities/scripts/bash/executables/xdeb
+	path = sources/bash/scripts/xdeb
 	url = https://github.com/toluschr/xdeb
 [submodule "tdrop"]
-	path = resources/references/utilities/scripts/bash/executables/tdrop
+	path = sources/bash/scripts/tdrop
 	url = https://github.com/noctuid/tdrop
 [submodule "deb-get"]
-	path = resources/references/utilities/scripts/bash/executables/deb-get
+	path = sources/bash/scripts/deb-get
 	url = https://github.com/wimpysworld/deb-get
 [submodule "debtap"]
-	path = resources/references/utilities/scripts/bash/executables/debtap
+	path = sources/bash/scripts/debtap
 	url = https://github.com/helixarch/debtap
 [submodule "neofetch"]
-	path = resources/references/utilities/scripts/bash/executables/neofetch
+	path = sources/bash/scripts/neofetch
 	url = https://github.com/dylanaraps/neofetch
 [submodule "distrobox"]
-	path = resources/references/utilities/scripts/bash/executables/distrobox
+	path = sources/bash/scripts/distrobox
 	url = https://github.com/89luca89/distrobox
 [submodule "git-fuzzy"]
-	path = resources/references/utilities/scripts/bash/executables/git-fuzzy
+	path = sources/bash/scripts/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy
 [submodule "git-forgit"]
-	path = resources/references/utilities/scripts/bash/executables/git-forgit
+	path = sources/bash/scripts/git-forgit
 	url = https://github.com/wfxr/forgit
 [submodule "bash-completion"]
-	path = resources/references/utilities/scripts/bash/helpers/bash-completion
+	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion
 [submodule "fzf-tab-completion"]
-	path = resources/references/utilities/scripts/bash/helpers/fzf-tab-completion
+	path = sources/bash/completions/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
 [submodule "lain"]
-	path = resources/references/utilities/libraries/awesome/lain
+	path = sources/lua/frameworks/awesome/libraries/lain
 	url = https://github.com/lcpz/lain
 [submodule "redflat"]
-	path = resources/references/utilities/libraries/awesome/redflat
+	path = sources/lua/frameworks/awesome/libraries/redflat
 	url = https://github.com/worron/redflat
 [submodule "quranjson"]
 	path = resources/references/documents/scriptures/quranjson

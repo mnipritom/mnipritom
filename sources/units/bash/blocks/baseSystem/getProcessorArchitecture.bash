@@ -1,3 +1,0 @@
-function getProcessorArchitecture {
-  uname --machine
-}

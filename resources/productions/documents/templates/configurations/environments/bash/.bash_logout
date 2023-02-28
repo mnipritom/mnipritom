@@ -1,1 +1,0 @@
-# [TODO] cleanup `SUDO_ASKPASS_PROMPT`
