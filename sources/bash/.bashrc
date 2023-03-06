@@ -67,3 +67,17 @@ do
   fi
 done
 unset evalCommand commandPath EVALS
+
+bashrcDirectory="$(
+  dirname $(
+    realpath --canonicalize-existing $(
+      readlink --canonicalize ${BASH_SOURCE[0]:-$0}
+    )
+  )
+)"
+
+source "$bashrcDirectory/completions/bash-completion/bash_completion"
+source "$bashrcDirectory/completions/fzf-tab-completion/bash/fzf-bash-completion.sh"
+bind -x '"\t": fzf_bash_completion'
+
+unset bashrcDirectory
