@@ -78,6 +78,141 @@ function promptDeleteDirectory {
     echo "$successSymbol Successfully deleted directory : $targetDirectory"
   fi
 }
+function downloadFromURL {
+  local link="$1"
+  local method="$2"
+  local targetDirectory="$3"
+
+  source "$blocksDirectory/fileSystem/createDirectory.bash"
+  local status
+  if [ "$targetDirectory" != "" ]
+  then
+    downloadsDirectory="$targetDirectory"
+  fi
+  local downloadedFile="$downloadsDirectory/$(
+    getFileName "$link"
+  )"
+  if [ ! -d "$downloadsDirectory" ]
+  then
+    status="$(
+      createDirectory "$downloadsDirectory"
+    )"
+  else
+    status=0
+  fi
+  if [ "$status" != 0 ]
+  then
+    echo "$failureSymbol Failed to create directory : $targetDirectory"
+    return 1
+  else
+    if [ "$method" == "wget" ]
+    then
+      status="$(
+        wget "$link" --directory-prefix="$downloadsDirectory"
+        echo "$?"
+      )"
+    elif [ "$method" == "git" ]
+    then
+      # git will make `downloadedFile` into a directory otherwise will throw error
+      status="$(
+        git clone "$link" "$downloadedFile"
+        echo "$?"
+      )"
+    elif [ "$method" == "curl" ]
+    then
+      echo "$failureSymbol Not yet implemented : $method"
+      status=1
+    else
+      echo "$failureSymbol No download method defined : $method"
+      echo "$failureSymbol Can not download from : $link"
+      status=1
+    fi
+    if [ "$status" != 0 ]
+    then
+      echo "$failureSymbol Failed to download : $link"
+      return "$status"
+    else
+      echo "$downloadedFile"
+    fi
+  fi
+}
+function promptDownloadFromURL {
+  local link="$1"
+  local method="$2"
+  local targetDirectory="$3"
+  local downloadedFile="$(
+    downloadURL "$link" "$method" "$targetDirectory"
+  )"
+  if [ ! -f "$downloadedFile" ]
+  then
+    echo "$failureSymbol Failed to download file"
+    return 1
+  else
+    echo "$successSymbol Successfully downloaded file : $link -> $downloadedFile"
+  fi
+}
+function extractArchive {
+  local fileToExtract="$1"
+  local targetDirectory="$2"
+
+  source "$blocksDirectory/fileSystem/createDirectory.bash"
+  local status
+  if [ "$targetDirectory" != "" ]
+  then
+    extractsDirectory="$targetDirectory"
+  fi
+  local extractedFile="$extractsDirectory/$(
+    getFileName "$fileToExtract"
+  ).extracted"
+  if [ ! -d "$extractsDirectory" ]
+  then
+    status="$(
+      createDirectory "$extractsDirectory"
+    )"
+    if [ "$status" != 0 ]
+    then
+      echo "$failureSymbol Failed to create directory : $extractsDirectory"
+      return 1
+    fi
+  else
+    status=0
+  fi
+  tar --list --file $fileToExtract &>/dev/null
+  status="$(
+    echo "$?"
+  )"
+  if [ "$status" != 0 ]
+  then
+    echo "$warningSymbol Not an archive file : $fileToExtract"
+    return "$status"
+  else
+    tar --extract --file "$fileToExtract" --directory "$extractsDirectory" --one-top-level="$extractedFile" &>/dev/null
+    status="$(
+      echo "$?"
+    )"
+    if [ "$status" != 0 ]
+    then
+      echo "$failureSymbol Failed to extract : $fileToExtract -> $extractsDirectory"
+      return "$status"
+    else
+      echo "$extractedFile"
+    fi
+  fi
+}
+function promptExtractArchive {
+  local fileToExtract="$1"
+  local targetDirectory="$2"
+  local extractedFile=$(
+    extractArchive "$fileToExtract" "$targetDirectory"
+  )
+  if [ ! -f "$extractedFile" ]
+  then
+    echo "$failureSymbol Failed to extract archive"
+    return 1
+  else
+    echo "$successSymbol Successfully extracted archive : $fileToExtract -> $targetDirectory"
+  fi
+}
 function getFileSystemFormat {
   # expecting lsblk lowercase UUIDs
   local gptUUID="$( echo "$1" | awk '{ print toupper($0) }' )"

@@ -1,76 +1,145 @@
-function setAliases {
-  local state="$1"
-  if [ "$state" == "on" ]
-  then
-    echo "$processingSymbol Enabling aliases"
-    shopt -s expand_aliases
-  elif [ "$state" == "off" ]
-  then
-    echo "$processingSymbol Disabling aliases"
-    shopt -u expand_aliases
-  else
-    echo "$failureSymbol Failed to find state : $state"
-    return 1
-  fi
-}
-function setStrictExecution {
-  local state="$1"
-  if [ "$state" == "on" ]
-  then
-    echo "$processingSymbol Enabling strict execution"
-    set -o errexit
-    set -o errtrace
-    set -o pipefail
-    # set -o nounset
-  elif [ "$state" == "off" ]
-  then
-    echo "$processingSymbol Disabling strict execution"
-    set +o errexit
-    set +o errtrace
-    set +o pipefail
-    # set + nounset
-  else
-    echo "$failureSymbol Failed to find state : $state"
-    return 1
-  fi
-}
-function getProcessorArchitecture {
-  uname --machine
-}
-function getOperatingSystemName {
-  uname --operating-system
-}
-function getKernelName {
-  uname --kernel-name
-}
-function getAdministrativePrivileges {
-  sudo --validate
-}
-function revokeAdministrativePrivileges {
-  sudo --remove-timestamp
-}
-function checkCommandAvailability {
-  local commandToCheck="$1"
-  # consider `command -v`
-  local status="$(
-    which "$commandToCheck" &>/dev/null
-    echo "$?"
+declare -A executionParameters
+declare -A systemFunctions
+declare -A rofiFunctions
+
+executionParameters["setStrictExecution"]=$(
+  function setStrictExecution {
+    local state="$1"
+    if [ "$state" == "on" ]
+    then
+      echo "$processingSymbol Enabling strict execution"
+      set -o errexit
+      set -o errtrace
+      set -o pipefail
+      # set -o nounset
+    elif [ "$state" == "off" ]
+    then
+      echo "$processingSymbol Disabling strict execution"
+      set +o errexit
+      set +o errtrace
+      set +o pipefail
+      # set + nounset
+    else
+      echo "$failureSymbol Failed to find state : $state"
+      return 1
+    fi
+  }
+  declare -f setStrictExecution
+  unset -f setStrictExecution
+)
+
+executionParameters["setAliases"]=$(
+  function setAliases {
+    local state="$1"
+    if [ "$state" == "on" ]
+    then
+      echo "$processingSymbol Enabling aliases"
+      shopt -s expand_aliases
+    elif [ "$state" == "off" ]
+    then
+      echo "$processingSymbol Disabling aliases"
+      shopt -u expand_aliases
+    else
+      echo "$failureSymbol Failed to find state : $state"
+      return 1
+    fi
+  }
+  declare -f setAliases
+  unset -f setAliases
+)
+
+systemFunctions["getProcessorArchitecture"]=$(
+  function getProcessorArchitecture {
+    uname --machine
+  }
+  declare -f getProcessorArchitecture
+  unset -f getProcessorArchitecture
+)
+
+systemFunctions["getOperatingSystemName"]=$(
+  function getOperatingSystemName {
+    uname --operating-system
+  }
+  declare -f getOperatingSystemName
+  unset -f getOperatingSystemName
+)
+
+systemFunctions["getKernelName"]=$(
+  function getKernelName {
+    uname --kernel-name
+  }
+  declare -f getKernelName
+  unset -f getKernelName
+)
+
+systemFunctions["getAdministrativePrivileges"]=$(
+  function getAdministrativePrivileges {
+    sudo --validate
+  }
+  declare -f getAdministrativePrivileges
+  unset -f getAdministrativePrivileges
+)
+
+systemFunctions["revokeAdministrativePrivileges"]=$(
+  function revokeAdministrativePrivileges {
+    sudo --remove-timestamp
+  }
+  declare -f revokeAdministrativePrivileges
+  unset -f revokeAdministrativePrivileges
+)
+
+systemFunctions["checkCommandAvailability"]=$(
+  function checkCommandAvailability {
+    local commandToCheck="$1"
+    # consider `command -v`
+    local status="$(
+      which "$commandToCheck" &>/dev/null
+      echo "$?"
+    )"
+    echo "$status"
+  }
+  declare -f checkCommandAvailability
+  unset -f checkCommandAvailability
+)
+
+systemFunctions["promptCheckCommandAvailability"]=$(
+  function promptCheckCommandAvailability {
+    local commandToCheck="$1"
+    local status="$(
+      eval "${systemFunctions["checkCommandAvailability"]}"
+      checkCommandAvailability "$commandToCheck"
+    )"
+    if [ "$status" != 0 ]
+    then
+      echo "$failureSymbol Failed to find command : $commandToCheck"
+      return 1
+    else
+      echo "$successSymbol Found command : $commandToCheck"
+    fi
+  }
+  declare -f promptCheckCommandAvailability
+  unset -f promptCheckCommandAvailability
+)
+
+function getFileName {
+  local toParse="$1"
+  echo "$(
+    basename "$toParse"
   )"
-  echo "$status"
 }
-function promptCheckCommandAvailability {
-  local commandToCheck="$1"
-  local status="$(
-    checkCommandAvailability "$commandToCheck"
-  )"
-  if [ "$status" != 0 ]
-  then
-    echo "$failureSymbol Failed to find command : $commandToCheck"
-    return 1
-  else
-    echo "$successSymbol Found command : $commandToCheck"
-  fi
-}
+
+rofiFunctions["generateRofiPromptScript"]=$(
+  function generateRofiPromptScript {
+    local bash=$(
+      which bash
+    )
+    local rofi=$(
+      which rofi
+    )
+    local rofiPasswordPromptCommand="$rofi -dmenu -password -i -no-fixed-num-lines -p 'Password'"
+  }
+)
+
 # ---
 # source: https://github.com/sdushantha/dotfiles/blob/77c7ee406472c9fa7c2417eb60b981c5b70096be/bin/bin/utils/rofi-askpass
 # note: requires SUDO_ASKPASS environment variable to be set
@@ -150,7 +219,7 @@ function getUniquePathEntries {
 function copyHostDNSConfigurations {
   local targetRootFileSystem="$1"
   local status
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   if [ "$targetRootFileSystem" == "" ]
   then
     echo "$failureSymbol Please specify a target root file system"
@@ -190,141 +259,6 @@ function copyHostDNSConfigurations {
     echo "$successSymbol Successfully copied DNS configurations : /etc/resolv.conf -> $targetRootFileSystem/etc/"
   fi
 }
-function downloadFromURL {
-  local link="$1"
-  local method="$2"
-  local targetDirectory="$3"
-  source "$blocksDirectory/fileOutput/getFileName.bash"
-  source "$blocksDirectory/fileSystem/createDirectory.bash"
-  local status
-  if [ "$targetDirectory" != "" ]
-  then
-    downloadsDirectory="$targetDirectory"
-  fi
-  local downloadedFile="$downloadsDirectory/$(
-    getFileName "$link"
-  )"
-  if [ ! -d "$downloadsDirectory" ]
-  then
-    status="$(
-      createDirectory "$downloadsDirectory"
-    )"
-  else
-    status=0
-  fi
-  if [ "$status" != 0 ]
-  then
-    echo "$failureSymbol Failed to create directory : $targetDirectory"
-    return 1
-  else
-    if [ "$method" == "wget" ]
-    then
-      status="$(
-        wget "$link" --directory-prefix="$downloadsDirectory"
-        echo "$?"
-      )"
-    elif [ "$method" == "git" ]
-    then
-      # git will make `downloadedFile` into a directory otherwise will throw error
-      status="$(
-        git clone "$link" "$downloadedFile"
-        echo "$?"
-      )"
-    elif [ "$method" == "curl" ]
-    then
-      echo "$failureSymbol Not yet implemented : $method"
-      status=1
-    else
-      echo "$failureSymbol No download method defined : $method"
-      echo "$failureSymbol Can not download from : $link"
-      status=1
-    fi
-    if [ "$status" != 0 ]
-    then
-      echo "$failureSymbol Failed to download : $link"
-      return "$status"
-    else
-      echo "$downloadedFile"
-    fi
-  fi
-}
-function promptDownloadFromURL {
-  local link="$1"
-  local method="$2"
-  local targetDirectory="$3"
-  local downloadedFile="$(
-    downloadURL "$link" "$method" "$targetDirectory"
-  )"
-  if [ ! -f "$downloadedFile" ]
-  then
-    echo "$failureSymbol Failed to download file"
-    return 1
-  else
-    echo "$successSymbol Successfully downloaded file : $link -> $downloadedFile"
-  fi
-}
-function extractArchive {
-  local fileToExtract="$1"
-  local targetDirectory="$2"
-  source "$blocksDirectory/fileOutput/getFileName.bash"
-  source "$blocksDirectory/fileSystem/createDirectory.bash"
-  local status
-  if [ "$targetDirectory" != "" ]
-  then
-    extractsDirectory="$targetDirectory"
-  fi
-  local extractedFile="$extractsDirectory/$(
-    getFileName "$fileToExtract"
-  ).extracted"
-  if [ ! -d "$extractsDirectory" ]
-  then
-    status="$(
-      createDirectory "$extractsDirectory"
-    )"
-    if [ "$status" != 0 ]
-    then
-      echo "$failureSymbol Failed to create directory : $extractsDirectory"
-      return 1
-    fi
-  else
-    status=0
-  fi
-  tar --list --file $fileToExtract &>/dev/null
-  status="$(
-    echo "$?"
-  )"
-  if [ "$status" != 0 ]
-  then
-    echo "$warningSymbol Not an archive file : $fileToExtract"
-    return "$status"
-  else
-    tar --extract --file "$fileToExtract" --directory "$extractsDirectory" --one-top-level="$extractedFile" &>/dev/null
-    status="$(
-      echo "$?"
-    )"
-    if [ "$status" != 0 ]
-    then
-      echo "$failureSymbol Failed to extract : $fileToExtract -> $extractsDirectory"
-      return "$status"
-    else
-      echo "$extractedFile"
-    fi
-  fi
-}
-function promptExtractArchive {
-  local fileToExtract="$1"
-  local targetDirectory="$2"
-  local extractedFile=$(
-    extractArchive "$fileToExtract" "$targetDirectory"
-  )
-  if [ ! -f "$extractedFile" ]
-  then
-    echo "$failureSymbol Failed to extract archive"
-    return 1
-  else
-    echo "$successSymbol Successfully extracted archive : $fileToExtract -> $targetDirectory"
-  fi
-}
 function getBinaryPath {
   local targetBinary="$1"
   local targetRootFileSystem="$2"
@@ -332,7 +266,7 @@ function getBinaryPath {
   then
     targetRootFileSystem="/"
   fi
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   local targetBinaryPath=$(
     local binariesForTargetOnSystem=($(
       getAdministrativePrivileges
@@ -404,7 +338,7 @@ function getHostDistribution {
   setAliases "off" &>/dev/null
 }
 function setClock {
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   function setSystemClock {
     getAdministrativePrivileges
     echo "$processingSymbol Setting system clock"
@@ -485,7 +419,7 @@ function chrootExecute {
   local executeUnitType="$1"
   local targetRootFileSystem="$2"
   local postCHROOTexecuteUnit="$3"
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   source "$snippetsDirectory/baseSystem/getHostDistribution.bash"
   source "$snippetsDirectory/baseSystem/getBinaryPath.bash"
   local requiredDirectories=(
@@ -607,7 +541,7 @@ function getHostDistributionPackageManager {
 function addUserToGroups {
   local userName="$1"
   local targetRootFileSystem="$2"
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   source "$modulesDirectory/baseSystem/chrootExecute.bash"
   local commandToExecute
   local userGroups=(
@@ -673,7 +607,7 @@ function addUserToGroups {
 function createUser {
   local userName="$1"
   local targetRootFileSystem="$2"
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   source "$modulesDirectory/baseSystem/chrootExecute.bash"
   source "$snippetsDirectory/baseSystem/getBinaryPath.bash"
   local targetBashBinary=$(
@@ -701,7 +635,7 @@ function installPackage {
   local targetRootFileSystem="$3"
   source "$snippetsDirectory/baseSystem/getHostDistribution.bash"
   source "$modulesDirectory/baseSystem/getHostDistributionPackageManager.bash"
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   source "$modulesDirectory/baseSystem/chrootExecute.bash"
   if [ "$packageManager" == "" ]
   then
@@ -772,7 +706,7 @@ function installPackage {
 function setHostname {
   local hostnameToSet="$1"
   local targetRootFileSystem="$2"
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   source "$modulesDirectory/baseSystem/chrootExecute.bash"
   source "$snippetsDirectory/baseSystem/getBinaryPath.bash"
   local targetBashBinary=$(
@@ -805,7 +739,7 @@ function setHostname {
 function setLocale {
   local targetRootFileSystem="$1"
 
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   source "$modulesDirectory/baseSystem/chrootExecute.bash"
 
   local locale="en_US.UTF-8"
@@ -897,7 +831,7 @@ function setLocale {
 function setUserPassword {
   local userName="$1"
   local targetRootFileSystem="$2"
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   source "$modulesDirectory/baseSystem/chrootExecute.bash"
   local commandToExecute="\
   passwd --delete $userName && \
@@ -918,7 +852,7 @@ function setUserPassword {
 function synchronizeSystemRepositories {
   local targetRootFileSystem="$1"
   source "$blocksDirectory/baseSystem/checkCommandAvailability.bash"
-  source "$blocksDirectory/baseSystem/getAdministrativePrivileges.bash"
+
   source "$snippetsDirectory/baseSystem/getHostDistribution.bash"
   source "$modulesDirectory/baseSystem/getHostDistributionPackageManager.bash"
   source "$modulesDirectory/baseSystem/chrootExecute.bash"
