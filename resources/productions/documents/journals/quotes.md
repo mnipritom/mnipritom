@@ -6,7 +6,8 @@
   - GBNews
     - baseline of masculinity is that bad things are gonna happen to you and you're gonna absorb them and use them into grow into a more competent individual
   - fellas
-    - a man losing a woman is like losing a child, because you protect her and take care of her, whereas a women losing a man is like losing a parent, and i think we are evolutionarily, biologically designed to deal with losing parents better than we are to deal with losing children, so i think breakups are harder for men
+    - QnA
+      - a man losing a woman is like losing a child, because you protect her and take care of her, whereas a women losing a man is like losing a parent, and i think we are evolutionarily, biologically designed to deal with losing parents better than we are to deal with losing children, so i think breakups are harder for men
   - pbd
     - 1:53:41 ~ 1:53:53
       - emotions are feedback, but stoicism is the ability to process them and that's what you need to learn as a man, you're never gonna be able to turn them off, you're gonna feel 'em, but you have to learn how to process 'em and turn 'em into a positive
