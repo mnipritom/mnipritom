@@ -16,6 +16,9 @@
 [submodule "distrobox"]
 	path = sources/bash/scripts/distrobox
 	url = https://github.com/89luca89/distrobox
+[submodule "ani-cli"]
+	path = sources/bash/scripts/ani-cli
+	url = https://github.com/pystardust/ani-cli
 [submodule "git-fuzzy"]
 	path = sources/bash/scripts/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy
