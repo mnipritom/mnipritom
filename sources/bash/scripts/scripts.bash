@@ -18,6 +18,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/distrobox/distrobox"]="posix"
       ["${scripts["scriptsPath"]}/deb-get/deb-get"]="bash"
       ["${scripts["scriptsPath"]}/debtap/debtap"]="bash"
+      ["${scripts["scriptsPath"]}/fet.sh/fet.sh"]="posix"
       ["${scripts["scriptsPath"]}/fff/fff"]="bash"
       ["${scripts["scriptsPath"]}/git-forgit/bin/git-forgit"]="bash"
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
@@ -27,6 +28,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
       ["${scripts["scriptsPath"]}/piu/piu"]="bash"
       ["${scripts["scriptsPath"]}/prettyping/prettyping"]="bash"
+      ["${scripts["scriptsPath"]}/rxfetch/rxfetch"]="bash"
       ["${scripts["scriptsPath"]}/sysz/sysz"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
       ["${scripts["scriptsPath"]}/vpm/vpm"]="bash"
@@ -63,6 +65,7 @@ scripts["includeFunctions"]=$(
     local functions=(
       "${scripts["scriptsPath"]}/goto/goto.sh"
       "${scripts["scriptsPath"]}/up/up.sh"
+      "${scripts["scriptsPath"]}/z/z.sh"
     )
     for container in "${functions[@]}"
     do

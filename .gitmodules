@@ -16,6 +16,12 @@
 [submodule "pfetch"]
 	path = sources/bash/scripts/pfetch
 	url = https://github.com/dylanaraps/pfetch
+[submodule "rxfetch"]
+	path = sources/bash/scripts/rxfetch
+	url = https://github.com/Mangeshrex/rxfetch
+[submodule "fet.sh"]
+	path = sources/bash/scripts/fet.sh
+	url = https://github.com/6gk/fet.sh
 [submodule "distrobox"]
 	path = sources/bash/scripts/distrobox
 	url = https://github.com/89luca89/distrobox
@@ -70,6 +76,9 @@
 [submodule "up"]
 	path = sources/bash/scripts/up
 	url = https://github.com/shannonmoeller/up
+[submodule "z"]
+	path = sources/bash/scripts/z
+	url = https://github.com/rupa/z
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion
