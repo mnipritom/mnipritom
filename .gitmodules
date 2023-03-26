@@ -46,3 +46,6 @@
 [submodule "licenses"]
 	path = resources/references/documents/licenses
 	url = https://github.com/IQAndreas/markdown-licenses
+[submodule "ytfzf"]
+	path = sources/bash/scripts/ytfzf
+	url = https://github.com/pystardust/ytfzf

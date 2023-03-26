@@ -20,6 +20,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
+      ["${scripts["scriptsPath"]}/ytfzf/ytfzf"]="posix"
     )
     for executable in "${!executables[@]}"
     do
@@ -29,12 +30,12 @@ scripts["includeScripts"]=$(
       if [[ "${executables["$executable"]}" == "posix" ]]
       then
         eval "$executableUnit () {
-          bash --norc --noprofile --posix $executable $@
+          bash --norc --noprofile --posix $executable \$@
         }"
       elif [[ "${executables["$executable"]}" == "bash" ]]
       then
         eval "$executableUnit () {
-          bash --norc --noprofile $executable $@
+          bash --norc --noprofile $executable \$@
         }"
       fi
       unset executableUnit executable
