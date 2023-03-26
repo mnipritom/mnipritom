@@ -43,6 +43,9 @@
 [submodule "pacapt"]
 	path = sources/bash/scripts/pacapt
 	url = https://github.com/icy/pacapt
+[submodule "piu"]
+	path = sources/bash/scripts/piu
+	url = https://github.com/beyondmeh/piu
 [submodule "vpm"]
 	path = sources/bash/scripts/vpm
 	url = https://github.com/netzverweigerer/vpm

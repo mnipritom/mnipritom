@@ -23,6 +23,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
       ["${scripts["scriptsPath"]}/pacapt/pacapt"]="posix"
       ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
+      ["${scripts["scriptsPath"]}/piu/piu"]="bash"
       ["${scripts["scriptsPath"]}/sysz/sysz"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
       ["${scripts["scriptsPath"]}/vpm/vpm"]="bash"
