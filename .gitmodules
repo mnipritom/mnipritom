@@ -49,6 +49,9 @@
 [submodule "vpm"]
 	path = sources/bash/scripts/vpm
 	url = https://github.com/netzverweigerer/vpm
+[submodule "xb"]
+	path = sources/bash/scripts/xb
+	url = https://github.com/ernierasta/xb
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion

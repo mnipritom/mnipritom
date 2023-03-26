@@ -14,7 +14,6 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/ani-cli/ani-cli"]="posix"
       ["${scripts["scriptsPath"]}/bashtop/bashtop"]="bash"
       ["${scripts["scriptsPath"]}/distrobox/distrobox"]="posix"
-      ["${scripts["scriptsPath"]}/xdeb/xdeb"]="posix"
       ["${scripts["scriptsPath"]}/deb-get/deb-get"]="bash"
       ["${scripts["scriptsPath"]}/debtap/debtap"]="bash"
       ["${scripts["scriptsPath"]}/fff/fff"]="bash"
@@ -27,6 +26,8 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/sysz/sysz"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
       ["${scripts["scriptsPath"]}/vpm/vpm"]="bash"
+      ["${scripts["scriptsPath"]}/xb/xb"]="posix"
+      ["${scripts["scriptsPath"]}/xdeb/xdeb"]="posix"
       ["${scripts["scriptsPath"]}/ytfzf/ytfzf"]="posix"
     )
     for executable in "${!executables[@]}"
@@ -59,6 +60,7 @@ scripts["includeCompletions"]=$(
       "${scripts["scriptsPath"]}/deb-get/deb-get_completion"
       "${scripts["scriptsPath"]}/git-forgit/completions/git-forgit.bash"
       "${scripts["scriptsPath"]}/vpm/bash-completion/completions/vpm"
+      "${scripts["scriptsPath"]}/xb/complete/xb"
     )
     completions+=($(
       find "${scripts["scriptsPath"]}/distrobox/completions" -type f
