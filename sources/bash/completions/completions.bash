@@ -25,13 +25,12 @@ completions["includeGenerators"]=$(
       ["pandoc"]="--bash-completion"
       ["wezterm"]="shell-completion --shell bash"
     )
-
     for generatorCommand in "${!generators[@]}"
     do
       local generatorPath=$(
         which "$generatorCommand"
       )
-      if [ "$generatorPath" != "" ]
+      if [[ "$generatorPath" != "" ]]
       then
         eval "$( $generatorPath ${generators[$generatorCommand]} )"
       fi
