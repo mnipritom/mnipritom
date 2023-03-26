@@ -25,6 +25,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
       ["${scripts["scriptsPath"]}/sysz/sysz"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
+      ["${scripts["scriptsPath"]}/vpm/vpm"]="bash"
       ["${scripts["scriptsPath"]}/ytfzf/ytfzf"]="posix"
     )
     for executable in "${!executables[@]}"
@@ -56,6 +57,7 @@ scripts["includeCompletions"]=$(
     local completions=(
       "${scripts["scriptsPath"]}/deb-get/deb-get_completion"
       "${scripts["scriptsPath"]}/git-forgit/completions/git-forgit.bash"
+      "${scripts["scriptsPath"]}/vpm/bash-completion/completions/vpm"
     )
     completions+=($(
       find "${scripts["scriptsPath"]}/distrobox/completions" -type f

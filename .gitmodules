@@ -43,6 +43,9 @@
 [submodule "pacapt"]
 	path = sources/bash/scripts/pacapt
 	url = https://github.com/icy/pacapt
+[submodule "vpm"]
+	path = sources/bash/scripts/vpm
+	url = https://github.com/netzverweigerer/vpm
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion
