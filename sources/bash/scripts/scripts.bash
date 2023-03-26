@@ -58,7 +58,7 @@ scripts["includeCompletions"]=$(
     do
       source "$completion"
     done
-
+    unset completions completion
   }
   declare -f includeCompletions
   unset -f includeCompletions
