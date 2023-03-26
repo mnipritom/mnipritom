@@ -21,6 +21,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/git-forgit/bin/git-forgit"]="bash"
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
+      ["${scripts["scriptsPath"]}/pacapt/pacapt"]="posix"
       ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
       ["${scripts["scriptsPath"]}/sysz/sysz"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"

@@ -39,7 +39,10 @@
 	url = https://github.com/aristocratos/bashtop
 [submodule "sysz"]
 	path = sources/bash/scripts/sysz
-	url = https://github.com/joehillen/sysz  
+	url = https://github.com/joehillen/sysz
+[submodule "pacapt"]
+	path = sources/bash/scripts/pacapt
+	url = https://github.com/icy/pacapt
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion
