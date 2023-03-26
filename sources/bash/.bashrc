@@ -61,7 +61,7 @@ bashParameters["bashSourcesPath"]="$(
 
 bashParameters["worktreeDataPath"]=$(
   cd "${bashParameters["bashSourcesPath"]}/../../"
-  if [ $( git rev-parse --is-inside-work-tree ) ]
+  if [[ $( git rev-parse --is-inside-work-tree ) ]]
   then
     printf "%s" "$PWD"
   fi
@@ -85,7 +85,7 @@ bashParameters["worktreeIdentifier"]=$(
     cd "${bashParameters["worktreeDataPath"]}" && \
     git branch --show-current
   )
-  if [ "$worktreesDirectoryIdentifier" == "$worktreeRepositoryIdentifier" ]
+  if [[ "$worktreesDirectoryIdentifier" == "$worktreeRepositoryIdentifier" ]]
   then
     printf "$worktreesDirectoryIdentifier"
   else
