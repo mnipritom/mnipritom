@@ -41,7 +41,7 @@ PATHS=(
 )
 for path in "${PATHS[@]}"
 do
-  if [ -d "$path" ]
+  if [[ -d "$path" ]]
   then
     export "PATH=$PATH:$path"
   fi
