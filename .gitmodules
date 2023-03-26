@@ -19,6 +19,9 @@
 [submodule "distrobox"]
 	path = sources/bash/scripts/distrobox
 	url = https://github.com/89luca89/distrobox
+[submodule "junest"]
+	path = sources/bash/scripts/junest
+	url = https://github.com/fsquillace/junest
 [submodule "ani-cli"]
 	path = sources/bash/scripts/ani-cli
 	url = https://github.com/pystardust/ani-cli
