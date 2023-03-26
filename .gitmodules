@@ -34,6 +34,12 @@
 [submodule "git-forgit"]
 	path = sources/bash/scripts/git-forgit
 	url = https://github.com/wfxr/forgit
+[submodule "bashtop"]
+	path = sources/bash/scripts/bashtop
+	url = https://github.com/aristocratos/bashtop
+[submodule "sysz"]
+	path = sources/bash/scripts/sysz
+	url = https://github.com/joehillen/sysz  
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion

@@ -12,6 +12,7 @@ scripts["includeScripts"]=$(
   function includeScripts {
     declare -A executables=(
       ["${scripts["scriptsPath"]}/ani-cli/ani-cli"]="posix"
+      ["${scripts["scriptsPath"]}/bashtop/bashtop"]="bash"
       ["${scripts["scriptsPath"]}/distrobox/distrobox"]="posix"
       ["${scripts["scriptsPath"]}/xdeb/xdeb"]="posix"
       ["${scripts["scriptsPath"]}/deb-get/deb-get"]="bash"
@@ -21,6 +22,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
       ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
+      ["${scripts["scriptsPath"]}/sysz/sysz"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
       ["${scripts["scriptsPath"]}/ytfzf/ytfzf"]="posix"
     )
