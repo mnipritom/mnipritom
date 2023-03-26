@@ -19,6 +19,12 @@
 [submodule "ani-cli"]
 	path = sources/bash/scripts/ani-cli
 	url = https://github.com/pystardust/ani-cli
+[submodule "ytfzf"]
+	path = sources/bash/scripts/ytfzf
+	url = https://github.com/pystardust/ytfzf
+[submodule "fff"]
+	path = sources/bash/scripts/fff
+	url = https://github.com/dylanaraps/fff  
 [submodule "git-fuzzy"]
 	path = sources/bash/scripts/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy
@@ -46,6 +52,3 @@
 [submodule "licenses"]
 	path = resources/references/documents/licenses
 	url = https://github.com/IQAndreas/markdown-licenses
-[submodule "ytfzf"]
-	path = sources/bash/scripts/ytfzf
-	url = https://github.com/pystardust/ytfzf

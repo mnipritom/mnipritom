@@ -16,6 +16,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/xdeb/xdeb"]="posix"
       ["${scripts["scriptsPath"]}/deb-get/deb-get"]="bash"
       ["${scripts["scriptsPath"]}/debtap/debtap"]="bash"
+      ["${scripts["scriptsPath"]}/fff/fff"]="bash"
       ["${scripts["scriptsPath"]}/git-forgit/bin/git-forgit"]="bash"
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
