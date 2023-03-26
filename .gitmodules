@@ -13,6 +13,9 @@
 [submodule "neofetch"]
 	path = sources/bash/scripts/neofetch
 	url = https://github.com/dylanaraps/neofetch
+[submodule "pfetch"]
+	path = sources/bash/scripts/pfetch
+	url = https://github.com/dylanaraps/pfetch
 [submodule "distrobox"]
 	path = sources/bash/scripts/distrobox
 	url = https://github.com/89luca89/distrobox
@@ -24,7 +27,7 @@
 	url = https://github.com/pystardust/ytfzf
 [submodule "fff"]
 	path = sources/bash/scripts/fff
-	url = https://github.com/dylanaraps/fff  
+	url = https://github.com/dylanaraps/fff
 [submodule "git-fuzzy"]
 	path = sources/bash/scripts/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy

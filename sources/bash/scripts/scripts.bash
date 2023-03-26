@@ -20,6 +20,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/git-forgit/bin/git-forgit"]="bash"
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
+      ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
       ["${scripts["scriptsPath"]}/ytfzf/ytfzf"]="posix"
     )
