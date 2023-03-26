@@ -1,137 +1,102 @@
-function setEnvironmentParameters {
-  local state="$1"
+declare -A writings
+declare -A colors
+declare -A prompts
+declare -A symbols
 
-  local requiredParametersIdentifiers+=(
-    "gatekeeperStatus"
-    "gatekeeperDirectory"
-    "worktreePath"
-    "worktreeIdentifier"
-    "worktreeRepository"
-    "repositoryPath"
-    "worktreesDirectory"
-    "processingSymbol"
-    "successSymbol"
-    "failureSymbol"
-    "warningSymbol"
-    "blocksDirectory"
-    "snippetsDirectory"
-    "modulesDirectory"
-    "actionsDirectory"
-    "chunksDirectory"
-    "handlersDirectory"
-    "aliasesDirectory"
-    "resourcesDirectory"
-    "diagnosticsDirectory"
-    "diagnosedDumpsDirectory"
-    "diagnosedReportsDirectory"
-    "diagnosedExtractsDirectory"
-    "productionsDirectory"
-    "producedDocumentsDirectory"
-    "producedIllustrationsDirectory"
-    "producedRecordingsDirectory"
-    "referencesDirectory"
-    "referencedDocumentsDirectory"
-    "referencedIllustrationsDirectory"
-    "referencedUtilitiesDirectory"
-    "releasesDirectory"
-  )
+colors["black"]='\e[0;30m'
+colors["red"]='\e[0;31m'
+colors["green"]='\e[0;32m'
+colors["yellow"]='\e[0;33m'
+colors["blue"]='\e[0;34m'
+colors["purple"]='\e[0;35m'
+colors["cyan"]='\e[0;36m'
+colors["white"]='\e[0;37m'
 
-  declare -A requiredParametersRecords
-
-  requiredParametersRecords["gatekeeperStatus"]="available"
-
-  requiredParametersRecords["gatekeeperDirectory"]=$(
-    dirname $(
-      realpath --canonicalize-existing $(
-        readlink --canonicalize ${BASH_SOURCE[0]:-$0}
-      )
-    )
-  )
-
-  requiredParametersRecords["worktreePath"]=$(
-    cd "${requiredParametersRecords["gatekeeperDirectory"]}/../../../"
-    if [ $( git rev-parse --is-inside-work-tree ) ]
-    then
-      printf "%s" "$PWD"
-    fi
-  )
-
-  requiredParametersRecords["worktreeIdentifier"]=$(
-    worktreesDirectoryIdentifier=$(
-      basename "${requiredParametersRecords["worktreePath"]}"
-    )
-    worktreeRepositoryIdentifier=$(
-      cd "${requiredParametersRecords["worktreePath"]}" && \
-      git branch --show-current
-    )
-    if [ "$worktreesDirectoryIdentifier" == "$worktreeRepositoryIdentifier" ]
-    then
-      printf "$worktreesDirectoryIdentifier"
-    else
-      printf "$worktreeRepositoryIdentifier"
-    fi
-    unset worktreesDirectoryIdentifier worktreeRepositoryIdentifier
-  )
-
-  requiredParametersRecords["worktreeRepository"]=$(
-    cd "${requiredParametersRecords["worktreePath"]}" && \
-    git rev-parse --absolute-git-dir
-  )
-
-  requiredParametersRecords["repositoryPath"]=$(
-    cd "${requiredParametersRecords["worktreePath"]}" && \
-    git rev-parse --path-format=absolute --git-common-dir
-  )
-
-  requiredParametersRecords["worktreesDirectory"]="${requiredParametersRecords["repositoryPath"]}/states"
-
-  requiredParametersRecords["processingSymbol"]="[⚙]"
-  requiredParametersRecords["successSymbol"]="[✔]"
-  requiredParametersRecords["failureSymbol"]="[✘]"
-  requiredParametersRecords["warningSymbol"]="[!]"
-
-  requiredParametersRecords["blocksDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/blocks"
-  requiredParametersRecords["snippetsDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/snippets"
-  requiredParametersRecords["modulesDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/modules"
-  requiredParametersRecords["actionsDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/actions"
-  requiredParametersRecords["chunksDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/chunks"
-  requiredParametersRecords["handlersDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/handlers"
-  requiredParametersRecords["aliasesDirectory"]="${requiredParametersRecords["gatekeeperDirectory"]}/aliases"
-  requiredParametersRecords["resourcesDirectory"]=$(
-    realpath "${requiredParametersRecords["gatekeeperDirectory"]}/../../../resources"
-  )
-
-  # [TODO] add lacking paths
-  requiredParametersRecords["diagnosticsDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/diagnostics"
-  requiredParametersRecords["diagnosedDumpsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/dumps"
-  requiredParametersRecords["diagnosedReportsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/reports"
-  requiredParametersRecords["diagnosedExtractsDirectory"]="${requiredParametersRecords["diagnosticsDirectory"]}/extracts"
-  requiredParametersRecords["productionsDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/productions"
-  requiredParametersRecords["producedDocumentsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/documents"
-  requiredParametersRecords["producedIllustrationsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/illustrations"
-  requiredParametersRecords["producedRecordingsDirectory"]="${requiredParametersRecords["productionsDirectory"]}/recordings"
-  requiredParametersRecords["referencesDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/references"
-  requiredParametersRecords["referencedDocumentsDirectory"]="${requiredParametersRecords["referencesDirectory"]}/documents"
-  requiredParametersRecords["referencedIllustrationsDirectory"]="${requiredParametersRecords["referencesDirectory"]}/illustrations"
-  requiredParametersRecords["referencedUtilitiesDirectory"]="${requiredParametersRecords["referencesDirectory"]}/utilities"
-  requiredParametersRecords["releasesDirectory"]="${requiredParametersRecords["resourcesDirectory"]}/releases"
-
-  function getSystemPackageManager {
-    source "${requiredParametersRecords["snippetsDirectory"]}/baseSystem/getHostDistribution.bash"
-    source "${requiredParametersRecords["modulesDirectory"]}/baseSystem/getHostDistributionPackageManager.bash"
-    local hostDistribution=$(
-      getHostDistribution
-    )
-    local hostDistributionPackageManager=$(
-      getHostDistributionPackageManager "$hostDistribution"
-    )
-    printf "%s" "$hostDistributionPackageManager"
+prompts["success"]="Successfully evaluated"
+prompts["failure"]="Failed to evaluate"
+prompts["promptSymbol"]=$(
+  function promptSymbol {
+    local symbolToPrompt="$1"
+    local promptColor="$2"
+    printf "$promptColor%s\n" "$symbolToPrompt"
   }
+)
 
+symbols["processing"]="[*]"
+symbols["success"]="[~]"
+symbols["failure"]="[X]"
+symbols["warning"]="[!]"
+
+
+readOnlyValuesOrder=(
+  "writingsStatus"
+  "writingsDirectory"
+  "worktreeIdentifier"
+  "worktreeRepository"
+  "repositoryPath"
+  "worktreesDirectory"
+  "aliasesDirectory"
+  "resourcesDirectory"
+  "diagnosticsDirectory"
+  "diagnosedDumpsDirectory"
+  "diagnosedReportsDirectory"
+  "diagnosedExtractsDirectory"
+  "productionsDirectory"
+  "producedDocumentsDirectory"
+  "producedIllustrationsDirectory"
+  "producedRecordingsDirectory"
+  "referencesDirectory"
+  "referencedDocumentsDirectory"
+  "referencedIllustrationsDirectory"
+  "referencedUtilitiesDirectory"
+  "releasesDirectory"
+)
+
+writings["writingsDirectory"]="$(
+  dirname $(
+    realpath --canonicalize-existing $(
+      readlink --canonicalize ${BASH_SOURCE[0]:-$0}
+    )
+  )
+)"
+
+writings["writingsStatus"]="available"
+
+writings["functionsDirectory"]="${writings["writingsDirectory"]}/functions"
+writings["aliasesDirectory"]="${writings["writingsDirectory"]}/aliases"
+
+writings["resourcesDirectory"]=$(
+  realpath "${writings["writingsDirectory"]}/../../../resources"
+)
+
+writings["diagnosticsDirectory"]="${writings["resourcesDirectory"]}/diagnostics"
+writings["diagnosedDumpsDirectory"]="${writings["diagnosticsDirectory"]}/dumps"
+writings["diagnosedExtractsDirectory"]="${writings["diagnosticsDirectory"]}/extracts"
+writings["diagnosedReportsDirectory"]="${writings["diagnosticsDirectory"]}/reports"
+
+writings["productionsDirectory"]="${writings["resourcesDirectory"]}/productions"
+writings["producedDocumentsDirectory"]="${writings["productionsDirectory"]}/documents"
+writings["producedIllustrationsDirectory"]="${writings["productionsDirectory"]}/illustrations"
+writings["producedRecordingsDirectory"]="${writings["productionsDirectory"]}/recordings"
+
+writings["referencesDirectory"]="${writings["resourcesDirectory"]}/references"
+writings["referencedDocumentsDirectory"]="${writings["referencesDirectory"]}/documents"
+writings["referencedIllustrationsDirectory"]="${writings["referencesDirectory"]}/illustrations"
+
+writings["releasesDirectory"]="${writings["resourcesDirectory"]}/releases"
+
+writings["systemPackageManager"]="$(
+  getSystemPackageManager
+)" && readOnlyValuesOrder+=(
+  "systemPackageManager"
+)
+
+writings["workingDistributions"]=$(
   function getWorkingDistributions {
     local hostDistribution=$(
-      source "${requiredParametersRecords["snippetsDirectory"]}/baseSystem/getHostDistribution.bash"
+      eval "${functions["getHostDistribution"]}"
       getHostDistribution
+      unset -f getHostDistribution
     )
     local availableDistributionsEntries=(
       "void"
@@ -163,56 +128,10 @@ function setEnvironmentParameters {
     done
     printf "%s\n" "${workingDistributionsEntries[@]}"
   }
+  getWorkingDistributions | tr "\n" " "
+  unset -f getWorkingDistributions
+) && readOnlyValuesOrder+=(
+  "workingDistributions"
+)
 
-  requiredParametersRecords["systemPackageManager"]="$(
-    getSystemPackageManager
-  )" && requiredParametersIdentifiers+=(
-    "systemPackageManager"
-  )
-
-  requiredParametersRecords["workingDistributions"]="$(
-    getWorkingDistributions | tr "\n" " "
-  )" && requiredParametersIdentifiers+=(
-    "workingDistributions"
-  )
-
-  function createRequiredDirectories {
-    (
-      source "${requiredParametersRecords["blocksDirectory"]}/fileSystem/createDirectory.bash"
-      local requiredDirectories=(
-        "${requiredParametersRecords["diagnosticsDirectory"]}"
-        "${requiredParametersRecords["diagnosedReportsDirectory"]}"
-        "${requiredParametersRecords["diagnosedDumpsDirectory"]}"
-        "${requiredParametersRecords["diagnosedExtractsDirectory"]}"
-        "${requiredParametersRecords["worktreesDirectory"]}"
-      )
-      # [TODO] implement better evaluation to work within `distrobox` containers
-      for directory in "${requiredDirectories[@]}"
-      do
-        if [ ! -d "$directory" ]
-        then
-          promptCreateDirectory "$directory"
-        fi
-      done
-    )
-  }
-
-  createRequiredDirectories
-
-  for parameterIdentifier in "${requiredParametersIdentifiers[@]}"
-  do
-    if [ "$state" == "on" ]
-    then
-      export "$parameterIdentifier=${requiredParametersRecords["$parameterIdentifier"]}"
-    elif [ "$state" == "off" ]
-    then
-      unset "$parameterIdentifier"
-    else
-      printf "%s\n" "${requiredParametersRecords["failureSymbol"]} Failed to find state : $state"
-    fi
-  done
-
-  unset parameterIdentifier
-  unset getSystemPackageManager getWorkingDistributions getPrerequisites
-  unset createRequiredDirectories loadAliasesEntries loadExecutableScripts
-}
+unset readOnlyValuesOrder

@@ -24,15 +24,13 @@ declare -A VARIABLES=(
     --info hidden \
     --layout reverse \
     --height 15 \
-    --prompt '❯ ' \
-    --pointer '❯ ' \
   "
 )
-for variableId in "${!VARIABLES[@]}"
+for variableEntry in "${!VARIABLES[@]}"
 do
-  export "$variableId=${VARIABLES["$variableId"]}"
+  export "$variableEntry=${VARIABLES["$variableEntry"]}"
 done
-unset variableId VARIABLES
+unset variableEntry VARIABLES
 
 PATHS=(
   "$HOME/go"
@@ -50,25 +48,10 @@ do
 done
 unset path PATHS
 
-declare -A EVALS=(
-  ["pandoc"]="--bash-completion"
-  ["wezterm"]="shell-completion --shell bash"
-  ["starship"]="init bash"
-  ["brew"]="shellenv"
-)
-for evalCommand in "${!EVALS[@]}"
-do
-  commandPath=$(
-    which "$evalCommand"
-  )
-  if [ "$commandPath" != "" ]
-  then
-    eval "$( $commandPath ${EVALS[$evalCommand]} )"
-  fi
-done
-unset evalCommand commandPath EVALS
 
-bashrcDirectory="$(
+declare -A bashParameters
+
+bashParameters["bashSourcesPath"]="$(
   dirname $(
     realpath --canonicalize-existing $(
       readlink --canonicalize ${BASH_SOURCE[0]:-$0}
@@ -76,8 +59,43 @@ bashrcDirectory="$(
   )
 )"
 
-source "$bashrcDirectory/completions/bash-completion/bash_completion"
-source "$bashrcDirectory/completions/fzf-tab-completion/bash/fzf-bash-completion.sh"
-bind -x '"\t": fzf_bash_completion'
+bashParameters["worktreeDataPath"]=$(
+  cd "${bashParameters["bashSourcesPath"]}/../../"
+  if [ $( git rev-parse --is-inside-work-tree ) ]
+  then
+    printf "%s" "$PWD"
+  fi
+)
 
-unset bashrcDirectory
+bashParameters["worktreeInformationPath"]=$(
+  cd "${bashParameters["worktreeDataPath"]}" && \
+  git rev-parse --absolute-git-dir
+)
+
+bashParameters["repositoryInformationPath"]=$(
+  cd "${bashParameters["worktreeDataPath"]}" && \
+  git rev-parse --path-format=absolute --git-common-dir
+)
+
+bashParameters["worktreeIdentifier"]=$(
+  worktreesDirectoryIdentifier=$(
+    basename "${bashParameters["worktreeDataPath"]}"
+  )
+  worktreeRepositoryIdentifier=$(
+    cd "${bashParameters["worktreeDataPath"]}" && \
+    git branch --show-current
+  )
+  if [ "$worktreesDirectoryIdentifier" == "$worktreeRepositoryIdentifier" ]
+  then
+    printf "$worktreesDirectoryIdentifier"
+  else
+    printf "$worktreeRepositoryIdentifier"
+  fi
+  unset worktreesDirectoryIdentifier worktreeRepositoryIdentifier
+)
+
+source "${bashParameters["bashSourcesPath"]}/completions/completions.bash"
+
+source "${bashParameters["bashSourcesPath"]}/scripts/scripts.bash"
+
+unset bashParameters
