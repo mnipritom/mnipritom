@@ -14,6 +14,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/ani-cli/ani-cli"]="posix"
       ["${scripts["scriptsPath"]}/bash2048/bash2048.sh"]="bash"
       ["${scripts["scriptsPath"]}/bashtop/bashtop"]="bash"
+      ["${scripts["scriptsPath"]}/climate/climate"]="bash"
       ["${scripts["scriptsPath"]}/distrobox/distrobox"]="posix"
       ["${scripts["scriptsPath"]}/deb-get/deb-get"]="bash"
       ["${scripts["scriptsPath"]}/debtap/debtap"]="bash"
@@ -25,6 +26,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/pacapt/pacapt"]="posix"
       ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
       ["${scripts["scriptsPath"]}/piu/piu"]="bash"
+      ["${scripts["scriptsPath"]}/prettyping/prettyping"]="bash"
       ["${scripts["scriptsPath"]}/sysz/sysz"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
       ["${scripts["scriptsPath"]}/vpm/vpm"]="bash"
@@ -56,6 +58,22 @@ scripts["includeScripts"]=$(
   unset -f includeScripts
 )
 
+scripts["includeFunctions"]=$(
+  function includeFunctions {
+    local functions=(
+      "${scripts["scriptsPath"]}/goto/goto.sh"
+      "${scripts["scriptsPath"]}/up/up.sh"
+    )
+    for container in "${functions[@]}"
+    do
+      source "$container"
+    done
+    unset functions container
+  }
+  declare -f includeFunctions
+  unset -f includeFunctions
+)
+
 scripts["includeCompletions"]=$(
   function includeCompletions {
     local completions=(
@@ -78,6 +96,8 @@ scripts["includeCompletions"]=$(
 )
 
 eval "${scripts["includeScripts"]}" && includeScripts && unset includeScripts
+
+eval "${scripts["includeFunctions"]}" && includeFunctions && unset includeFunctions
 
 eval "${scripts["includeCompletions"]}" && includeCompletions && unset includeCompletions
 

@@ -58,6 +58,18 @@
 [submodule "bash2048"]
 	path = sources/bash/scripts/bash2048
 	url = https://github.com/JosefZIla/bash2048
+[submodule "prettyping"]
+	path = sources/bash/scripts/prettyping
+	url = https://github.com/denilsonsa/prettyping
+[submodule "climate"]
+	path = sources/bash/scripts/climate
+	url = https://github.com/adtac/climate
+[submodule "goto"]
+	path = sources/bash/scripts/goto
+	url = https://github.com/Fakerr/goto
+[submodule "up"]
+	path = sources/bash/scripts/up
+	url = https://github.com/shannonmoeller/up
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion
