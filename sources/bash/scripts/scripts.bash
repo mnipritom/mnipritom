@@ -29,6 +29,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/piu/piu"]="bash"
       ["${scripts["scriptsPath"]}/prettyping/prettyping"]="bash"
       ["${scripts["scriptsPath"]}/rxfetch/rxfetch"]="bash"
+      ["${scripts["scriptsPath"]}/stowsh/stowsh"]="bash"
       ["${scripts["scriptsPath"]}/sysz/sysz"]="bash"
       ["${scripts["scriptsPath"]}/tdrop/tdrop"]="bash"
       ["${scripts["scriptsPath"]}/vpm/vpm"]="bash"
@@ -43,6 +44,7 @@ scripts["includeScripts"]=$(
       )
       if [[ "${executables["$executable"]}" == "posix" ]]
       then
+        # [TODO] conditionally set script specific options/variables
         eval "$executableUnit () {
           bash --norc --noprofile --posix $executable \$@
         }"

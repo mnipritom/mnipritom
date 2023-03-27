@@ -79,6 +79,9 @@
 [submodule "z"]
 	path = sources/bash/scripts/z
 	url = https://github.com/rupa/z
+[submodule "stowsh"]
+	path = sources/bash/scripts/stowsh
+	url = https://github.com/mikepqr/stowsh
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion
