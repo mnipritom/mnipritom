@@ -85,6 +85,9 @@
 [submodule "fzf-tab-completion"]
 	path = sources/bash/completions/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
+[submodule "inxi"]
+	path = sources/perl/scripts/inxi
+	url = https://github.com/smxi/inxi
 [submodule "lain"]
 	path = sources/lua/frameworks/awesome/libraries/lain
 	url = https://github.com/lcpz/lain
