@@ -68,6 +68,7 @@ scripts["includeFunctions"]=$(
       "${scripts["scriptsPath"]}/goto/goto.sh"
       "${scripts["scriptsPath"]}/up/up.sh"
       "${scripts["scriptsPath"]}/z/z.sh"
+      "${scripts["scriptsPath"]}/extract/extract.sh"
     )
     for container in "${functions[@]}"
     do

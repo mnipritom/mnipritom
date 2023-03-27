@@ -82,6 +82,9 @@
 [submodule "stowsh"]
 	path = sources/bash/scripts/stowsh
 	url = https://github.com/mikepqr/stowsh
+[submodule "extract"]
+	path = sources/bash/scripts/extract
+	url = https://github.com/xvoland/Extract
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
 	url = https://github.com/scop/bash-completion
