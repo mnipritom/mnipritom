@@ -1,3 +1,4 @@
+# [TODO] turn into generic functions
 paths() {
   printf "%s\n" "$PATH" | tr ":" "\n"
 }

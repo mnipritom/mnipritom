@@ -1,3 +1,4 @@
+# [TODO] turn into generic functions
 # [TODO] alias every `git` command keywords and check if `PWD` is git repo to perform actions
 status() {
   (
