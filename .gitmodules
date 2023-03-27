@@ -34,6 +34,9 @@
 [submodule "ani-cli"]
 	path = sources/bash/scripts/ani-cli
 	url = https://github.com/pystardust/ani-cli
+[submodule "badown"]
+	path = sources/bash/scripts/badown
+	url = https://github.com/stck-lzm/badown
 [submodule "ytfzf"]
 	path = sources/bash/scripts/ytfzf
 	url = https://github.com/pystardust/ytfzf

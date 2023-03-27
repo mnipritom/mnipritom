@@ -12,6 +12,7 @@ scripts["includeScripts"]=$(
   function includeScripts {
     declare -A executables=(
       ["${scripts["scriptsPath"]}/ani-cli/ani-cli"]="posix"
+      ["${scripts["scriptsPath"]}/badown/badown"]="bash"
       ["${scripts["scriptsPath"]}/bash2048/bash2048.sh"]="bash"
       ["${scripts["scriptsPath"]}/bashtop/bashtop"]="bash"
       ["${scripts["scriptsPath"]}/climate/climate"]="bash"
@@ -43,7 +44,7 @@ scripts["includeScripts"]=$(
     for executable in "${!executables[@]}"
     do
       local executableUnit=$(
-        basename "$executable"
+        basename --suffix ".sh" "$executable"
       )
       if [[ "${executables["$executable"]}" == "posix" ]]
       then
