@@ -104,10 +104,10 @@
 	path = sources/bash/references/scripts/extract
 	url = https://github.com/xvoland/Extract
 [submodule "bash-completion"]
-	path = sources/bash/completions/bash-completion
+	path = sources/bash/references/completions/bash-completion
 	url = https://github.com/scop/bash-completion
 [submodule "fzf-tab-completion"]
-	path = sources/bash/completions/fzf-tab-completion
+	path = sources/bash/references/completions/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
 [submodule "inxi"]
 	path = sources/perl/scripts/inxi
