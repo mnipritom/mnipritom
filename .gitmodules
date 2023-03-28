@@ -13,6 +13,12 @@
 [submodule "deb2appimage"]
 	path = sources/bash/scripts/deb2appimage
 	url = https://github.com/simoniz0r/deb2appimage
+[submodule "pkg2appimage"]
+	path = sources/bash/scripts/pkg2appimage
+	url = https://github.com/AppImageCommunity/pkg2appimage
+[submodule "create-dmg"]
+	path = sources/bash/scripts/create-dmg
+	url = https://github.com/create-dmg/create-dmg
 [submodule "neofetch"]
 	path = sources/bash/scripts/neofetch
 	url = https://github.com/dylanaraps/neofetch
