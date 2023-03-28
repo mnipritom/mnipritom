@@ -94,7 +94,7 @@ bashParameters["worktreeIdentifier"]=$(
   unset worktreesDirectoryIdentifier worktreeRepositoryIdentifier
 )
 
-source "${bashParameters["bashSourcesPath"]}/scripts/scripts.bash"
+source "${bashParameters["bashSourcesPath"]}/references/scripts/scripts.bash"
 
 source "${bashParameters["bashSourcesPath"]}/completions/completions.bash"
 

@@ -1,107 +1,107 @@
 [submodule "xdeb"]
-	path = sources/bash/scripts/xdeb
+	path = sources/bash/references/scripts/xdeb
 	url = https://github.com/toluschr/xdeb
 [submodule "tdrop"]
-	path = sources/bash/scripts/tdrop
+	path = sources/bash/references/scripts/tdrop
 	url = https://github.com/noctuid/tdrop
 [submodule "deb-get"]
-	path = sources/bash/scripts/deb-get
+	path = sources/bash/references/scripts/deb-get
 	url = https://github.com/wimpysworld/deb-get
 [submodule "debtap"]
-	path = sources/bash/scripts/debtap
+	path = sources/bash/references/scripts/debtap
 	url = https://github.com/helixarch/debtap
 [submodule "deb2appimage"]
-	path = sources/bash/scripts/deb2appimage
+	path = sources/bash/references/scripts/deb2appimage
 	url = https://github.com/simoniz0r/deb2appimage
 [submodule "pkg2appimage"]
-	path = sources/bash/scripts/pkg2appimage
+	path = sources/bash/references/scripts/pkg2appimage
 	url = https://github.com/AppImageCommunity/pkg2appimage
 [submodule "create-dmg"]
-	path = sources/bash/scripts/create-dmg
+	path = sources/bash/references/scripts/create-dmg
 	url = https://github.com/create-dmg/create-dmg
 [submodule "neofetch"]
-	path = sources/bash/scripts/neofetch
+	path = sources/bash/references/scripts/neofetch
 	url = https://github.com/dylanaraps/neofetch
 [submodule "pfetch"]
-	path = sources/bash/scripts/pfetch
+	path = sources/bash/references/scripts/pfetch
 	url = https://github.com/dylanaraps/pfetch
 [submodule "rxfetch"]
-	path = sources/bash/scripts/rxfetch
+	path = sources/bash/references/scripts/rxfetch
 	url = https://github.com/Mangeshrex/rxfetch
 [submodule "fet.sh"]
-	path = sources/bash/scripts/fet.sh
+	path = sources/bash/references/scripts/fet.sh
 	url = https://github.com/6gk/fet.sh
 [submodule "distrobox"]
-	path = sources/bash/scripts/distrobox
+	path = sources/bash/references/scripts/distrobox
 	url = https://github.com/89luca89/distrobox
 [submodule "junest"]
-	path = sources/bash/scripts/junest
+	path = sources/bash/references/scripts/junest
 	url = https://github.com/fsquillace/junest
 [submodule "ani-cli"]
-	path = sources/bash/scripts/ani-cli
+	path = sources/bash/references/scripts/ani-cli
 	url = https://github.com/pystardust/ani-cli
 [submodule "badown"]
-	path = sources/bash/scripts/badown
+	path = sources/bash/references/scripts/badown
 	url = https://github.com/stck-lzm/badown
 [submodule "ytfzf"]
-	path = sources/bash/scripts/ytfzf
+	path = sources/bash/references/scripts/ytfzf
 	url = https://github.com/pystardust/ytfzf
 [submodule "fff"]
-	path = sources/bash/scripts/fff
+	path = sources/bash/references/scripts/fff
 	url = https://github.com/dylanaraps/fff
 [submodule "git-fuzzy"]
-	path = sources/bash/scripts/git-fuzzy
+	path = sources/bash/references/scripts/git-fuzzy
 	url = https://github.com/bigH/git-fuzzy
 [submodule "git-forgit"]
-	path = sources/bash/scripts/git-forgit
+	path = sources/bash/references/scripts/git-forgit
 	url = https://github.com/wfxr/forgit
 [submodule "bashtop"]
-	path = sources/bash/scripts/bashtop
+	path = sources/bash/references/scripts/bashtop
 	url = https://github.com/aristocratos/bashtop
 [submodule "pipes.sh"]
-	path = sources/bash/scripts/pipes.sh
+	path = sources/bash/references/scripts/pipes.sh
 	url = https://github.com/pipeseroni/pipes.sh
 [submodule "sysz"]
-	path = sources/bash/scripts/sysz
+	path = sources/bash/references/scripts/sysz
 	url = https://github.com/joehillen/sysz
 [submodule "pacapt"]
-	path = sources/bash/scripts/pacapt
+	path = sources/bash/references/scripts/pacapt
 	url = https://github.com/icy/pacapt
 [submodule "piu"]
-	path = sources/bash/scripts/piu
+	path = sources/bash/references/scripts/piu
 	url = https://github.com/beyondmeh/piu
 [submodule "vpm"]
-	path = sources/bash/scripts/vpm
+	path = sources/bash/references/scripts/vpm
 	url = https://github.com/netzverweigerer/vpm
 [submodule "xb"]
-	path = sources/bash/scripts/xb
+	path = sources/bash/references/scripts/xb
 	url = https://github.com/ernierasta/xb
 [submodule "bash2048"]
-	path = sources/bash/scripts/bash2048
+	path = sources/bash/references/scripts/bash2048
 	url = https://github.com/JosefZIla/bash2048
 [submodule "prettyping"]
-	path = sources/bash/scripts/prettyping
+	path = sources/bash/references/scripts/prettyping
 	url = https://github.com/denilsonsa/prettyping
 [submodule "climate"]
-	path = sources/bash/scripts/climate
+	path = sources/bash/references/scripts/climate
 	url = https://github.com/adtac/climate
 [submodule "tbsm"]
-	path = sources/bash/scripts/tbsm
+	path = sources/bash/references/scripts/tbsm
 	url = https://github.com/loh-tar/tbsm
 [submodule "goto"]
-	path = sources/bash/scripts/goto
+	path = sources/bash/references/scripts/goto
 	url = https://github.com/Fakerr/goto
 [submodule "up"]
-	path = sources/bash/scripts/up
+	path = sources/bash/references/scripts/up
 	url = https://github.com/shannonmoeller/up
 [submodule "z"]
-	path = sources/bash/scripts/z
+	path = sources/bash/references/scripts/z
 	url = https://github.com/rupa/z
 [submodule "stowsh"]
-	path = sources/bash/scripts/stowsh
+	path = sources/bash/references/scripts/stowsh
 	url = https://github.com/mikepqr/stowsh
 [submodule "extract"]
-	path = sources/bash/scripts/extract
+	path = sources/bash/references/scripts/extract
 	url = https://github.com/xvoland/Extract
 [submodule "bash-completion"]
 	path = sources/bash/completions/bash-completion
