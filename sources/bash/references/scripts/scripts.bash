@@ -52,12 +52,16 @@ scripts["includeScripts"]=$(
       then
         # [TODO] conditionally set script specific options/variables
         eval "$executableUnit () {
-          bash --norc --noprofile --posix $executable \$@
+          (
+            bash --norc --noprofile --posix $executable \$@
+          )
         }"
       elif [[ "${executables["$executable"]}" == "bash" ]]
       then
         eval "$executableUnit () {
-          bash --norc --noprofile $executable \$@
+          (
+            bash --norc --noprofile $executable \$@
+          )
         }"
       fi
       unset executableUnit executable
