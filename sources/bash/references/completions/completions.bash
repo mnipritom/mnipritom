@@ -45,8 +45,8 @@ completions["includeGenerators"]=$(
   unset -f includeGenerators
 )
 
-eval "${completions["includeCompletions"]}" && includeCompletions && unset includeCompletions
+eval "${completions["includeCompletions"]}" && includeCompletions && unset -f includeCompletions
 
-eval "${completions["includeGenerators"]}" && includeGenerators && unset includeGenerators
+eval "${completions["includeGenerators"]}" && includeGenerators && unset -f includeGenerators
 
 unset completions

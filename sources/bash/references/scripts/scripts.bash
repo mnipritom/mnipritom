@@ -107,10 +107,10 @@ scripts["includeCompletions"]=$(
   unset -f includeCompletions
 )
 
-eval "${scripts["includeScripts"]}" && includeScripts && unset includeScripts
+eval "${scripts["includeScripts"]}" && includeScripts && unset -f includeScripts
 
-eval "${scripts["includeFunctions"]}" && includeFunctions && unset includeFunctions
+eval "${scripts["includeFunctions"]}" && includeFunctions && unset -f includeFunctions
 
-eval "${scripts["includeCompletions"]}" && includeCompletions && unset includeCompletions
+eval "${scripts["includeCompletions"]}" && includeCompletions && unset -f includeCompletions
 
 unset scripts
