@@ -54,7 +54,7 @@ declare -A bashParameters
 bashParameters["bashSourcesPath"]="$(
   dirname $(
     realpath --canonicalize-existing $(
-      readlink --canonicalize ${BASH_SOURCE[0]:-$0}
+      readlink --canonicalize ${BASH_SOURCE[0]:-${0}}
     )
   )
 )"
