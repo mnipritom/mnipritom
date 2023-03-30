@@ -1,24 +1,3 @@
-function readFile {
-  local fileToRead="$1"
-  eval "gawk '{
-    print
-  }' $fileToRead"
-}
-function getFileName {
-  local toParse="$1"
-  echo "$(
-    basename "$toParse"
-  )"
-}
-function getUniquePathEntries {
-  local uniquePathEntries="$(
-    printf "%s" "$PATH" \
-    | tr ":" "\n" \
-    | sort --unique \
-    | tr "\n" ":"
-  )"
-  printf "%s" "$uniquePathEntries"
-}
 function copyHostDNSConfigurations {
   local targetRootFileSystem="$1"
   local status

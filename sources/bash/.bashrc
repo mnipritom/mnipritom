@@ -96,6 +96,4 @@ bashParameters["worktreeIdentifier"]=$(
 
 source "${bashParameters["bashSourcesPath"]}/references/references.bash"
 
-# source "${bashParameters["bashSourcesPath"]}/productions/functions/functions.bash"
-
 unset bashParameters

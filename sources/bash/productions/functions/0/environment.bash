@@ -1,4 +1,4 @@
-executionModifiers["setStrictExecution"]=$(
+_0["setStrictExecution"]=$(
   function setStrictExecution {
     local state="$1"
     if [ "$state" == "on" ]
@@ -24,7 +24,7 @@ executionModifiers["setStrictExecution"]=$(
   unset -f setStrictExecution
 )
 
-executionModifiers["setAliases"]=$(
+_0["setAliases"]=$(
   function setAliases {
     local state="$1"
     if [ "$state" == "on" ]
@@ -42,4 +42,19 @@ executionModifiers["setAliases"]=$(
   }
   declare -f setAliases
   unset -f setAliases
+)
+
+
+_0["getUniquePathEntries"]=$(
+  function getUniquePathEntries {
+    local uniquePathEntries="$(
+    printf "%s" "$PATH" \
+    | tr ":" "\n" \
+    | sort --unique \
+    | tr "\n" ":"
+    )"
+    printf "%s" "$uniquePathEntries"
+  }
+  declare -f getUniquePathEntries
+  unset -f getUniquePathEntries
 )
