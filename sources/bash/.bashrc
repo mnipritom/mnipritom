@@ -28,22 +28,22 @@ declare -A VARIABLES=(
 )
 for variableEntry in "${!VARIABLES[@]}"
 do
-  export "$variableEntry=${VARIABLES["$variableEntry"]}"
+  export "${variableEntry}=${VARIABLES["${variableEntry}"]}"
 done
 unset variableEntry VARIABLES
 
 PATHS=(
-  "$HOME/go"
-  "$GOPATH/bin"
-  "$HOME/.local/bin"
-  "$HOME/.cargo/bin"
+  "${HOME}/go"
+  "${GOPATH}/bin"
+  "${HOME}/.local/bin"
+  "${HOME}/.cargo/bin"
   "/home/linuxbrew/.linuxbrew/bin"
 )
 for path in "${PATHS[@]}"
 do
-  if [[ -d "$path" ]]
+  if [[ -d "${path}" ]]
   then
-    export "PATH=$PATH:$path"
+    export "PATH=${PATH}:${path}"
   fi
 done
 unset path PATHS
@@ -63,7 +63,7 @@ bashParameters["worktreeDataPath"]=$(
   cd "${bashParameters["bashSourcesPath"]}/../../"
   if [[ $( git rev-parse --is-inside-work-tree ) ]]
   then
-    printf "%s" "$PWD"
+    printf "%s" "${PWD}"
   fi
 )
 
@@ -85,15 +85,17 @@ bashParameters["worktreeIdentifier"]=$(
     cd "${bashParameters["worktreeDataPath"]}" && \
     git branch --show-current
   )
-  if [[ "$worktreesDirectoryIdentifier" == "$worktreeRepositoryIdentifier" ]]
+  if [[ "${worktreesDirectoryIdentifier}" == "${worktreeRepositoryIdentifier}" ]]
   then
-    printf "$worktreesDirectoryIdentifier"
+    printf "${worktreesDirectoryIdentifier}"
   else
-    printf "$worktreeRepositoryIdentifier"
+    printf "${worktreeRepositoryIdentifier}"
   fi
   unset worktreesDirectoryIdentifier worktreeRepositoryIdentifier
 )
 
 source "${bashParameters["bashSourcesPath"]}/references/references.bash"
+
+# source "${bashParameters["bashSourcesPath"]}/productions/functions/functions.bash"
 
 unset bashParameters

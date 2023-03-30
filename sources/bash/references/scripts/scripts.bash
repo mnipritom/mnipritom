@@ -3,7 +3,7 @@ declare -A scripts
 scripts["scriptsPath"]="$(
   dirname $(
     realpath --canonicalize-existing $(
-      readlink --canonicalize ${BASH_SOURCE[0]:-$0}
+      readlink --canonicalize ${BASH_SOURCE[0]:-${0}}
     )
   )
 )"
@@ -46,21 +46,21 @@ scripts["includeScripts"]=$(
     for executable in "${!executables[@]}"
     do
       local executableUnit=$(
-        basename --suffix ".sh" "$executable"
+        basename --suffix ".sh" "${executable}"
       )
-      if [[ "${executables["$executable"]}" == "posix" ]]
+      if [[ "${executables["${executable}"]}" == "posix" ]]
       then
         # [TODO] conditionally set script specific options/variables
         eval "$executableUnit () {
           (
-            bash --norc --noprofile --posix $executable \$@
+            bash --norc --noprofile --posix ${executable} \$@
           )
         }"
-      elif [[ "${executables["$executable"]}" == "bash" ]]
+      elif [[ "${executables["${executable}"]}" == "bash" ]]
       then
         eval "$executableUnit () {
           (
-            bash --norc --noprofile $executable \$@
+            bash --norc --noprofile ${executable} \$@
           )
         }"
       fi
@@ -82,7 +82,7 @@ scripts["includeFunctions"]=$(
     )
     for container in "${functions[@]}"
     do
-      source "$container"
+      source "${container}"
     done
     unset functions container
   }
@@ -103,7 +103,7 @@ scripts["includeCompletions"]=$(
     ))
     for completion in "${completions[@]}"
     do
-      source "$completion"
+      source "${completion}"
     done
     unset completions completion
   }
