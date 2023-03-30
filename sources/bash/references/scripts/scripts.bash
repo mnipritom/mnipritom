@@ -12,6 +12,7 @@ scripts["includeScripts"]=$(
   function includeScripts {
     declare -A executables=(
       ["${scripts["scriptsPath"]}/ani-cli/ani-cli"]="posix"
+      ["${scripts["scriptsPath"]}/apk.sh/apk.sh"]="bash"
       ["${scripts["scriptsPath"]}/badown/badown"]="bash"
       ["${scripts["scriptsPath"]}/bash2048/bash2048.sh"]="bash"
       ["${scripts["scriptsPath"]}/bashtop/bashtop"]="bash"

@@ -31,6 +31,9 @@
 [submodule "fet.sh"]
 	path = sources/bash/references/scripts/fet.sh
 	url = https://github.com/6gk/fet.sh
+[submodule "apk.sh"]
+	path = sources/bash/references/scripts/apk.sh
+	url = https://github.com/ax/apk.sh
 [submodule "distrobox"]
 	path = sources/bash/references/scripts/distrobox
 	url = https://github.com/89luca89/distrobox
