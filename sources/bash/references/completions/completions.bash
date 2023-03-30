@@ -15,8 +15,12 @@ completions["includeCompletions"]=$(
       source "/usr/share/bash-completion/bash_completion"
     fi
     source "${completions["completionsPath"]}/bash-completion/bash_completion"
+
     source "${completions["completionsPath"]}/fzf-tab-completion/bash/fzf-bash-completion.sh"
     bind -x '"\t": fzf_bash_completion'
+
+    # [TODO] fix `__git_find_on_cmdline: command not found` error
+    # source "${completions["completionsPath"]}/git-flow-completion/git-flow-completion.bash"
   }
   declare -f includeCompletions
   unset -f includeCompletions

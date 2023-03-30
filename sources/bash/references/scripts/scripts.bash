@@ -16,6 +16,8 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/badown/badown"]="bash"
       ["${scripts["scriptsPath"]}/bash2048/bash2048.sh"]="bash"
       ["${scripts["scriptsPath"]}/bashtop/bashtop"]="bash"
+      ["${scripts["scriptsPath"]}/bd/bd"]="bash"
+      ["${scripts["scriptsPath"]}/bocker/bocker"]="bash"
       ["${scripts["scriptsPath"]}/climate/climate"]="bash"
       ["${scripts["scriptsPath"]}/create-dmg/create-dmg"]="bash"
       ["${scripts["scriptsPath"]}/distrobox/distrobox"]="posix"
@@ -26,6 +28,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/fff/fff"]="bash"
       ["${scripts["scriptsPath"]}/git-forgit/bin/git-forgit"]="bash"
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
+      ["${scripts["scriptsPath"]}/gitflow/git-flow"]="posix"
       ["${scripts["scriptsPath"]}/junest/bin/junest"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
       ["${scripts["scriptsPath"]}/pacapt/pacapt"]="posix"
@@ -52,6 +55,7 @@ scripts["includeScripts"]=$(
       if [[ "${executables["${executable}"]}" == "posix" ]]
       then
         # [TODO] conditionally set script specific options/variables
+        # [TODO] `bd` `fet.sh` `bash2048.sh` `apk.sh`
         eval "$executableUnit () {
           (
             bash --norc --noprofile --posix ${executable} \$@
@@ -94,6 +98,7 @@ scripts["includeFunctions"]=$(
 scripts["includeCompletions"]=$(
   function includeCompletions {
     local completions=(
+      "${scripts["scriptsPath"]}/bd/bash_completion.d/bd"
       "${scripts["scriptsPath"]}/deb-get/deb-get_completion"
       "${scripts["scriptsPath"]}/git-forgit/completions/git-forgit.bash"
       "${scripts["scriptsPath"]}/vpm/bash-completion/completions/vpm"

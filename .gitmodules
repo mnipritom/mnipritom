@@ -37,9 +37,15 @@
 [submodule "distrobox"]
 	path = sources/bash/references/scripts/distrobox
 	url = https://github.com/89luca89/distrobox
+[submodule "gitflow"]
+	path = sources/bash/references/scripts/gitflow
+	url = https://github.com/nvie/gitflow
 [submodule "junest"]
 	path = sources/bash/references/scripts/junest
 	url = https://github.com/fsquillace/junest
+[submodule "bocker"]
+	path = sources/bash/references/scripts/bocker
+	url = https://github.com/p8952/bocker
 [submodule "ani-cli"]
 	path = sources/bash/references/scripts/ani-cli
 	url = https://github.com/pystardust/ani-cli
@@ -100,6 +106,9 @@
 [submodule "z"]
 	path = sources/bash/references/scripts/z
 	url = https://github.com/rupa/z
+[submodule "bd"]
+	path = sources/bash/references/scripts/bd
+	url = https://github.com/vigneshwaranr/bd
 [submodule "stowsh"]
 	path = sources/bash/references/scripts/stowsh
 	url = https://github.com/mikepqr/stowsh
@@ -112,6 +121,9 @@
 [submodule "fzf-tab-completion"]
 	path = sources/bash/references/completions/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
+[submodule "git-flow-completion"]
+	path = sources/bash/references/completions/git-flow-completion
+	url = https://github.com/bobthecow/git-flow-completion
 [submodule "inxi"]
 	path = sources/perl/scripts/inxi
 	url = https://github.com/smxi/inxi
