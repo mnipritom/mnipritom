@@ -43,6 +43,12 @@
 [submodule "junest"]
 	path = sources/bash/references/scripts/junest
 	url = https://github.com/fsquillace/junest
+[submodule "x11docker"]
+	path = sources/bash/references/scripts/x11docker
+	url = https://github.com/mviereck/x11docker
+[submodule "run_scaled"]
+	path = sources/bash/references/scripts/run_scaled
+	url = https://github.com/kaueraal/run_scaled
 [submodule "bocker"]
 	path = sources/bash/references/scripts/bocker
 	url = https://github.com/p8952/bocker
