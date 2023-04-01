@@ -103,18 +103,12 @@
 [submodule "tbsm"]
 	path = sources/bash/references/scripts/tbsm
 	url = https://github.com/loh-tar/tbsm
-[submodule "goto"]
-	path = sources/bash/references/scripts/goto
-	url = https://github.com/Fakerr/goto
 [submodule "up"]
 	path = sources/bash/references/scripts/up
 	url = https://github.com/shannonmoeller/up
 [submodule "z"]
 	path = sources/bash/references/scripts/z
 	url = https://github.com/rupa/z
-[submodule "bd"]
-	path = sources/bash/references/scripts/bd
-	url = https://github.com/vigneshwaranr/bd
 [submodule "stowsh"]
 	path = sources/bash/references/scripts/stowsh
 	url = https://github.com/mikepqr/stowsh
