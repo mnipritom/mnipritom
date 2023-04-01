@@ -29,6 +29,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
       ["${scripts["scriptsPath"]}/gitflow/git-flow"]="posix"
       ["${scripts["scriptsPath"]}/junest/bin/junest"]="bash"
+      ["${scripts["scriptsPath"]}/m-cli/m"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
       ["${scripts["scriptsPath"]}/pacapt/pacapt"]="posix"
       ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
@@ -99,6 +100,7 @@ scripts["includeCompletions"]=$(
   function includeCompletions {
     local completions=(
       "${scripts["scriptsPath"]}/deb-get/deb-get_completion"
+      "${scripts["scriptsPath"]}/m-cli/completion/bash/m"
       "${scripts["scriptsPath"]}/git-forgit/completions/git-forgit.bash"
       "${scripts["scriptsPath"]}/vpm/bash-completion/completions/vpm"
       "${scripts["scriptsPath"]}/xb/complete/xb"

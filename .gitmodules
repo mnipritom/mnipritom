@@ -97,6 +97,9 @@
 [submodule "climate"]
 	path = sources/bash/references/scripts/climate
 	url = https://github.com/adtac/climate
+[submodule "m-cli"]
+	path = sources/bash/references/scripts/m-cli
+	url = https://github.com/rgcr/m-cli
 [submodule "tbsm"]
 	path = sources/bash/references/scripts/tbsm
 	url = https://github.com/loh-tar/tbsm
