@@ -27,7 +27,13 @@ completions["includeGenerators"]=$(
   function includeGenerators {
     declare -A generators=(
       ["brew"]="shellenv"
+      ["flutter"]="bash-completion"
+      ["npm"]="completion"
+      ["pip"]="completion --bash"
+      ["pip3"]="completion --bash"
       ["pandoc"]="--bash-completion"
+      ["rustup"]="completions bash"
+      ["rustup"]="completions bash cargo"
       ["wezterm"]="shell-completion --shell bash"
     )
     for generatorCommand in "${!generators[@]}"
