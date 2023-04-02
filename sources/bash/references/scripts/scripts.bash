@@ -27,7 +27,6 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/fff/fff"]="bash"
       ["${scripts["scriptsPath"]}/git-forgit/bin/git-forgit"]="bash"
       ["${scripts["scriptsPath"]}/git-fuzzy/bin/git-fuzzy"]="bash"
-      ["${scripts["scriptsPath"]}/gitflow/git-flow"]="posix"
       ["${scripts["scriptsPath"]}/junest/bin/junest"]="bash"
       ["${scripts["scriptsPath"]}/m-cli/m"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
