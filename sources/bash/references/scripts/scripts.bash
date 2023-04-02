@@ -18,6 +18,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/bashtop/bashtop"]="bash"
       ["${scripts["scriptsPath"]}/bocker/bocker"]="bash"
       ["${scripts["scriptsPath"]}/climate/climate"]="bash"
+      ["${scripts["scriptsPath"]}/cpm/cpm"]="posix"
       ["${scripts["scriptsPath"]}/create-dmg/create-dmg"]="bash"
       ["${scripts["scriptsPath"]}/distrobox/distrobox"]="posix"
       ["${scripts["scriptsPath"]}/deb-get/deb-get"]="bash"

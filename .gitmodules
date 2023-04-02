@@ -82,6 +82,9 @@
 [submodule "piu"]
 	path = sources/bash/references/scripts/piu
 	url = https://github.com/beyondmeh/piu
+[submodule "cpm"]
+	path = sources/bash/references/scripts/cpm
+	url = https://github.com/willeccles/cpm
 [submodule "vpm"]
 	path = sources/bash/references/scripts/vpm
 	url = https://github.com/netzverweigerer/vpm
