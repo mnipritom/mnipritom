@@ -1,9 +1,17 @@
 set $mod              Mod4
-set $terminal         $TERM
-set $browsers         "1: browsers "
-set $editors          "2: editors "
-set $terminals        "3: terminals "
 floating_modifier     $mod
+
+set $terminal         $TERM
+
+set $terminals        "1: terminals "
+set $browsers         "2: browsers "
+set $previews         "3: previews "
+set $randoms1         "4: randoms1 "
+set $randoms2         "5: randoms2 "
+set $randoms3         "6: randoms3 "
+set $randoms4         "7: randoms4 "
+set $editors          "8: editors "
+set $popups           "9: popups "
 
 include settings/keybindings
 include settings/rules

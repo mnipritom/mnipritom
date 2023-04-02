@@ -1,14 +1,26 @@
 # Keybindings
 
 # Workspaces
-bindsym        $mod+1         workspace        number        $browsers; exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
-bindsym        $mod+2         workspace        number        $editors; exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
-bindsym        $mod+3         workspace        number        $terminals; exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
+bindsym        $mod+1         workspace        number        $terminals; exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
+bindsym        $mod+2         workspace        number        $browsers; exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
+bindsym        $mod+3         workspace        number        $previews; exec --no-startup-id # xwallpaper --stretch [wallpaper](linkToWallpaper)
+bindsym        $mod+4         workspace        number        $randoms1;
+bindsym        $mod+5         workspace        number        $randoms2;
+bindsym        $mod+6         workspace        number        $randoms3;
+bindsym        $mod+7         workspace        number        $randoms4;
+bindsym        $mod+8         workspace        number        $editors;
+bindsym        $mod+9         workspace        number        $popups;
 
 # Moving windows to a workspace
-bindsym        $mod+Shift+1        move        container to workspace     number        $browsers
-bindsym        $mod+Shift+2        move        container to workspace     number        $editors
-bindsym        $mod+Shift+3        move        container to workspace     number        $terminals
+bindsym        $mod+Shift+1        move        container to workspace     number        $terminals
+bindsym        $mod+Shift+2        move        container to workspace     number        $browsers
+bindsym        $mod+Shift+3        move        container to workspace     number        $previews
+bindsym        $mod+Shift+4        move        container to workspace     number        $randoms1
+bindsym        $mod+Shift+5        move        container to workspace     number        $randoms2
+bindsym        $mod+Shift+6        move        container to workspace     number        $randoms3
+bindsym        $mod+Shift+7        move        container to workspace     number        $randoms4
+bindsym        $mod+Shift+8        move        container to workspace     number        $randoms5
+bindsym        $mod+Shift+9        move        container to workspace     number        $editors
 
 # Layout switching
 bindsym        $mod+s             layout       stacking

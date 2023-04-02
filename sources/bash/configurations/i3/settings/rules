@@ -1,4 +1,3 @@
-# Window rules
 assign [class="Google-chrome"] $browsers
 assign [class="Microsoft-edge"] $browsers
 assign [class="Firefox"] $browsers
@@ -21,7 +20,10 @@ assign [class="marktext"] $editors
 assign [class="kitty"] $terminals
 assign [class="org.wezfurlong.wezterm"] $terminals
 
+assign [class="mpv"] $previews
+assign [class="feh"] $previews
+assign [class="Zathura"] $previews
+
 # for_window [class="Virt-manager"] floating enable
 
-# Removing window borders
 # for_window [class="^.*"] border pixel 0 # deprecated

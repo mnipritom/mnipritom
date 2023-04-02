@@ -12,7 +12,8 @@ bar {
   }
   position bottom
   workspace_buttons yes
-  strip_workspace_numbers yes
+  strip_workspace_name yes
+  strip_workspace_numbers no
   # tray_output none
   # modifier none
   # mode invisible
