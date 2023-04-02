@@ -1,8 +1,8 @@
-declare -A _0
-declare -A _1
-declare -A _2
+declare -A functionsLevel0
+declare -A functionsLevel1
+declare -A functionsLevel2
 
-function functions {
+functions {
   local state="${1}"
 
   local functionsPath="$(
@@ -34,9 +34,9 @@ function functions {
     done
   elif [[ "${state}" == "off" ]]
   then
-    unset _0
-    unset _1
-    unset _2
+    unset functionsLevel0
+    unset functionsLevel1
+    unset functionsLevel2
     unset -f functions
   fi
 

@@ -1,4 +1,4 @@
-_0["getAdministrativePrivileges"]=$(
+functionsLevel0["getAdministrativePrivileges"]=$(
   function getAdministrativePrivileges {
     sudo --validate
   }
@@ -6,7 +6,7 @@ _0["getAdministrativePrivileges"]=$(
   unset -f getAdministrativePrivileges
 )
 
-_0["revokeAdministrativePrivileges"]=$(
+functionsLevel0["revokeAdministrativePrivileges"]=$(
   function revokeAdministrativePrivileges {
     sudo --remove-timestamp
   }

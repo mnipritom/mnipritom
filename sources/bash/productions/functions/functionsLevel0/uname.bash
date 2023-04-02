@@ -1,4 +1,4 @@
-_0["getProcessorArchitecture"]=$(
+functionsLevel0["getProcessorArchitecture"]=$(
   function getProcessorArchitecture {
     uname --machine
   }
@@ -6,7 +6,7 @@ _0["getProcessorArchitecture"]=$(
   unset -f getProcessorArchitecture
 )
 
-_0["getOperatingSystemName"]=$(
+functionsLevel0["getOperatingSystemName"]=$(
   function getOperatingSystemName {
     uname --operating-system
   }
@@ -14,7 +14,7 @@ _0["getOperatingSystemName"]=$(
   unset -f getOperatingSystemName
 )
 
-_0["getKernelName"]=$(
+functionsLevel0["getKernelName"]=$(
   function getKernelName {
     uname --kernel-name
   }

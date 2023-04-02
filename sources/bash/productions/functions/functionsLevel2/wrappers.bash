@@ -1,7 +1,7 @@
-_2["getSystemPackageManager"]=$(
+functionsLevel2["getSystemPackageManager"]=$(
   function getSystemPackageManager {
-    eval "${_0[getHostDistribution]}"
-    eval "${_0[getHostDistributionPackageManager]}"
+    eval "${functionsLevel1[getHostDistribution]}"
+    eval "${functionsLevel0[getHostDistributionPackageManager]}"
     local hostDistribution=$(
       getHostDistribution
     )

@@ -1,18 +1,4 @@
-function createDirectory {
-  local targetDirectory="$1"
-  local directoryType="$2"
-  if [ "$directoryType" == "privileged" ]
-  then
-    eval "sudo mkdir --parents $targetDirectory" &>/dev/null
-  elif [ "$directoryType" == "" ]
-  then
-    mkdir --parents "$targetDirectory" &>/dev/null
-  fi
-  local status="$(
-    echo "$?"
-  )"
-  echo "$status"
-}
+
 function promptCreateDirectory {
   local targetDirectory="$1"
   local directoryType="$2"
@@ -24,34 +10,8 @@ function promptCreateDirectory {
     echo "$successSymbol Successfully created directory : $targetDirectory"
   fi
 }
-function createSymbolicLink {
-  local source="$1"
-  local target="$2"
-  local sourcePath="$(
-    realpath "$source"
-  )"
-  local targetPath="$(
-    realpath "$target"
-  )"
-  local status=$(
-    ln --symbolic "$sourcePath" "$targetPath" &>/dev/null
-    printf "%s" "$?"
-  )
-  printf "%s" "$status"
-}
-function promptCreateSymbolicLink {
-  local source="$1"
-  local target="$2"
-  local status=$(
-    createSymbolicLink "$source" "$target"
-  )
-  if [ "$status" != 0 ]
-  then
-    printf "%s\n" "$failureSymbol Failed to create symbolic link : $source -> $target"
-  else
-    printf "%s\n" "$successSymbol Successfully created symbolic link : $source -> $target"
-  fi
-}
+
+
 function deleteDirectory {
   local targetDirectory="$1"
   local directoryType="$2"
@@ -249,12 +209,7 @@ function getPartitionFileSystemType {
   )
   echo "$fileSystemType"
 }
-# ---
-# note   : `exclude` 7 (loops), 11 (ROMs), 251 (swaps)
-# ---
-function listAvailableDisks {
-  lsblk --paths --nodeps --noheadings --exclude 7,11,251 --output NAME,VENDOR,TYPE,SIZE
-}
+
 function copyDirectory {
   local source="$1"
   local destination="$2"

@@ -68,48 +68,6 @@ function getBinaryPath {
   echo "$targetBinaryPath"
 }
 
-function setClock {
-
-  function setSystemClock {
-    getAdministrativePrivileges
-    echo "$processingSymbol Setting system clock"
-    sudo date --set="$year-$month-$day $hour:$minute:$second $offset"
-    local status=$(
-      echo "$?"
-    )
-    if [ "$status" != 0 ]
-    then
-      echo "$failureSymbol Failed to set system clock"
-      return 1
-    else
-      echo "$successSymbol Successfully set system clock"
-    fi
-  }
-  function setHardwareClock {
-    getAdministrativePrivileges
-    echo "$processingSymbol Setting hardware clock"
-    local status=$(
-      sudo hwclock --systohc
-      echo "$?"
-    )
-    if [ "$status" != 0 ]
-    then
-      echo "$failureSymbol Failed to set hardware clock"
-      return 1
-    else
-      echo "$successSymbol Successfully set hardware clock"
-    fi
-  }
-  read -r -p "Enter year: " year
-  read -r -p "Enter month: " month
-  read -r -p "Enter day: " day
-  read -r -p "Enter hour [24h]: " hour
-  read -r -p "Enter minute: " minute
-  read -r -p "Enter second: " second
-  read -r -p "Enter offset [GMT+-] : " offset
-  setSystemClock "$year" "$month" "$day" "$hour" "$minute" "$second" "$offset"
-  setHardwareClock
-}
 function listUsers {
   local targetRootFileSystem="$1"
   source "$blocksDirectory/baseSystem/setAliases.bash"
@@ -240,35 +198,7 @@ function chrootExecute {
     return 1
   fi
 }
-function getHostDistributionPackageManager {
-  source "$snippetsDirectory/baseSystem/getHostDistribution.bash"
-  local hostDistribution="$1"
-  if [ "$hostDistribution" == "" ]
-  then
-    hostDistribution="$(
-      getHostDistribution
-    )"
-  fi
-  declare -A distributionPackageManagers=(
-    ["void"]="xbps"
-    ["arch"]="pacman"
-    ["artix"]="pacman"
-    ["hyperbola"]="pacman"
-    ["parabola"]="pacman"
-    ["debian"]="apt"
-    ["devuan"]="apt"
-    ["kali"]="apt"
-    ["parrot"]="apt"
-    ["ubuntu"]="apt"
-    ["trisquel"]="apt"
-    ["fedora"]="dnf"
-    ["opensuse"]="zypper"
-    ["nix"]="nix"
-    ["guix"]="guix"
-  )
-  local hostDistributionPackageManager="${distributionPackageManagers[$hostDistribution]}"
-  echo "$hostDistributionPackageManager"
-}
+
 function addUserToGroups {
   local userName="$1"
   local targetRootFileSystem="$2"
@@ -639,51 +569,4 @@ function synchronizeSystemRepositories {
     fi
     eval "sudo $updateCommand"
   fi
-}
-# ---
-# note:
-#   - dependent on environment variable `PWD`
-#   - `--is-inside-git-dir` `--is-inside-work-tree` can only report `true`
-#   - in `false` cases they print error message to stdout
-# ---
-function checkGitRepositoryStatus {
-  local repositoryStatus=$(
-    git rev-parse --is-inside-git-dir &>/dev/null
-    printf "%s" "$?"
-  )
-  local worktreeStatus=$(
-    git rev-parse --is-inside-work-tree &>/dev/null
-    printf "%s" "$?"
-  )
-  if [ "$repositoryStatus" == 0 ] || [ "$worktreeStatus" == 0 ]
-  then
-    if [ "$repositoryStatus" == 0 ]
-    then
-      printf "%s" "repository"
-    elif [ "$worktreeStatus" == 0 ]
-    then
-      printf "%s" "worktree"
-    fi
-    return 0
-  else
-    printf "%s" "none"
-    return 1
-  fi
-}
-function getRandomFile {
-  local targetDirectory="$1"
-  if [ ! -d "$targetDirectory" ]
-  then
-    echo "$failureSymbol Failed to find directory : $targetDirectory"
-    return 1
-  fi
-  local targetDirectoryFiles=($(
-    find "$targetDirectory" -type f -nowarn
-  ))
-  local targetDirectoryFilesCount="${#targetDirectoryFiles[@]}"
-  local randomizedEntry=$(
-    shuf --input-range 0-"$(( $targetDirectoryFilesCount-1 ))" --head-count 1
-  )
-  local randomFile="${targetDirectoryFiles[$randomizedEntry]}"
-  echo "$randomFile"
 }

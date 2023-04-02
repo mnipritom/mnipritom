@@ -1,4 +1,4 @@
-_0["killRunningProcess"]=$(
+functionsLevel0["killRunningProcess"]=$(
   function killRunningProcess {
     # [LINK] https://github.com/junegunn/fzf/blob/master/ADVANCED.md#updating-the-list-of-processes-by-pressing-ctrl-r
     (

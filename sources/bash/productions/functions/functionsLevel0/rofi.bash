@@ -1,4 +1,4 @@
-_0["generateRofiPromptScript"]=$(
+functionsLevel0["generateRofiPromptScript"]=$(
   function generateRofiPromptScript {
     # [TODO] implement
     return 1
@@ -6,7 +6,7 @@ _0["generateRofiPromptScript"]=$(
   declare -f generatePromptScript
   unset -f generatePromptScript
 )
-_0["generatePasswordPrompt"]=$(
+functionsLevel0["generatePasswordPrompt"]=$(
   # [TODO] generalize into generatePromptScript `draft`
   # [NOTE] requires SUDO_ASKPASS environment variable to be set
   # [LINK] https://github.com/sdushantha/dotfiles/blob/77c7ee406472c9fa7c2417eb60b981c5b70096be/bin/bin/utils/rofi-askpass
@@ -27,7 +27,7 @@ _0["generatePasswordPrompt"]=$(
   declare -f generatePasswordPrompt
   unset -f generatePasswordPrompt
 )
-_0["generateWindowSwitcherPrompt"]=$(
+functionsLevel0["generateWindowSwitcherPrompt"]=$(
   # [TODO] generalize into generatePromptScript `draft`
   # [LINK] https://github.com/davatorium/rofi/issues/38#issuecomment-456988468
   function generateWindowSwitcherPrompt {
