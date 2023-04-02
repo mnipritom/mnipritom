@@ -121,6 +121,9 @@
 [submodule "fzf-tab-completion"]
 	path = sources/bash/references/completions/fzf-tab-completion
 	url = https://github.com/lincheney/fzf-tab-completion
+[submodule "dex"]
+	path = sources/python/references/scripts/dex
+	url = https://github.com/jceb/dex
 [submodule "inxi"]
 	path = sources/perl/scripts/inxi
 	url = https://github.com/smxi/inxi
