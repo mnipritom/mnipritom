@@ -26,16 +26,18 @@ local blankline = "https://github.com/lukas-reineke/indent-blankline.nvim"
 local isPackerFreshInstallation
 
 local function installPacker()
-  -- [TODO] explore `vim.api` possibility to mitigate Lua -> VimL -> C overhead of `vim.fn`
-  local neovimConfigurationsAPI = vim.fn
-  local vimCommandAPI = vim.cmd
-  local packerInitializationScript = "/site/pack/packer/start/packer.nvim"
-  local neovimConfigurationsDirectory = neovimConfigurationsAPI.stdpath("data")
-  local packerInitializer = neovimConfigurationsDirectory .. packerInitializationScript
-  if neovimConfigurationsAPI.empty(neovimConfigurationsAPI.glob(packerInitializer)) > 0
+  local packerInitializer = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  if vim.fn.empty(vim.fn.glob(packerInitializer)) > 0
   then
-    neovimConfigurationsAPI.system({"git", "clone", "--depth", "1", packer, packerInitializer})
-    vimCommandAPI("packadd packer.nvim")
+    vim.fn.system({
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      packer,
+      packerInitializer
+    })
+    vim.cmd("packadd packer.nvim")
     isPackerFreshInstallation = true
   else
     isPackerFreshInstallation = false

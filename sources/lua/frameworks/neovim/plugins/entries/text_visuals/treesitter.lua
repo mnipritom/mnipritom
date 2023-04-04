@@ -1,10 +1,3 @@
-local isTreesitterAvailable, treesitterInstance = pcall(require, "nvim-treesitter")
-if not isTreesitterAvailable
-then
-  return
-end
-
--- [TODO] explore conciseness
 require("nvim-treesitter.install").prefer_git = true
 
 require("nvim-treesitter.install").update({

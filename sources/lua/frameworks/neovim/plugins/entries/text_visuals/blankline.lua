@@ -1,10 +1,4 @@
-local isBlanklineAvailable, blanklineInstance = pcall(require, "blankline")
-if not isBlanklineAvailable
-then
-  return
-end
-
-blanklineInstance.setup({
+require("blankline").setup({
   buftype_exclude = {
     "terminal"
   },

@@ -1,10 +1,4 @@
-local isTablineAvailable, tablineInstance = pcall(require, "tabline")
-if not isTablineAvailable
-then
-  return
-end
-
-tablineInstance.setup({
+require("tabline").setup({
   enable = true,
   options = {
     max_bufferline_percent = 66,

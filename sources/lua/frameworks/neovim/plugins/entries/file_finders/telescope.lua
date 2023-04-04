@@ -5,13 +5,7 @@
   ---
 --]]
 
-local isTelescopeAvailable, telescopeInstance = pcall(require, "telescope")
-if not isTelescopeAvailable
-then
-  return
-end
-
-telescopeInstance.setup({
+require("telescope").setup({
   defaults = {
     mappings = {
       i = {
