@@ -19,8 +19,8 @@ bindsym        $mod+Shift+4        move        container to workspace     number
 bindsym        $mod+Shift+5        move        container to workspace     number        $randoms2
 bindsym        $mod+Shift+6        move        container to workspace     number        $randoms3
 bindsym        $mod+Shift+7        move        container to workspace     number        $randoms4
-bindsym        $mod+Shift+8        move        container to workspace     number        $randoms5
-bindsym        $mod+Shift+9        move        container to workspace     number        $editors
+bindsym        $mod+Shift+8        move        container to workspace     number        $editors
+bindsym        $mod+Shift+9        move        container to workspace     number        $popups
 
 # Layout switching
 bindsym        $mod+s             layout       stacking
