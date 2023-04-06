@@ -4,4 +4,4 @@ local lazySourcesPath = neovimSourcesPath .. "/references/plugins/sources/lazy"
 
 vim.opt.runtimepath:prepend(lazySourcesPath)
 
-require(lazyModule).setup(require(plugins .. "." .. "specifications.lazy"))
+require(lazyModule).setup(require(plugins .. "." .. "resources.lazy"))
