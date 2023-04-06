@@ -154,3 +154,6 @@
 [submodule "mason"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/mason
 	url = https://github.com/williamboman/mason.nvim
+[submodule "nui"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/nui
+	url = https://github.com/MunifTanjim/nui.nvim
