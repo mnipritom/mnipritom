@@ -1,29 +1,7 @@
-local lazyPluginsSourcesDirectoryPath = vim.fn.stdpath("data") .. "/lazy"
+local lazyModule = plugins .. "." .. "sources.lazy.lua.lazy"
 
-local lazySourcesDirectoryPath = lazyPluginsSourcesDirectoryPath .. "/lazy.nvim"
+local lazySourcesPath = neovimSourcesPath .. "/references/plugins/sources/lazy"
 
-if not vim.loop.fs_stat(lazySourcesDirectoryPath)
-then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazySourcesDirectoryPath
-  })
-end
+vim.opt.runtimepath:prepend(lazySourcesPath)
 
-vim.opt.runtimepath:prepend(lazySourcesDirectoryPath)
-
-require("lazy").setup({
-  -- [TODO] populate `spec`
-  spec = {
-    require(specifications)
-  },
-  ui = {
-    border = 1
-  },
-  root = lazyPluginsSourcesDirectoryPath,
-  lockfile = neovimSourcesPath .. "neovim.lock"
-})
+require(lazyModule).setup(require(plugins .. "." .. "specifications.lazy"))

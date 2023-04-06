@@ -23,7 +23,6 @@ configurations = productions .. "." .. "configurations"
 
 references = "references"
 plugins = references .. "." .. "plugins"
-specifications = plugins .. "." .. "specifications"
 
 require(productions)
 require(references)

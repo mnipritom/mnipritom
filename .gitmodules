@@ -145,3 +145,9 @@
 [submodule "licenses"]
 	path = resources/references/documents/licenses
 	url = https://github.com/IQAndreas/markdown-licenses
+[submodule "feline"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/feline
+	url = https://github.com/freddiehaddad/feline.nvim
+[submodule "lazy"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/lazy
+	url = https://github.com/folke/lazy.nvim
