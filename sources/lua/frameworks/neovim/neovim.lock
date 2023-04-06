@@ -1,0 +1,4 @@
+{
+  "heirline.nvim": { "branch": "master", "commit": "750a112a1cfaf2a7cd2d67a2d67f8f463b00d8af" },
+  "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" }
+}

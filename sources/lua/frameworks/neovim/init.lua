@@ -1,13 +1,29 @@
 -- [LINK] http://lua-users.org/lists/lua-l/2020-01/msg00345.html
 
-local fullpath = debug.getinfo(1,"S").source:sub(2)
-fullpath = io.popen("realpath '" .. fullpath .. "'", 'r'):read('a')
-fullpath = fullpath:gsub('[\n\r]*$','')
-local dirname, filename = fullpath:match('^(.*/)([^/]-)$')
-dirname = dirname or ''
-filename = filename or fullpath
+local neovimSourcesEntryPointPath = debug.getinfo(1,"S").source:sub(2)
+neovimSourcesEntryPointPath = io.popen("realpath '" .. neovimSourcesEntryPointPath .. "'", "r"):read("a")
+neovimSourcesEntryPointPath = neovimSourcesEntryPointPath:gsub("[\n\r]*$","")
 
-package.path = dirname .. "?.lua;" .. package.path
-package.path = dirname .. "?/init.lua;" .. package.path
+local neovimSourcesDirectoryPath, neovimEntryPointFileName = neovimSourcesEntryPointPath:match("^(.*/)([^/]-)$")
+neovimSourcesDirectoryPath = neovimSourcesDirectoryPath or ""
+neovimEntryPointFileName = neovimEntryPointFileName or neovimSourcesEntryPointPath
 
-require("configurations")
+-- [NOTE] `neovimSourcesPath` globally scoped/aliased for further references
+neovimSourcesPath = neovimSourcesDirectoryPath
+
+package.path = neovimSourcesDirectoryPath .. "?.lua;" .. package.path
+package.path = neovimSourcesDirectoryPath .. "?/init.lua;" .. package.path
+
+vim.opt.runtimepath:prepend(neovimSourcesDirectoryPath)
+-- print(vim.inspect(vim.api.nvim_list_runtime_paths()))
+
+-- [NOTE] global `lua` modules are set for conciseness
+productions = "productions"
+configurations = productions .. "." .. "configurations"
+
+references = "references"
+plugins = references .. "." .. "plugins"
+specifications = plugins .. "." .. "specifications"
+
+require(productions)
+require(references)
