@@ -1,140 +1,56 @@
-local items = {}
-
-items.vim_mode = {
-  provider = require("feline.providers.vi_mode").get_vim_mode(),
-  hl = function()
-    return {
-      fg = "bg",
-      bg = require("feline.providers.vi_mode").get_mode_color(),
-      style = "bold",
-      name = "NeovimModeHLColor",
+return {
+  dir = neovimSourcesPath .. "references/plugins/sources/feline",
+  config = function()
+    local blocks = {
+      vim_mode = {
+        provider = function()
+          return require("feline.providers.vi_mode").get_vim_mode()
+        end,
+        hl = function()
+          return {
+            fg = "bg",
+            bg = require("feline.providers.vi_mode").get_mode_color(),
+            style = "bold",
+            name = "NeovimModeHLColor"
+          }
+        end,
+        left_sep = "block",
+        right_sep = "block"
+      }
     }
-  end,
-  left_sep = "block",
-  right_sep = "block",
+    local regions = {
+      left = {
+        blocks.vim_mode
+      },
+      middle = {},
+      right = {}
+    }
+    local segments = {
+      active = {
+        regions.left,
+        regions.middle,
+        regions.right
+      }
+    }
+    local palette = {
+      aqua = "#7AB0DF",
+      bg = "#1C212A",
+      blue = "#5FB0FC",
+      cyan = "#70C0BA",
+      darkred = "#FB7373",
+      fg = "#C7C7CA",
+      gray = "#222730",
+      green = "#79DCAA",
+      lime = "#54CED6",
+      orange = "#FFD064",
+      pink = "#D997C8",
+      purple = "#C397D8",
+      red = "#F87070",
+      yellow = "#FFE59E"
+    }
+    require("feline").setup({
+      components = segments,
+      theme = palette
+    })
+  end
 }
-
-items.git_branch = {
-  provider = "git_branch",
-  hl = {
-    fg = "fg",
-    bg = "bg",
-    style = "bold",
-  },
-  left_sep = "block",
-  right_sep = "",
-}
-
-items.git_add = {
-  provider = "git_diff_added",
-  hl = {
-    fg = "green",
-    bg = "bg",
-  },
-  left_sep = "",
-  right_sep = "",
-}
-
-items.git_delete = {
-  provider = "git_diff_removed",
-  hl = {
-    fg = "red",
-    bg = "bg",
-  },
-  left_sep = "",
-  right_sep = "",
-}
-
-items.git_change = {
-  provider = "git_diff_changed",
-  hl = {
-    fg = "purple",
-    bg = "bg",
-  },
-  left_sep = "",
-  right_sep = "",
-}
-
-items.separator = {
-  provider = "",
-  hl = {
-    fg = "bg",
-    bg = "bg",
-  },
-}
-
-items.diagnostic_errors = {
-  provider = "diagnostic_errors",
-  hl = {
-    fg = "red",
-  },
-}
-
-items.diagnostic_warnings = {
-  provider = "diagnostic_warnings",
-  hl = {
-    fg = "yellow",
-  },
-}
-
-items.diagnostic_hints = {
-  provider = "diagnostic_hints",
-  hl = {
-    fg = "aqua",
-  },
-}
-
-items.diagnostic_info = {
-  provider = "diagnostic_info",
-}
-
-items.file_type = {
-  provider = {
-    name = "file_type",
-    opts = {
-      filetype_icon = true,
-    },
-  },
-  hl = {
-    fg = "fg",
-    bg = "gray",
-  },
-  left_sep = "block",
-  right_sep = "block",
-}
-
-local left = {
-  items.vim_mode,
-  items.separator,
-  items.file_type,
-}
-
-local middle = {}
-
-local right = {
-  items.lsp,
-  items.git_branch,
-  items.git_add,
-  items.git_delete,
-  items.git_change,
-  items.separator,
-  items.diagnostic_errors,
-  items.diagnostic_warnings,
-  items.diagnostic_info,
-  items.diagnostic_hints,
-  items.scroll_bar,
-}
-
-local components = {
-  active = {
-    left,
-    middle,
-    right,
-  },
-}
-
--- feline.setup({
---   components = components,
---   theme = theme,
---   vi_mode_colors = mode_theme,
--- })

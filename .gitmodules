@@ -157,3 +157,6 @@
 [submodule "nui"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/nui
 	url = https://github.com/MunifTanjim/nui.nvim
+[submodule "onedark"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/onedark
+	url = https://github.com/navarasu/onedark.nvim
