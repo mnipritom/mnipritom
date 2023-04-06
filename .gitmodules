@@ -128,7 +128,7 @@
 	path = sources/python/references/scripts/dex
 	url = https://github.com/jceb/dex
 [submodule "inxi"]
-	path = sources/perl/scripts/inxi
+	path = sources/perl/references/scripts/inxi
 	url = https://github.com/smxi/inxi
 [submodule "lain"]
 	path = sources/lua/frameworks/awesome/libraries/lain
