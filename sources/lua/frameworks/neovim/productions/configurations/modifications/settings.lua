@@ -65,3 +65,4 @@ vim.opt.showmode = false
 vim.opt.laststatus = 3
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
+vim.wo.signcolumn = "yes"

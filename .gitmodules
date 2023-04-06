@@ -151,3 +151,6 @@
 [submodule "lazy"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/lazy
 	url = https://github.com/folke/lazy.nvim
+[submodule "mason"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/mason
+	url = https://github.com/williamboman/mason.nvim
