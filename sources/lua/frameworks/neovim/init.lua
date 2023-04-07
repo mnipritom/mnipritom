@@ -8,14 +8,14 @@ local neovimSourcesDirectoryPath, neovimEntryPointFileName = neovimSourcesEntryP
 neovimSourcesDirectoryPath = neovimSourcesDirectoryPath or ""
 neovimEntryPointFileName = neovimEntryPointFileName or neovimSourcesEntryPointPath
 
--- [NOTE] `neovimSourcesPath` globally scoped/aliased for further references
-neovimSourcesPath = neovimSourcesDirectoryPath
-
 package.path = neovimSourcesDirectoryPath .. "?.lua;" .. package.path
 package.path = neovimSourcesDirectoryPath .. "?/init.lua;" .. package.path
 
 vim.opt.runtimepath:prepend(neovimSourcesDirectoryPath)
 -- print(vim.inspect(vim.api.nvim_list_runtime_paths()))
+
+-- [NOTE] `neovimSourcesPath` globally scoped/aliased for further references
+neovimSourcesPath = neovimSourcesDirectoryPath
 
 -- [NOTE] global `lua` modules are set for conciseness
 productions = "productions"
