@@ -2,7 +2,8 @@ return {
   dir = neovimSourcesPath .. "/references/plugins/sources/nvim-lspconfig",
   lazy = false,
   config = function()
-    require("lspconfig").pyright.setup({
+    local nvim_lspconfig = require("lspconfig")
+    nvim_lspconfig.pyright.setup({
       
     })
   end

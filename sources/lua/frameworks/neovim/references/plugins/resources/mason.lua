@@ -3,7 +3,8 @@ return {
   build = ":MasonUpdate",
   lazy = false,
   config = function()
-    require("mason").setup({
+    local mason = require("mason")
+    mason.setup({
       
     })
   end

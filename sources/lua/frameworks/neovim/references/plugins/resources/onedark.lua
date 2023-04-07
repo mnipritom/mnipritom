@@ -1,7 +1,8 @@
 return {
   dir = neovimSourcesPath .. "references/plugins/sources/onedark",
   config = function()
-    require("onedark").setup({
+    local onedark = require("onedark")
+    onedark.setup({
       style = "warmer",
       code_style = {
         comments = "italic",
@@ -12,6 +13,6 @@ return {
       },
       ending_tildes = false
     })
-    require("onedark").load()
+    onedark.load()
   end
 }
