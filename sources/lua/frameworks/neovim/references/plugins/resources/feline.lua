@@ -7,6 +7,7 @@ return {
     local feline_vi_mode = require("feline.providers.vi_mode")
     local feline_cursor = require("feline.providers.cursor")
     local feline_file = require("feline.providers.file")
+    local feline_git = require("feline.providers.git")
     local palette = {
       aqua = "#7AB0DF",
       black = "#1C212A",
@@ -54,8 +55,8 @@ return {
             }
           },
           hl = {
-            fg = "orange",
-            bg = "navy"
+            fg = "paste",
+            bg = "gray"
           },
           left_sep = "block",
           right_sep = "block"
@@ -92,17 +93,33 @@ return {
             return feline_file.file_size()
           end,
           hl = {
-            fg = "grey",
-            bg = "black",
+            fg = "cyan",
+            bg = "black"
           },
           left_sep = "block",
-          right_sep = "block" 
+          right_sep = "block"
+        }
+      },
+      directories = {
+        worktree = {
+          provider = function()
+            local branch, icon = feline_git.git_branch()
+            icon = ""
+            return icon .. branch
+          end,
+          hl = {
+            fg = "paste",
+            bg = "black"
+          },
+          left_sep = "block",
+          right_sep = "block"
         }
       }
     }
     local regions = {
       left = {
         blocks.modes,
+        blocks.directories.worktree,
         blocks.levels.depth,
         blocks.levels.coverage
       },
