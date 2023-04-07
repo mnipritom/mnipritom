@@ -1,12 +1,17 @@
-local lazyModule = plugins .. "." .. "sources.lazy.lua.lazy"
-local lazySourcesPath = neovimSourcesPath .. "references/plugins/sources/lazy"
-local lazyConfigurations = require(plugins .. "." .. "resources.lazy")
+local function loadLazySpecifications(plugin)
+  return require(plugins .. "." .. "resources" .. "." .. plugin)
+end
+
+local lazyConfigurations = loadLazySpecifications("lazy")
 
 lazyConfigurations.spec = {
-  require(plugins .. "." .. "resources.onedark"),
-  require(plugins .. "." .. "resources.feline")
+  loadLazySpecifications("onedark"),
+  loadLazySpecifications("feline"),
+  loadLazySpecifications("mason")
 }
 
+local lazySourcesPath = neovimSourcesPath .. "references/plugins/sources/lazy"
 vim.opt.runtimepath:prepend(lazySourcesPath)
 
+local lazyModule = plugins .. "." .. "sources.lazy.lua.lazy"
 require(lazyModule).setup(lazyConfigurations)

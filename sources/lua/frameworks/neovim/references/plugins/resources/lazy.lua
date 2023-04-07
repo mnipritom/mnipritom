@@ -2,6 +2,6 @@
 return {
   lockfile = neovimSourcesPath .. "neovim.lock",
   ui = {
-    border = 1
+    border = "none"
   }
 }
