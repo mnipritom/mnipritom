@@ -1,37 +1,7 @@
 return {
   dir = neovimSourcesPath .. "references/plugins/sources/feline",
   config = function()
-    local blocks = {
-      vim_mode = {
-        provider = function()
-          return require("feline.providers.vi_mode").get_vim_mode()
-        end,
-        hl = function()
-          return {
-            fg = "bg",
-            bg = require("feline.providers.vi_mode").get_mode_color(),
-            style = "bold",
-            name = "NeovimModeHLColor"
-          }
-        end,
-        left_sep = "block",
-        right_sep = "block"
-      }
-    }
-    local regions = {
-      left = {
-        blocks.vim_mode
-      },
-      middle = {},
-      right = {}
-    }
-    local segments = {
-      active = {
-        regions.left,
-        regions.middle,
-        regions.right
-      }
-    }
+    -- [LINK] https://github.com/dharmx
     local palette = {
       aqua = "#7AB0DF",
       bg = "#1C212A",
@@ -47,6 +17,53 @@ return {
       purple = "#C397D8",
       red = "#F87070",
       yellow = "#FFE59E"
+    }
+    local blocks = {
+      modes = {
+        provider = function()
+          return require("feline.providers.vi_mode").get_vim_mode()
+        end,
+        hl = function()
+          return {
+            fg = "bg",
+            bg = require("feline.providers.vi_mode").get_mode_color(),
+            style = "bold",
+            name = "NeovimModeHLColor"
+          }
+        end,
+        left_sep = "block",
+        right_sep = "block"
+      },
+      lines = {
+        provider = function()
+          local linesInBuffer = tostring(vim.api.nvim_buf_line_count(0))
+          local cursorPositionPercentage = require("feline.providers.cursor").line_percentage()
+          local progressBar = require("feline.providers.cursor").scroll_bar(self,{
+            opts = {
+              reverse = true
+            }
+          })
+          return progressBar .. " " .. cursorPositionPercentage .. "/" .. linesInBuffer
+        end,
+        left_sep = "block",
+        right_sep = "block"
+      },
+
+    }
+    local regions = {
+      left = {
+        blocks.modes,
+        blocks.lines
+      },
+      middle = {},
+      right = {}
+    }
+    local segments = {
+      active = {
+        regions.left,
+        regions.middle,
+        regions.right
+      }
     }
     require("feline").setup({
       components = segments,

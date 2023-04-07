@@ -1,15 +1,16 @@
-local function loadLazySpecifications(plugin)
+local function getPluginSpecifications(plugin)
   return require(plugins .. "." .. "resources" .. "." .. plugin)
 end
 
-local lazyConfigurations = loadLazySpecifications("lazy")
+local lazyConfigurations = getPluginSpecifications("lazy")
 
 lazyConfigurations.spec = {
-  loadLazySpecifications("onedark"),
-  loadLazySpecifications("feline"),
-  loadLazySpecifications("mason"),
-  loadLazySpecifications("mason-lspconfig"),
-  loadLazySpecifications("nvim-lspconfig")
+  getPluginSpecifications("onedark"),
+  getPluginSpecifications("nvim-web-devicons"),
+  getPluginSpecifications("feline"),
+  getPluginSpecifications("mason"),
+  getPluginSpecifications("mason-lspconfig"),
+  getPluginSpecifications("nvim-lspconfig")
 }
 
 local lazySourcesPath = neovimSourcesPath .. "references/plugins/sources/lazy"

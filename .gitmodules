@@ -145,6 +145,9 @@
 [submodule "licenses"]
 	path = resources/references/documents/licenses
 	url = https://github.com/IQAndreas/markdown-licenses
+[submodule "nvim-web-devicons"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/nvim-web-devicons
+	url = https://github.com/nvim-tree/nvim-web-devicons
 [submodule "feline"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/feline
 	url = https://github.com/freddiehaddad/feline.nvim
