@@ -1,14 +1,19 @@
+-- [LINK] https://github.com/dharmx/nvim-colo/blob/main/lua/colo/extensions/feline.lua
 return {
   dir = neovimSourcesPath .. "references/plugins/sources/feline",
   config = function()
-    -- [LINK] https://github.com/dharmx
+    local feline = require("feline")
+    -- local feline_providers = require("feline.providers")
+    local feline_vi_mode = require("feline.providers.vi_mode")
+    local feline_cursor = require("feline.providers.cursor")
+    local feline_file = require("feline.providers.file")
     local palette = {
       aqua = "#7AB0DF",
-      bg = "#1C212A",
+      black = "#1C212A",
       blue = "#5FB0FC",
       cyan = "#70C0BA",
       darkred = "#FB7373",
-      fg = "#C7C7CA",
+      paste = "#C7C7CA",
       gray = "#222730",
       green = "#79DCAA",
       lime = "#54CED6",
@@ -16,47 +21,96 @@ return {
       pink = "#D997C8",
       purple = "#C397D8",
       red = "#F87070",
-      yellow = "#FFE59E"
+      yellow = "#FFE59E",
+      navy = "#000020",
+      bg = "#1C212A",
+      fg = "#C7C7CA"
     }
     local blocks = {
       modes = {
-        provider = function()
-          return require("feline.providers.vi_mode").get_vim_mode()
-        end,
+        provider = {
+          name = "vi_mode",
+          opts = {
+            show_mode_name = true,
+          }
+        },
+        icon = "",
+        left_sep = "block",
+        right_sep = "block",
         hl = function()
           return {
-            fg = "bg",
-            bg = require("feline.providers.vi_mode").get_mode_color(),
-            style = "bold",
-            name = "NeovimModeHLColor"
+            fg = "black",
+            bg = feline_vi_mode.get_mode_color(),
+            style = "bold"
           }
-        end,
-        left_sep = "block",
-        right_sep = "block"
+        end
       },
-      lines = {
-        provider = function()
-          local linesInBuffer = tostring(vim.api.nvim_buf_line_count(0))
-          local cursorPositionPercentage = require("feline.providers.cursor").line_percentage()
-          local progressBar = require("feline.providers.cursor").scroll_bar(self,{
+      levels = {
+        depth = {
+          provider = {
+            name = "scroll_bar",
             opts = {
-              reverse = true
+              reverse = false
             }
-          })
-          return progressBar .. " " .. cursorPositionPercentage .. "/" .. linesInBuffer
-        end,
-        left_sep = "block",
-        right_sep = "block"
+          },
+          hl = {
+            fg = "orange",
+            bg = "navy"
+          },
+          left_sep = "block",
+          right_sep = "block"
+        },
+        coverage = {
+          provider = function()
+            return feline_cursor.line_percentage() .. "/" .. tostring(vim.api.nvim_buf_line_count(0))
+          end,
+          hl = {
+            fg = "paste",
+            bg = "black"
+          },
+          left_sep = "block",
+          right_sep = "block"
+        }
       },
-
+      files = {
+        type = {
+          provider = {
+            name ="file_type",
+            opts = {
+              case = "titlecase"
+            }
+          },
+          hl = {
+            fg = "paste",
+            bg = "gray"
+          },
+          left_sep = "block",
+          right_sep = "block"
+        },
+        size = {
+          provider = function()
+            return feline_file.file_size()
+          end,
+          hl = {
+            fg = "grey",
+            bg = "black",
+          },
+          left_sep = "block",
+          right_sep = "block" 
+        }
+      }
     }
     local regions = {
       left = {
         blocks.modes,
-        blocks.lines
+        blocks.levels.depth,
+        blocks.levels.coverage
       },
       middle = {},
-      right = {}
+      right = {
+        blocks.files.type,
+        blocks.files.size
+      }
     }
     local segments = {
       active = {
@@ -65,9 +119,9 @@ return {
         regions.right
       }
     }
-    require("feline").setup({
-      components = segments,
-      theme = palette
+    feline.setup({
+      theme = palette,
+      components = segments
     })
   end
 }

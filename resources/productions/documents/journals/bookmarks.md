@@ -2,3 +2,4 @@
   - [Unicode Character Table](https://unicode-table.com/en/)
   - [Emojipedia](https://emojipedia.org/)
   - [SVGRepo](https://www.svgrepo.com/)
+  - [ColorHexa](https://www.colorhexa.com/)
