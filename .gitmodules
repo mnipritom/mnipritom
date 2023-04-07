@@ -148,15 +148,21 @@
 [submodule "feline"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/feline
 	url = https://github.com/freddiehaddad/feline.nvim
+[submodule "onedark"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/onedark
+	url = https://github.com/navarasu/onedark.nvim
 [submodule "lazy"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/lazy
 	url = https://github.com/folke/lazy.nvim
 [submodule "mason"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/mason
 	url = https://github.com/williamboman/mason.nvim
+[submodule "mason-lspconfig"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/mason-lspconfig
+	url = https://github.com/williamboman/mason-lspconfig.nvim
+[submodule "nvim-lspconfig"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
 [submodule "nui"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/nui
 	url = https://github.com/MunifTanjim/nui.nvim
-[submodule "onedark"]
-	path = sources/lua/frameworks/neovim/references/plugins/sources/onedark
-	url = https://github.com/navarasu/onedark.nvim
