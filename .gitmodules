@@ -169,3 +169,6 @@
 [submodule "nui"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/nui
 	url = https://github.com/MunifTanjim/nui.nvim
+[submodule "gitsigns"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/gitsigns
+	url = https://github.com/lewis6991/gitsigns.nvim
