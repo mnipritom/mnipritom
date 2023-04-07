@@ -1,4 +1,4 @@
-  -- [NOTE] adding `root` in `lazy` setup triggers looped git clone
+-- [NOTE] avoid adding `root`
 return {
   lockfile = neovimSourcesPath .. "neovim.lock",
   ui = {

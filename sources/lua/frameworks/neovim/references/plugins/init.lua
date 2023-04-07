@@ -7,7 +7,9 @@ local lazyConfigurations = loadLazySpecifications("lazy")
 lazyConfigurations.spec = {
   loadLazySpecifications("onedark"),
   loadLazySpecifications("feline"),
-  loadLazySpecifications("mason")
+  loadLazySpecifications("mason"),
+  loadLazySpecifications("mason-lspconfig"),
+  loadLazySpecifications("nvim-lspconfig")
 }
 
 local lazySourcesPath = neovimSourcesPath .. "references/plugins/sources/lazy"
