@@ -4,68 +4,66 @@ return {
     local neo_tree = require("neo-tree")
     neo_tree.setup({
       enable_git_status = true,
+      source_selector = {
+        winbar = true,
+        statusline = false
+      },
+      add_blank_line_at_top = false,
+      hide_root_node = true,
+      buffers = {
+        window = {
+          mappings = {
+            -- ["."] = "set_root",
+            -- ["<bs>"] = "navigate_up",
+            ["bd"] = "buffer_delete"
+          }
+        }
+      },
+      git_status = {
+        window = {
+          mappings = {
+            ["A"] = "git_add_all",
+            ["gu"] = "git_unstage_file",
+            ["ga"] = "git_add_file",
+            ["gr"] = "git_revert_file",
+            ["gc"] = "git_commit",
+            ["gp"] = "git_push",
+            ["gg"] = "git_commit_and_push"
+          }
+        }
+      },
+      filesystem = {
+        window = {
+          mappings = {
+            -- ["."] = "set_root",
+            -- ["<bs>"] = "navigate_up",
+            ["H"] = "toggle_hidden",
+            ["/"] = "fuzzy_finder",
+            ["D"] = "fuzzy_finder_directory",
+            --["/"] = "filter_as_you_type", -- this was the default until v1.28
+            ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
+            -- ["D"] = "fuzzy_sorter_directory",
+            ["f"] = "filter_on_submit",
+            ["<C-x>"] = "clear_filter",
+            ["[g"] = "prev_git_modified",
+            ["]g"] = "next_git_modified"
+          },
+          fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
+            ["<down>"] = "move_cursor_down",
+            ["<C-n>"] = "move_cursor_down",
+            ["<up>"] = "move_cursor_up",
+            ["<C-p>"] = "move_cursor_up"
+          }
+        }
+      },
       window = {
-        position = "left",
-        width = 40,
-        mapping_options = {
-          noremap = true,
-          nowait = true,
-        },
         mappings = {
-          ["<space>"] = {
-            "toggle_node",
-            nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-          },
-          ["<2-LeftMouse>"] = "open",
-          ["<cr>"] = "open",
-          ["<esc>"] = "revert_preview",
-          ["P"] = {
-            "toggle_preview",
-            config = {
-              use_float = true
-            }
-          },
-          ["l"] = "focus_preview",
-          ["S"] = "open_split",
-          ["s"] = "open_vsplit",
-          -- ["S"] = "split_with_window_picker",
-          -- ["s"] = "vsplit_with_window_picker",
-          ["t"] = "open_tabnew",
-          -- ["<cr>"] = "open_drop",
-          -- ["t"] = "open_tab_drop",
-          ["w"] = "open_with_window_picker",
-          --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
-          ["C"] = "close_node",
-          -- ['C'] = 'close_all_subnodes',
-          ["z"] = "close_all_nodes",
-          --["Z"] = "expand_all_nodes",
-          ["a"] = {
-            "add",
-            -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
-            -- some commands may take optional config options, see `:h neo-tree-mappings` for details
-            config = {
-              show_path = "none" -- "none", "relative", "absolute"
-            }
-          },
-          ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
-          ["d"] = "delete",
-          ["r"] = "rename",
-          ["y"] = "copy_to_clipboard",
-          ["x"] = "cut_to_clipboard",
-          ["p"] = "paste_from_clipboard",
-          ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
-          -- ["c"] = {
-          --   "copy",
-          --    config = {
-          --      show_path = "none" -- "none", "relative", "absolute"
-          --    }
-          -- }
-          ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
-          ["q"] = "close_window",
-          ["R"] = "refresh",
-          ["?"] = "show_help",
-          ["<"] = "prev_source",
-          [">"] = "next_source",
+          ["l"] = "open",
+          ["L"] = "set_root",
+          ["J"] = "navigate_up",
+          ["j"] = "close_node",
+          ["I"] = "prev_source",
+          ["K"] = "next_source"
         }
       }
     })
