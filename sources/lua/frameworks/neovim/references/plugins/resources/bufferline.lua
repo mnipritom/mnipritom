@@ -12,7 +12,7 @@ return {
         offsets = {
           {
             filetype = "neo-tree",
-            text = "Explorer",
+            text = "Explorers",
             text_align = "left",
             separator = true
           }
