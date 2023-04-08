@@ -64,6 +64,7 @@ return {
           ["j"] = "close_node",
           ["I"] = "prev_source",
           ["K"] = "next_source"
+          -- ["\"] = "quit"
         }
       }
     })
