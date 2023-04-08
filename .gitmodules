@@ -178,3 +178,6 @@
 [submodule "neo-tree"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/neo-tree
 	url = https://github.com/nvim-neo-tree/neo-tree.nvim
+[submodule "bufferline"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/bufferline
+	url = https://github.com/akinsho/bufferline.nvim

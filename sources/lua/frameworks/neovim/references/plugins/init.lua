@@ -11,6 +11,7 @@ lazyConfigurations.spec = {
   getPluginSpecifications("gitsigns"),
   getPluginSpecifications("nui"),
   getPluginSpecifications("neo-tree"),
+  getPluginSpecifications("bufferline"),
   getPluginSpecifications("feline"),
   getPluginSpecifications("mason"),
   getPluginSpecifications("mason-lspconfig"),
