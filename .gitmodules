@@ -181,3 +181,6 @@
 [submodule "bufferline"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/bufferline
 	url = https://github.com/akinsho/bufferline.nvim
+[submodule "scope"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/scope
+	url = https://github.com/tiagovla/scope.nvim

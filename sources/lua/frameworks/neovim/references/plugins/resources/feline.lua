@@ -98,6 +98,35 @@ return {
           },
           left_sep = "block",
           right_sep = "block"
+        },
+        git = {
+          additions = {
+            provider = "git_diff_added",
+            hl = {
+              fg = "green",
+              bg = "bg"
+            },
+            left_sep = "block",
+            right_sep = "block"
+          },
+          deletions = {
+            provider = "git_diff_removed",
+            hl = {
+              fg = "red",
+              bg = "bg"
+            },
+            left_sep = "block",
+            right_sep = "block"
+          },
+          modifications = {
+            provider = "git_diff_changed",
+            hl = {
+              fg = "purple",
+              bg = "bg"
+            },
+            left_sep = "block",
+            right_sep = "block"
+          }
         }
       },
       directories = {
@@ -126,7 +155,10 @@ return {
       middle = {},
       right = {
         blocks.files.type,
-        blocks.files.size
+        blocks.files.size,
+        blocks.files.git.additions,
+        blocks.files.git.deletions,
+        blocks.files.git.modifications
       }
     }
     local segments = {
