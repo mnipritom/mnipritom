@@ -9,6 +9,8 @@ lazyConfigurations.spec = {
   getPluginSpecifications("onedark"),
   getPluginSpecifications("nvim-web-devicons"),
   getPluginSpecifications("gitsigns"),
+  getPluginSpecifications("nui"),
+  getPluginSpecifications("neo-tree"),
   getPluginSpecifications("feline"),
   getPluginSpecifications("mason"),
   getPluginSpecifications("mason-lspconfig"),
