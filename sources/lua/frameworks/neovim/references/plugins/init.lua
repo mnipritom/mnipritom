@@ -5,6 +5,7 @@ end
 local lazyConfigurations = getPluginSpecifications("lazy")
 
 lazyConfigurations.spec = {
+  getPluginSpecifications("plenary"),
   getPluginSpecifications("onedark"),
   getPluginSpecifications("nvim-web-devicons"),
   getPluginSpecifications("gitsigns"),

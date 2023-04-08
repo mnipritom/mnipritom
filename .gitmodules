@@ -172,3 +172,6 @@
 [submodule "gitsigns"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/gitsigns
 	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "plenary"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/plenary
+	url = https://github.com/nvim-lua/plenary.nvim
