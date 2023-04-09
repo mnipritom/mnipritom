@@ -21,7 +21,8 @@ vim.g.mapleader = " "
 
 local flags = {
   noremap = true,
-  silent = true
+  silent = true,
+  nowait = true
 }
 
 -- implementing `ijkl` cursor control
@@ -68,7 +69,8 @@ vim.keymap.set("", "<C-q>", "<Nop>", flags)
 -- disabling suspend
 vim.keymap.set("", "<C-z>", "<Nop>", flags)
 
--- buffer switching
+-- buffer controls
+vim.keymap.set("n", "<C-w>", ":bd<cr>",flags) 
 vim.keymap.set("", "<C-1>", ":b1<cr>", flags)
 vim.keymap.set("", "<C-2>", ":b2<cr>", flags)
 vim.keymap.set("", "<C-3>", ":b3<cr>", flags)
