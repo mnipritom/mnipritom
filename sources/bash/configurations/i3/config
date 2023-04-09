@@ -13,8 +13,11 @@ set $randoms4         "7: randoms4 "
 set $editors          "8: editors "
 set $popups           "9: popups "
 
-include settings/keybindings
-include settings/rules
-include settings/preferences
-include themes/colors
-include components/statusbar
+include references/palettes/base16-black-metal.i3
+
+include productions/settings/rules.i3
+include productions/settings/clients.i3
+include productions/settings/preferences.i3
+include productions/settings/keybindings.i3
+
+include productions/components/statusbar.i3
