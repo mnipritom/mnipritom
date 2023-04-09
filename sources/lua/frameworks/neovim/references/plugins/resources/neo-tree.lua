@@ -35,6 +35,13 @@ return {
       filesystem = {
         window = {
           mappings = {
+            ["l"] = "open",
+            ["L"] = "set_root",
+            ["J"] = "navigate_up",
+            ["j"] = "close_node",
+            ["u"] = "close_all_subnodes",
+            ["U"] = "close_all_nodes",
+            -- ["\"] = "quit"
             -- ["."] = "set_root",
             -- ["<bs>"] = "navigate_up",
             ["H"] = "toggle_hidden",
@@ -44,9 +51,9 @@ return {
             ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
             -- ["D"] = "fuzzy_sorter_directory",
             ["f"] = "filter_on_submit",
-            ["<C-x>"] = "clear_filter",
-            ["[g"] = "prev_git_modified",
-            ["]g"] = "next_git_modified"
+            ["<C-x>"] = "clear_filter"
+            -- ["[g"] = "prev_git_modified",
+            -- ["]g"] = "next_git_modified"
           },
           fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
             ["<down>"] = "move_cursor_down",
@@ -57,14 +64,13 @@ return {
         }
       },
       window = {
+        mapping_options = {
+          noremap = true,
+          nowait = true
+        },
         mappings = {
-          ["l"] = "open",
-          ["L"] = "set_root",
-          ["J"] = "navigate_up",
-          ["j"] = "close_node",
           ["I"] = "prev_source",
           ["K"] = "next_source"
-          -- ["\"] = "quit"
         }
       }
     })
