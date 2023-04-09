@@ -184,3 +184,6 @@
 [submodule "scope"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/scope
 	url = https://github.com/tiagovla/scope.nvim
+[submodule "nvim-treesitter"]
+	path = sources/lua/frameworks/neovim/references/plugins/sources/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
