@@ -12,6 +12,7 @@ lazyConfigurations.spec = {
   getPluginSpecifications("gitsigns"),
   getPluginSpecifications("nui"),
   getPluginSpecifications("neo-tree"),
+  getPluginSpecifications("telescope"),
   getPluginSpecifications("scope"),
   getPluginSpecifications("bufferline"),
   getPluginSpecifications("feline"),
