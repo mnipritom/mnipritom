@@ -13,11 +13,11 @@ set $randoms4         "7: randoms4 "
 set $editors          "8: editors "
 set $popups           "9: popups "
 
-include references/palettes/base16-onedark.i3
+include references/palettes/base16-onedark
 
-include productions/settings/rules.i3
-include productions/settings/clients.i3
-include productions/settings/preferences.i3
-include productions/settings/keybindings.i3
+include productions/settings/rules
+include productions/settings/clients
+include productions/settings/preferences
+include productions/settings/keybindings
 
-include productions/components/statusbar.i3
+include productions/components/statusbar
