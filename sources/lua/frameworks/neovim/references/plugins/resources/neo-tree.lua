@@ -74,8 +74,11 @@ return {
         }
       }
     })
-    vim.cmd([[
-      nnoremap ` :Neotree reveal<cr>
-    ]])
+    local flags = {
+      noremap = true,
+      silent = true
+    }
+    vim.keymap.set("", "\\", ":Neotree reveal<cr>", flags)
+    vim.keymap.set("", "<C-\\>", ":Neotree close<cr>", flags)
   end
 }

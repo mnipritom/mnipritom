@@ -4,7 +4,7 @@ return {
     local bufferline = require("bufferline")
     bufferline.setup({
       options = {
-        numbers = "ordinal",
+        numbers = "buffer_id",
         truncate_names = true,
         show_tab_indicators = true,
         always_show_bufferline = true,
@@ -19,5 +19,13 @@ return {
         },
       } 
     })
+    local flags = {
+      noremap = true,
+      silent = true
+    }
+    vim.keymap.set("", "t", ":BufferLinePick<cr>", flags)
+    vim.keymap.set("", "T", ":BufferLinePickClose<cr>", flags)
+    vim.keymap.set("", "<C-l>", ":BufferLineCycleNext<cr>", flags)
+    vim.keymap.set("", "<C-j>", ":BufferLineCyclePrev<cr>", flags)
   end
 }
