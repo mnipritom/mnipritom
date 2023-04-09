@@ -13,7 +13,7 @@ set $randoms4         "7: randoms4 "
 set $editors          "8: editors "
 set $popups           "9: popups "
 
-include references/palettes/base16-black-metal.i3
+include references/palettes/base16-onedark.i3
 
 include productions/settings/rules.i3
 include productions/settings/clients.i3
