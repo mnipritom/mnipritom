@@ -17,6 +17,7 @@
     - `vim.api.nvim_set_keymap` has added overhead of going through VimL
   ---
 --]]
+vim.g.mapleader = " "
 
 local flags = {
   noremap = true,
@@ -37,10 +38,12 @@ vim.keymap.set("", "<C-l>", "<C-w>l", flags)
 vim.keymap.set("", "<C-i>", "<C-w>k", flags)
 vim.keymap.set("", "<C-k>", "<C-w>j", flags)
 vim.keymap.set("", "<C-j>", "<C-w>h", flags)
+vim.keymap.set("", "<C-w>", "<NOP>", flags)
 vim.keymap.set("", "<C-w>l", "<Nop>", flags)
 vim.keymap.set("", "<C-w>k", "<Nop>", flags)
 vim.keymap.set("", "<C-w>j", "<Nop>", flags)
 vim.keymap.set("", "<C-w>h", "<Nop>", flags)
+vim.keymap.set("", "<C-h>", "<Nop>", flags)
 
 -- disabling insert mode pressing `gi`
 vim.keymap.set("", "gi", "<Nop>", flags)
@@ -63,4 +66,15 @@ vim.keymap.set("", "<C-d>", "<Nop>", flags)
 vim.keymap.set("", "<C-q>", "<Nop>", flags)
 
 -- disabling suspend
-vim.keymap.set("", "<C-z>","<Nop>", flags)
+vim.keymap.set("", "<C-z>", "<Nop>", flags)
+
+-- buffer switching
+vim.keymap.set("", "<C-1>", ":b1<cr>", flags)
+vim.keymap.set("", "<C-2>", ":b2<cr>", flags)
+vim.keymap.set("", "<C-3>", ":b3<cr>", flags)
+vim.keymap.set("", "<C-4>", ":b4<cr>", flags)
+vim.keymap.set("", "<C-5>", ":b5<cr>", flags)
+vim.keymap.set("", "<C-6>", ":b6<cr>", flags)
+vim.keymap.set("", "<C-7>", ":b7<cr>", flags)
+vim.keymap.set("", "<C-8>", ":b8<cr>", flags)
+vim.keymap.set("", "<C-9>", ":b9<cr>", flags)
