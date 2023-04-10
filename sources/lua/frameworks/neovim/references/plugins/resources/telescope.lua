@@ -36,5 +36,7 @@ return {
     vim.keymap.set("n", "<leader>gb", telescope_builtin.git_branches, {})
     vim.keymap.set("n", "<leader>gss", telescope_builtin.git_status, {})
     vim.keymap.set("n", "<leader>gsa", telescope_builtin.git_stash, {})
+
+    vim.keymap.set("n", "<leader>lr", telescope_builtin.lsp_references, {})
   end
 }

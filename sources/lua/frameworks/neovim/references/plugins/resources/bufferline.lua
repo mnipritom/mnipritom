@@ -4,7 +4,7 @@ return {
     local bufferline = require("bufferline")
     bufferline.setup({
       options = {
-        numbers = "buffer_id",
+        numbers = "none",
         truncate_names = true,
         show_tab_indicators = true,
         always_show_bufferline = true,

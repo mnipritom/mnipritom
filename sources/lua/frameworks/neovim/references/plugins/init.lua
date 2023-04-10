@@ -6,11 +6,10 @@ local lazyConfigurations = getPluginSpecifications("lazy")
 
 lazyConfigurations.spec = {
   getPluginSpecifications("nvim-treesitter"),
-  getPluginSpecifications("plenary"),
-  getPluginSpecifications("nvim-web-devicons"),
-  getPluginSpecifications("telescope"),
   getPluginSpecifications("onedark"),
+  getPluginSpecifications("plenary"),
   getPluginSpecifications("gitsigns"),
+  getPluginSpecifications("nvim-web-devicons"),
   getPluginSpecifications("nui"),
   getPluginSpecifications("neo-tree"),
   getPluginSpecifications("bufferline"),
@@ -18,7 +17,8 @@ lazyConfigurations.spec = {
   getPluginSpecifications("feline"),
   getPluginSpecifications("mason"),
   getPluginSpecifications("mason-lspconfig"),
-  getPluginSpecifications("nvim-lspconfig")
+  getPluginSpecifications("nvim-lspconfig"),
+  getPluginSpecifications("telescope")
 }
 
 local lazySourcesPath = neovimSourcesPath .. "references/plugins/sources/lazy"

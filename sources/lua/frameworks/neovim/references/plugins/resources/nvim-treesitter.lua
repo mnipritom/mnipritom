@@ -29,12 +29,13 @@ return {
         "awk"
       },
       sync_install = false,
-      auto_install = true,
+      auto_install = false,
       highlight = {
         enable = true,
         disable = {
           -- [TODO] fix bash syntax highlighting errors
-          "bash"
+          "bash",
+          "python"
         },
         additional_vim_regex_highlighting = false
       }
