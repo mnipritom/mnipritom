@@ -32,6 +32,7 @@ scripts["includeScripts"]=$(
       ["${scripts["scriptsPath"]}/m-cli/m"]="bash"
       ["${scripts["scriptsPath"]}/neofetch/neofetch"]="bash"
       ["${scripts["scriptsPath"]}/pacapt/pacapt"]="posix"
+      ["${scripts["scriptsPath"]}/pacstall/pacstall"]="bash"
       ["${scripts["scriptsPath"]}/pfetch/pfetch"]="posix"
       ["${scripts["scriptsPath"]}/pipes.sh/pipes.sh"]="bash"
       ["${scripts["scriptsPath"]}/piu/piu"]="bash"
@@ -57,7 +58,7 @@ scripts["includeScripts"]=$(
       if [[ "${executables["${executable}"]}" == "posix" ]]
       then
         # [TODO] conditionally set script specific options/variables
-        # [TODO] `bd` `fet.sh` `bash2048.sh` `apk.sh`
+        # [TODO] `fet.sh` `bash2048.sh` `apk.sh`
         eval "$executableUnit () {
           (
             bash --norc --noprofile --posix ${executable} \$@
@@ -103,6 +104,7 @@ scripts["includeCompletions"]=$(
       "${scripts["scriptsPath"]}/m-cli/completion/bash/m"
       "${scripts["scriptsPath"]}/git-forgit/completions/git-forgit.bash"
       "${scripts["scriptsPath"]}/vpm/bash-completion/completions/vpm"
+      "${scripts["scriptsPath"]}/pacstall/misc/completion/bash"
       "${scripts["scriptsPath"]}/xb/complete/xb"
     )
     completions+=($(

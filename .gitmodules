@@ -79,6 +79,9 @@
 [submodule "pacapt"]
 	path = sources/bash/references/scripts/pacapt
 	url = https://github.com/icy/pacapt
+[submodule "pacstall"]
+	path = sources/bash/references/scripts/pacstall
+	url = https://github.com/pacstall/pacstall
 [submodule "piu"]
 	path = sources/bash/references/scripts/piu
 	url = https://github.com/beyondmeh/piu
@@ -190,3 +193,4 @@
 [submodule "telescope"]
 	path = sources/lua/frameworks/neovim/references/plugins/sources/telescope
 	url = https://github.com/nvim-telescope/telescope.nvim
+
