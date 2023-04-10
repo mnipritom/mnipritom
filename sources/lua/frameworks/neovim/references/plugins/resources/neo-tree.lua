@@ -47,7 +47,6 @@ return {
             ["U"] = "close_all_nodes",
             -- ["\"] = "quit"
             ["H"] = "toggle_hidden",
-            ["P"] = "focus_preview",
             ["F"] = "fuzzy_sorter",
             ["f"] = "fuzzy_finder",
             ["<C-f>"] = "fuzzy_finder_directory",
@@ -73,7 +72,8 @@ return {
             config = {
               use_float = true
             }
-          }
+          },
+          ["P"] = "focus_preview"
         }
       }
     })
