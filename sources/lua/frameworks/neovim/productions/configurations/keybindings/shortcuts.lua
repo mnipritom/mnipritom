@@ -66,22 +66,22 @@ vim.keymap.set("", "<C-q>", "<Nop>", flags)
 vim.keymap.set("", "<C-z>", "<Nop>", flags)
 
 -- buffer controls
-vim.keymap.set("n", "<C-w>", ":bd<cr>",flags)
-vim.keymap.set("", "<C-1>", ":b1<cr>", flags)
-vim.keymap.set("", "<C-2>", ":b2<cr>", flags)
-vim.keymap.set("", "<C-3>", ":b3<cr>", flags)
-vim.keymap.set("", "<C-4>", ":b4<cr>", flags)
-vim.keymap.set("", "<C-5>", ":b5<cr>", flags)
-vim.keymap.set("", "<C-6>", ":b6<cr>", flags)
-vim.keymap.set("", "<C-7>", ":b7<cr>", flags)
-vim.keymap.set("", "<C-8>", ":b8<cr>", flags)
-vim.keymap.set("", "<C-9>", ":b9<cr>", flags)
+vim.keymap.set("n", "<C-w>", "<cmd>bd<cr>",flags)
+vim.keymap.set("", "<C-1>", "<cmd>b1<cr>", flags)
+vim.keymap.set("", "<C-2>", "<cmd>b2<cr>", flags)
+vim.keymap.set("", "<C-3>", "<cmd>b3<cr>", flags)
+vim.keymap.set("", "<C-4>", "<cmd>b4<cr>", flags)
+vim.keymap.set("", "<C-5>", "<cmd>b5<cr>", flags)
+vim.keymap.set("", "<C-6>", "<cmd>b6<cr>", flags)
+vim.keymap.set("", "<C-7>", "<cmd>b7<cr>", flags)
+vim.keymap.set("", "<C-8>", "<cmd>b8<cr>", flags)
+vim.keymap.set("", "<C-9>", "<cmd>b9<cr>", flags)
 
 -- reload configuration without restarting nvim
-vim.keymap.set("n", "<leader>r", ":so %<CR>")
+vim.keymap.set("n", "<leader>r", "<cmd>so %<cr>")
 
 -- fast saving with <leader> and s
-vim.keymap.set("n", "<leader>s", ":w<CR>")
+vim.keymap.set("n", "<leader>s", "<cmd>w<cr>")
 
 -- Close all windows and exit
-vim.keymap.set("n", "<leader>q", ":qa!<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>qa!<cr>")

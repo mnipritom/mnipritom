@@ -23,9 +23,9 @@ return {
       noremap = true,
       silent = true
     }
-    vim.keymap.set("", "t", ":BufferLinePick<cr>", flags)
-    vim.keymap.set("", "T", ":BufferLinePickClose<cr>", flags)
-    vim.keymap.set("", "<C-l>", ":BufferLineCycleNext<cr>", flags)
-    vim.keymap.set("", "<C-j>", ":BufferLineCyclePrev<cr>", flags)
+    vim.keymap.set("", "t", "<cmd>BufferLinePick<cr>", flags)
+    vim.keymap.set("", "T", "<cmd>BufferLinePickClose<cr>", flags)
+    vim.keymap.set("", "<C-l>", "<cmd>BufferLineCycleNext<cr>", flags)
+    vim.keymap.set("", "<C-j>", "<cmd>BufferLineCyclePrev<cr>", flags)
   end
 }
