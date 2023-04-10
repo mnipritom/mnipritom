@@ -22,6 +22,7 @@ return {
         "vim",
         "vimdoc",
         "javascript",
+        "json",
         "typescript",
         "ruby",
         "perl",
