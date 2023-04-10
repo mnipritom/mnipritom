@@ -59,6 +59,7 @@ scripts["includeScripts"]=$(
       then
         # [TODO] conditionally set script specific options/variables
         # [TODO] `fet.sh` `bash2048.sh` `apk.sh`
+        # [TODO] `pacstall` helper scripts in `misc/scripts`
         eval "$executableUnit () {
           (
             bash --norc --noprofile --posix ${executable} \$@
