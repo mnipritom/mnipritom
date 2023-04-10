@@ -3,6 +3,12 @@ return {
   config = function()
     local neo_tree = require("neo-tree")
     neo_tree.setup({
+      default_component_configs = {
+        indent = {
+          with_markers = true,
+          with_expanders = false
+        }
+      },
       enable_git_status = true,
       source_selector = {
         winbar = true,
@@ -13,9 +19,7 @@ return {
       buffers = {
         window = {
           mappings = {
-            -- ["."] = "set_root",
-            -- ["<bs>"] = "navigate_up",
-            ["bd"] = "buffer_delete"
+            ["w"] = "buffer_delete"
           }
         }
       },
@@ -42,24 +46,17 @@ return {
             ["u"] = "close_all_subnodes",
             ["U"] = "close_all_nodes",
             -- ["\"] = "quit"
-            -- ["."] = "set_root",
-            -- ["<bs>"] = "navigate_up",
             ["H"] = "toggle_hidden",
-            ["/"] = "fuzzy_finder",
-            ["D"] = "fuzzy_finder_directory",
-            --["/"] = "filter_as_you_type", -- this was the default until v1.28
-            ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
-            -- ["D"] = "fuzzy_sorter_directory",
-            ["f"] = "filter_on_submit",
+            ["P"] = "focus_preview",
+            ["F"] = "fuzzy_sorter",
+            ["f"] = "fuzzy_finder",
+            ["<C-f>"] = "fuzzy_finder_directory",
+            ["<leader>f"] = "filter_on_submit",
             ["<C-x>"] = "clear_filter"
-            -- ["[g"] = "prev_git_modified",
-            -- ["]g"] = "next_git_modified"
-          },
+         },
           fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
-            ["<down>"] = "move_cursor_down",
-            ["<C-n>"] = "move_cursor_down",
-            ["<up>"] = "move_cursor_up",
-            ["<C-p>"] = "move_cursor_up"
+            ["<C-k>"] = "move_cursor_down",
+            ["<C-i>"] = "move_cursor_up"
           }
         }
       },
@@ -70,7 +67,13 @@ return {
         },
         mappings = {
           ["I"] = "prev_source",
-          ["K"] = "next_source"
+          ["K"] = "next_source",
+          ["p"] = {
+            "toggle_preview",
+            config = {
+              use_float = true
+            }
+          }
         }
       }
     })

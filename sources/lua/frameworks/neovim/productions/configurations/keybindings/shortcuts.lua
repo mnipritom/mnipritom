@@ -34,17 +34,12 @@ vim.keymap.set("", "i", "<Up>", flags)
 vim.keymap.set("", "k", "<Down>", flags)
 vim.keymap.set("", "j", "<Left>", flags)
 
--- implementing `ijkl` window switching
-vim.keymap.set("", "<C-l>", "<C-w>l", flags)
-vim.keymap.set("", "<C-i>", "<C-w>k", flags)
-vim.keymap.set("", "<C-k>", "<C-w>j", flags)
-vim.keymap.set("", "<C-j>", "<C-w>h", flags)
+-- disabling focusing spits with `<C-w>`
 vim.keymap.set("", "<C-w>", "<NOP>", flags)
 vim.keymap.set("", "<C-w>l", "<Nop>", flags)
 vim.keymap.set("", "<C-w>k", "<Nop>", flags)
 vim.keymap.set("", "<C-w>j", "<Nop>", flags)
 vim.keymap.set("", "<C-w>h", "<Nop>", flags)
-vim.keymap.set("", "<C-h>", "<Nop>", flags)
 
 -- disabling insert mode pressing `gi`
 vim.keymap.set("", "gi", "<Nop>", flags)
@@ -52,6 +47,7 @@ vim.keymap.set("", "gi", "<Nop>", flags)
 -- disabling moving up, moving down, one line at a time
 vim.keymap.set("", "gj", "<Nop>", flags)
 vim.keymap.set("", "gk", "<Nop>", flags)
+vim.keymap.set("", "<C-h>", "<Nop>", flags)
 vim.keymap.set("", "<C-p>", "<Nop>", flags)
 vim.keymap.set("", "<C-n>", "<Nop>", flags)
 
@@ -70,7 +66,7 @@ vim.keymap.set("", "<C-q>", "<Nop>", flags)
 vim.keymap.set("", "<C-z>", "<Nop>", flags)
 
 -- buffer controls
-vim.keymap.set("n", "<C-w>", ":bd<cr>",flags) 
+vim.keymap.set("n", "<C-w>", ":bd<cr>",flags)
 vim.keymap.set("", "<C-1>", ":b1<cr>", flags)
 vim.keymap.set("", "<C-2>", ":b2<cr>", flags)
 vim.keymap.set("", "<C-3>", ":b3<cr>", flags)
@@ -80,3 +76,12 @@ vim.keymap.set("", "<C-6>", ":b6<cr>", flags)
 vim.keymap.set("", "<C-7>", ":b7<cr>", flags)
 vim.keymap.set("", "<C-8>", ":b8<cr>", flags)
 vim.keymap.set("", "<C-9>", ":b9<cr>", flags)
+
+-- reload configuration without restarting nvim
+vim.keymap.set("n", "<leader>r", ":so %<CR>")
+
+-- fast saving with <leader> and s
+vim.keymap.set("n", "<leader>s", ":w<CR>")
+
+-- Close all windows and exit
+vim.keymap.set("n", "<leader>q", ":qa!<CR>")
