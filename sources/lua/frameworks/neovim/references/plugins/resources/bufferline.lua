@@ -16,8 +16,8 @@ return {
             text_align = "left",
             separator = true
           }
-        },
-      } 
+        }
+      }
     })
     local flags = {
       noremap = true,

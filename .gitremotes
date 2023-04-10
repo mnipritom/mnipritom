@@ -1,0 +1,9 @@
+[remote "github"]
+	url = https://github.com/mnipritom/mnipritom
+	fetch = +refs/heads/*:refs/remotes/github/*
+[remote "gitlab"]
+	url = https://gitlab.com/mnipritom/mnipritom
+	fetch = +refs/heads/*:refs/remotes/gitlab/*
+[remote "bitbucket"]
+	url = https://bitbucket.org/mnipritom/mnipritom
+	fetch = +refs/heads/*:refs/remotes/bitbucket/*
