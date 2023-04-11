@@ -52,12 +52,12 @@ vim.keymap.set("", "<C-p>", "<Nop>", flags)
 vim.keymap.set("", "<C-n>", "<Nop>", flags)
 
 -- disabling page up, page down
-vim.keymap.set("", "<C-b>", "<Nop>", flags)
-vim.keymap.set("", "<C-f>", "<Nop>", flags)
+vim.keymap.set("", "<C-b>", "<C-b>zz", flags)
+vim.keymap.set("", "<C-f>", "<C-f>zz", flags)
 
 -- disabling page half up, page half down
-vim.keymap.set("", "<C-u>", "<Nop>", flags)
-vim.keymap.set("", "<C-d>", "<Nop>", flags)
+vim.keymap.set("", "<C-u>", "<C-u>zz", flags)
+vim.keymap.set("", "<C-d>", "<C-d>zz", flags)
 
 -- disabling visual-block mode
 vim.keymap.set("", "<C-q>", "<Nop>", flags)
@@ -65,23 +65,26 @@ vim.keymap.set("", "<C-q>", "<Nop>", flags)
 -- disabling suspend
 vim.keymap.set("", "<C-z>", "<Nop>", flags)
 
--- buffer controls
-vim.keymap.set("n", "<C-w>", "<cmd>bd<cr>",flags)
-vim.keymap.set("", "<C-1>", "<cmd>b1<cr>", flags)
-vim.keymap.set("", "<C-2>", "<cmd>b2<cr>", flags)
-vim.keymap.set("", "<C-3>", "<cmd>b3<cr>", flags)
-vim.keymap.set("", "<C-4>", "<cmd>b4<cr>", flags)
-vim.keymap.set("", "<C-5>", "<cmd>b5<cr>", flags)
-vim.keymap.set("", "<C-6>", "<cmd>b6<cr>", flags)
-vim.keymap.set("", "<C-7>", "<cmd>b7<cr>", flags)
-vim.keymap.set("", "<C-8>", "<cmd>b8<cr>", flags)
-vim.keymap.set("", "<C-9>", "<cmd>b9<cr>", flags)
+-- tab controls
+vim.keymap.set("n", "<C-w>", "<cmd>bn<bar>bd#<cr>",flags)
+vim.keymap.set("n", "<C-n>", "<cmd>tabnew<cr>",flags)
+vim.keymap.set("n", "<C-q>", "<cmd>tabclose<cr>",flags)
+vim.keymap.set("", "<C-1>", "1gt", flags)
+vim.keymap.set("", "<C-2>", "2gt", flags)
+vim.keymap.set("", "<C-3>", "3gt", flags)
+vim.keymap.set("", "<C-4>", "4gt", flags)
+vim.keymap.set("", "<C-5>", "5gt", flags)
+vim.keymap.set("", "<C-6>", "6gt", flags)
+vim.keymap.set("", "<C-7>", "7gt", flags)
+vim.keymap.set("", "<C-8>", "8gt", flags)
+vim.keymap.set("", "<C-9>", "9gt", flags)
 
 -- reload configuration without restarting nvim
-vim.keymap.set("n", "<leader>r", "<cmd>so %<cr>")
+vim.keymap.set("n", "<leader>r", "<cmd>so %<cr>", flags)
 
 -- fast saving with <leader> and s
-vim.keymap.set("n", "<leader>s", "<cmd>w<cr>")
+vim.keymap.set("n", "<leader>s", "<cmd>w<cr>", flags)
 
 -- Close all windows and exit
-vim.keymap.set("n", "<leader>q", "<cmd>qa!<cr>")
+vim.keymap.set("n", "<leader>q", "<cmd>qa!<cr>", flags)
+

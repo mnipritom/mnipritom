@@ -3,5 +3,5 @@ https://stackoverflow.com/a/2003515
 https://stackoverflow.com/a/1783426
 
 ```bash
-git submodule update --romte /path/to/submodule
+git submodule update --reomte /path/to/submodule
 ```

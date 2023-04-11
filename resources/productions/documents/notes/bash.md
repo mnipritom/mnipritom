@@ -336,9 +336,13 @@ https://unix.stackexchange.com/a/61888
     [[1](https://stackoverflow.com/questions/18136918/how-to-get-current-relative-directory-of-your-makefile#comment48133734_23324703)]
 
 #### Bash Strict Mode
-
+ 
 [[1](http://redsymbol.net/articles/unofficial-bash-strict-mode/)] [[2](https://disconnected.systems/blog/another-bash-strict-mode/)] [[3](https://olivergondza.github.io/2019/10/01/bash-strict-mode.html)] [[4](https://jonlabelle.com/snippets/view/shell/unofficial-bash-strict-mode)]
 
 [5](https://nono.ma/prompt-user-input-makefile)
 
 https://www.mattduck.com/2021-05-fzf-tab-completion.html
+
+```bash
+  <C-x><C-e> or <C-x-e> to launch EDITOR
+```
