@@ -10,6 +10,8 @@
   ---
 --]]
 
+vim.opt.shell = "bash"
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -36,7 +38,9 @@ vim.opt.listchars:append "eol:↴"
 vim.opt.listchars:append "tab:>>"
 
 -- encodings
-vim.opt.fileencoding = 'utf-8'
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
 -- neovim tabs
 vim.opt.showtabline = 2
@@ -58,6 +62,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- appearances
+vim.opt.showcmd = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.signcolumn = "number"

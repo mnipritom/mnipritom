@@ -25,7 +25,7 @@ local flags = {
   nowait = true
 }
 
--- implementing `ijkl` cursor control
+-- [NOTE] implementing `ijkl` cursor control
 vim.keymap.set("", "h", "i", flags)
 vim.keymap.set("", "H", "I", flags)
 vim.keymap.set("", "I", "<Nop>", flags)
@@ -34,38 +34,48 @@ vim.keymap.set("", "i", "<Up>", flags)
 vim.keymap.set("", "k", "<Down>", flags)
 vim.keymap.set("", "j", "<Left>", flags)
 
--- disabling focusing spits with `<C-w>`
+-- [NOTE] disabling scrolling with `ctrl+shift+j`
+vim.keymap.set("", "<C-S-j>", "<NOP>", flags)
+-- [NOTE] disabling going backwords by word with `ctrl-shirt-h`
+vim.keymap.set("", "<C-S-h>", "<NOP>", flags)
+
+-- [NOTE] disabling focusing spits with `<C-w>`
+-- [NOTE] enabling focusing splits with `ctrl-shift` & `ijkl`
+vim.keymap.set("", "<C-S-j>", "<C-w>h", flags)
+vim.keymap.set("", "<C-S-l>", "<C-w>l", flags)
+vim.keymap.set("", "<C-S-i>", "<C-w>k", flags)
+vim.keymap.set("", "<C-S-k>", "<C-w>j", flags)
 vim.keymap.set("", "<C-w>", "<NOP>", flags)
-vim.keymap.set("", "<C-w>l", "<Nop>", flags)
-vim.keymap.set("", "<C-w>k", "<Nop>", flags)
-vim.keymap.set("", "<C-w>j", "<Nop>", flags)
-vim.keymap.set("", "<C-w>h", "<Nop>", flags)
+vim.keymap.set("", "<C-w>l", "<NOP>", flags)
+vim.keymap.set("", "<C-w>k", "<NOP>", flags)
+vim.keymap.set("", "<C-w>j", "<NOP>", flags)
+vim.keymap.set("", "<C-w>h", "<NOP>", flags)
 
--- disabling insert mode pressing `gi`
-vim.keymap.set("", "gi", "<Nop>", flags)
 
--- disabling moving up, moving down, one line at a time
-vim.keymap.set("", "gj", "<Nop>", flags)
-vim.keymap.set("", "gk", "<Nop>", flags)
-vim.keymap.set("", "<C-h>", "<Nop>", flags)
-vim.keymap.set("", "<C-p>", "<Nop>", flags)
-vim.keymap.set("", "<C-n>", "<Nop>", flags)
+-- [NOTE] disabling insert mode pressing `gi`
+vim.keymap.set("", "gi", "<NOP>", flags)
 
--- disabling page up, page down
+-- [NOTE] disabling moving up, moving down, one line at a time
+vim.keymap.set("", "gj", "<NOP>", flags)
+vim.keymap.set("", "gk", "<NOP>", flags)
+vim.keymap.set("", "<C-h>", "<NOP>", flags)
+vim.keymap.set("", "<C-p>", "<NOP>", flags)
+vim.keymap.set("", "<C-n>", "<NOP>", flags)
+
+-- [LINK] https://www.youtube.com/@thePrimeagen
+-- [LINK] https://github.com/thePrimeagen
 vim.keymap.set("", "<C-b>", "<C-b>zz", flags)
 vim.keymap.set("", "<C-f>", "<C-f>zz", flags)
-
--- disabling page half up, page half down
 vim.keymap.set("", "<C-u>", "<C-u>zz", flags)
 vim.keymap.set("", "<C-d>", "<C-d>zz", flags)
 
--- disabling visual-block mode
-vim.keymap.set("", "<C-q>", "<Nop>", flags)
+-- [NOTE] disabling visual-block mode
+vim.keymap.set("", "<C-q>", "<NOP>", flags)
 
--- disabling suspend
-vim.keymap.set("", "<C-z>", "<Nop>", flags)
+-- [NOTE] disabling suspend
+vim.keymap.set("", "<C-z>", "<NOP>", flags)
 
--- tab controls
+-- [NOTE] setting tab controls
 vim.keymap.set("n", "<C-w>", "<cmd>bn<bar>bd#<cr>",flags)
 vim.keymap.set("n", "<C-n>", "<cmd>tabnew<cr>",flags)
 vim.keymap.set("n", "<C-q>", "<cmd>tabclose<cr>",flags)
@@ -79,12 +89,10 @@ vim.keymap.set("", "<C-7>", "7gt", flags)
 vim.keymap.set("", "<C-8>", "8gt", flags)
 vim.keymap.set("", "<C-9>", "9gt", flags)
 
--- reload configuration without restarting nvim
-vim.keymap.set("n", "<leader>r", "<cmd>so %<cr>", flags)
-
--- fast saving with <leader> and s
-vim.keymap.set("n", "<leader>s", "<cmd>w<cr>", flags)
-
--- Close all windows and exit
+-- [NOTE] setting miscellaneous shortcuts
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", flags)
 vim.keymap.set("n", "<leader>q", "<cmd>qa!<cr>", flags)
 
+-- [LINK] https://youtube.com/@devaslife
+vim.keymap.set("", "+", "<C-a>", flags)
+vim.keymap.set("", "-", "<C-x>", flags)
