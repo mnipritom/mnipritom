@@ -1,15 +1,13 @@
-return {
-  automatically_reload_config = true,
+local config = wezterm.config_builder()
 
-  warn_about_missing_glyphs = true,
-  adjust_window_size_when_changing_font_size = false,
-
+-- [NOTE] legacy tab bar configurations, subject to change
+config = {
   use_fancy_tab_bar = false,
   enable_tab_bar = true,
-  tab_bar_at_bottom = false,
+  tab_bar_at_bottom = true,
   tab_max_width = 999999,
   hide_tab_bar_if_only_one_tab = false,
-  show_tab_index_in_tab_bar = false,
+  show_tab_index_in_tab_bar = true,
   colors = {
     tab_bar = {
       active_tab = {
@@ -31,8 +29,8 @@ return {
       inactive_tab_hover = {
         bg_color = "#6e6e6e",
         fg_color = "#a0a0a0",
-        italic = false,
-        underline = "Single"
+        italic = true,
+        underline = "None"
       },
       new_tab_hover = {
         bg_color = "#8c8c8c",
@@ -49,3 +47,45 @@ return {
     bottom = 0
   }
 }
+
+config.keys = {
+  {
+    key = "p",
+    mods = "ALT",
+    action = wezterm.action.ActivateCommandPalette
+  },
+  {
+    key = "t",
+    mods = "ALT",
+    action = wezterm.action.SpawnTab("DefaultDomain")
+  },
+  {
+    key = "w",
+    mods = "ALT",
+    action = wezterm.action.CloseCurrentTab({
+      confirm = false
+    })
+  },
+  {
+    key = "j",
+    mods = "ALT",
+    action = wezterm.action.ActivateTabRelative(-1)
+  },
+  {
+    key = "l",
+    mods = "ALT",
+    action = wezterm.action.ActivateTabRelative(1)
+  },
+  -- [TODO] for loop to create tables 0-9
+  -- {
+  --   key = "0",
+  --   mods = "ALT",
+  --   action = wezterm.action.ActivateTab(0)
+  -- }
+
+}
+
+config.color_scheme = "One Dark (Gogh)"
+config.disable_default_key_bindings = true
+
+return config

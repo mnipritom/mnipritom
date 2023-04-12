@@ -16,6 +16,11 @@ export FZF_DEFAULT_OPTS="--layout reverse --height 15"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+
+export TERM=xterm
 export EDITOR="nvim"
 export VISUAL="nvim"
 export GIT_EDITOR="nvim"

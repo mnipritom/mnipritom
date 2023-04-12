@@ -51,6 +51,9 @@ vim.keymap.set("", "<C-w>k", "<NOP>", flags)
 vim.keymap.set("", "<C-w>j", "<NOP>", flags)
 vim.keymap.set("", "<C-w>h", "<NOP>", flags)
 
+-- [NOTE] disabling entry of newline with `<C-S-j> in insert mode
+vim.keymap.set("i", "<C-S-j>", "<NOP>", flags)
+
 
 -- [NOTE] disabling insert mode pressing `gi`
 vim.keymap.set("", "gi", "<NOP>", flags)
@@ -74,6 +77,7 @@ vim.keymap.set("", "<C-q>", "<NOP>", flags)
 
 -- [NOTE] disabling suspend
 vim.keymap.set("", "<C-z>", "<NOP>", flags)
+vim.keymap.set("", "<C-S-z>", "<NOP>", flags)
 
 -- [NOTE] setting tab controls
 vim.keymap.set("n", "<C-w>", "<cmd>bn<bar>bd#<cr>",flags)
@@ -96,3 +100,5 @@ vim.keymap.set("n", "<leader>q", "<cmd>qa!<cr>", flags)
 -- [LINK] https://youtube.com/@devaslife
 vim.keymap.set("", "+", "<C-a>", flags)
 vim.keymap.set("", "-", "<C-x>", flags)
+vim.keymap.set("", "<C-a>", "gg<S-v>G", flags)
+
