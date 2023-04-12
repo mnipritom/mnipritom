@@ -28,7 +28,7 @@ local flags = {
 -- [NOTE] implementing `ijkl` cursor control
 vim.keymap.set("", "h", "i", flags)
 vim.keymap.set("", "H", "I", flags)
-vim.keymap.set("", "I", "<Nop>", flags)
+vim.keymap.set("", "I", "<NOP>", flags)
 vim.keymap.set("", "j", "k", flags)
 vim.keymap.set("", "i", "<Up>", flags)
 vim.keymap.set("", "k", "<Down>", flags)
