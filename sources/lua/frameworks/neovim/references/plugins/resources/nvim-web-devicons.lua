@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "references/plugins/sources/nvim-web-devicons",
+  dir = pluginsSourcesPath .. "nvim-web-devicons",
   lazy = false,
   config = function()
     local nvim_web_devicons = require("nvim-web-devicons")

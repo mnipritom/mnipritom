@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "/references/plugins/sources/mason-lspconfig",
+  dir = pluginsSourcesPath .. "mason-lspconfig",
   lazy = false,
   config = function()
     local mason_lspconfig = require("mason-lspconfig")

@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "references/plugins/sources/onedark",
+  dir = pluginsSourcesPath .. "onedark",
   config = function()
     local onedark = require("onedark")
     onedark.setup({

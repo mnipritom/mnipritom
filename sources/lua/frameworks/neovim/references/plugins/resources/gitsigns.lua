@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "references/plugins/sources/gitsigns",
+  dir = pluginsSourcesPath .. "gitsigns",
   config = function()
     local gitsigns = require("gitsigns")
     gitsigns.setup({

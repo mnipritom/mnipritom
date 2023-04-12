@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "references/plugins/sources/bufferline",
+  dir = pluginsSourcesPath .. "bufferline",
   config = function()
     local bufferline = require("bufferline")
     bufferline.setup({

@@ -2,6 +2,8 @@ local function getPluginSpecifications(plugin)
   return require(plugins .. "." .. "resources" .. "." .. plugin)
 end
 
+pluginsSourcesPath = neovimSourcesPath .. "references/plugins/sources/"
+
 local lazyConfigurations = getPluginSpecifications("lazy")
 
 lazyConfigurations.spec = {
@@ -21,7 +23,7 @@ lazyConfigurations.spec = {
   getPluginSpecifications("telescope")
 }
 
-local lazySourcesPath = neovimSourcesPath .. "references/plugins/sources/lazy"
+local lazySourcesPath = pluginsSourcesPath .. "lazy"
 vim.opt.runtimepath:prepend(lazySourcesPath)
 
 local lazyModule = plugins .. "." .. "sources.lazy.lua.lazy"

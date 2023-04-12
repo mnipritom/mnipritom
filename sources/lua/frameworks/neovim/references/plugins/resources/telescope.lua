@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "references/plugins/sources/telescope",
+  dir = pluginsSourcesPath .. "telescope",
   config = function()
     local telescope = require("telescope")
     local telescope_builtin = require("telescope.builtin")
@@ -29,7 +29,7 @@ return {
     vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
     vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
     vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
-    
+
     vim.keymap.set("n", "<leader>gf", telescope_builtin.git_files, {})
     vim.keymap.set("n", "<leader>gc", telescope_builtin.git_commits, {})
     vim.keymap.set("n", "<leader>gbc", telescope_builtin.git_bcommits, {})

@@ -1,3 +1,3 @@
 return {
-  dir = neovimSourcesPath .. "/references/plugins/sources/nui"
+  dir = pluginsSourcesPath .. "nui"
 }

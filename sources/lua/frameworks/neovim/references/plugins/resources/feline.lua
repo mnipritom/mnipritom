@@ -1,6 +1,6 @@
 -- [LINK] https://github.com/dharmx/nvim-colo/blob/main/lua/colo/extensions/feline.lua
 return {
-  dir = neovimSourcesPath .. "references/plugins/sources/feline",
+  dir = pluginsSourcesPath .. "feline",
   config = function()
     local feline = require("feline")
     -- local feline_providers = require("feline.providers")

@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "/references/plugins/sources/nvim-lspconfig",
+  dir = pluginsSourcesPath .. "nvim-lspconfig",
   lazy = false,
   config = function()
     local nvim_lspconfig = require("lspconfig")

@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "/references/plugins/sources/neo-tree",
+  dir = pluginsSourcesPath .. "neo-tree",
   config = function()
     local neo_tree = require("neo-tree")
     neo_tree.setup({

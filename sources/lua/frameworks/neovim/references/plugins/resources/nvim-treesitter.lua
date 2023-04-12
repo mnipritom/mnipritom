@@ -1,5 +1,5 @@
 return {
-  dir = neovimSourcesPath .. "references/plugins/sources/nvim-treesitter",
+  dir = pluginsSourcesPath .. "nvim-treesitter",
   build = function()
     require("nvim-treesitter.install").update({
       with_sync = true
@@ -38,6 +38,10 @@ return {
           "python"
         },
         additional_vim_regex_highlighting = false
+      },
+      indent = {
+        enable = true,
+        disable = {}
       }
     })
   end
