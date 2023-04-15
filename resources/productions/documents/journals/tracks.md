@@ -1,0 +1,3 @@
+- aretha franklin
+  - get it right
+  - jump to it
