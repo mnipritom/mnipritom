@@ -15,10 +15,13 @@ return {
       vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, flags)
     end
 
-    nvim_lspconfig.pyright.setup({
+    nvim_lspconfig.pylsp.setup({
       on_attach = setKeybindings
     })
     nvim_lspconfig.lua_ls.setup({
+      on_attach = setKeybindings
+    })
+    nvim_lspconfig.bashls.setup({
       on_attach = setKeybindings
     })
   end

@@ -12,6 +12,7 @@ lazyConfigurations.spec = {
   getPluginSpecifications("plenary"),
   getPluginSpecifications("gitsigns"),
   getPluginSpecifications("nvim-web-devicons"),
+  getPluginSpecifications("diffview"),
   getPluginSpecifications("nui"),
   getPluginSpecifications("neo-tree"),
   getPluginSpecifications("bufferline"),
