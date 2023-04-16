@@ -1,8 +1,39 @@
 xplr.config.layouts.custom = {
   hierarchy = {
-    Vertical = {
+    Horizontal = {
       splits = {
-        "Table"
+        {
+          Vertical = {
+            splits = {
+              "Table",
+              "InputAndLogs"
+            },
+            config = {
+              constraints = {
+                {
+                  Percentage = 90
+                },
+                {
+                  Percentage = 10
+                }
+              }
+            }
+          }
+        },
+        {
+          Vertical = {
+            splits = {
+              "Selection"
+            },
+            config = {
+              constraints = {
+                {
+                  Percentage = 100
+                }
+              }
+            }
+          }
+        }
       },
       config = {
         margin = nil,
@@ -10,7 +41,10 @@ xplr.config.layouts.custom = {
         vertical_margin = nil,
         constraints = {
           { 
-            Percentage = 100
+            Percentage = 75
+          },
+          {
+            Percentage = 25
           }
         }
       }
@@ -19,3 +53,7 @@ xplr.config.layouts.custom = {
 }
 
 xplr.config.general.initial_layout = "hierarchy"
+
+xplr.config.general.panel_ui.table.borders = nil
+xplr.config.general.panel_ui.default.borders = nil
+xplr.config.general.panel_ui.default.border_type = nil
