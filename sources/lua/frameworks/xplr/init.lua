@@ -1,10 +1,19 @@
-version = "0.20.1"
-xplr.config.modes.builtin.default.key_bindings.on_key["j"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key["left"]
-xplr.config.modes.builtin.default.key_bindings.on_key["k"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key["down"]
-xplr.config.modes.builtin.default.key_bindings.on_key["i"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key["up"]
-xplr.config.modes.builtin.default.key_bindings.on_key["l"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key["right"]
+-- [NOTE] added extra `/` to denote root of filesystem
+-- [NOTE] realpath sometimes strips off preceding `/`
+local xplrSourcesEntryPointPath = debug.getinfo(1,"S").source:sub(2)
+xplrSourcesEntryPointPath = io.popen("realpath '" .. "/" .. xplrSourcesEntryPointPath .. "'", "r"):read("a")
+xplrSourcesEntryPointPath = xplrSourcesEntryPointPath:gsub("[\n\r]*$","")
 
+local xplrSourcesDirectoryPath, xplrEntryPointFileName = xplrSourcesEntryPointPath:match("^(.*/)([^/]-)$")
+xplrSourcesDirectoryPath = xplrSourcesDirectoryPath or ""
+xplrEntryPointFileName = xplrEntryPointFileName or xplrSourcesEntryPointPath
+
+package.path = xplrSourcesDirectoryPath .. "?.lua;" .. package.path
+package.path = xplrSourcesDirectoryPath .. "?/init.lua;" .. package.path
+
+version = "0.20.1"
+
+productions = "productions"
+
+require(productions .. "." .. "keybindings")
+require(productions .. "." .. "layouts")
