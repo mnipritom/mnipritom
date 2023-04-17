@@ -11,10 +11,10 @@ xplr.config.layouts.custom = {
             config = {
               constraints = {
                 {
-                  Percentage = 90
+                  Percentage = 93
                 },
                 {
-                  Percentage = 10
+                  Percentage = 7
                 }
               }
             }
@@ -54,6 +54,5 @@ xplr.config.layouts.custom = {
 
 xplr.config.general.initial_layout = "hierarchy"
 
-xplr.config.general.panel_ui.table.borders = nil
-xplr.config.general.panel_ui.default.borders = nil
+-- [NOTE] set border style to non rounded
 xplr.config.general.panel_ui.default.border_type = nil

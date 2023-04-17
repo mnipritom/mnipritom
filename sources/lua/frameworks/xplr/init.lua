@@ -17,3 +17,4 @@ productions = "productions"
 
 require(productions .. "." .. "keybindings")
 require(productions .. "." .. "layouts")
+require(productions .. "." .. "modifications")
