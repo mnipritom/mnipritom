@@ -14,7 +14,6 @@ package.path = xplrSourcesDirectoryPath .. "?.lua;" .. package.path
 package.path = xplrSourcesDirectoryPath .. "?/init.lua;" .. package.path
 
 productions = "productions"
+configurations = productions .. "." .. "configurations"
 
-require(productions .. "." .. "keybindings")
-require(productions .. "." .. "layouts")
-require(productions .. "." .. "modifications")
+require(productions)

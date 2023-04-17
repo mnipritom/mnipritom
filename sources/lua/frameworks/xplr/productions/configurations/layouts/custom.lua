@@ -54,5 +54,3 @@ xplr.config.layouts.custom = {
 
 xplr.config.general.initial_layout = "hierarchy"
 
--- [NOTE] set border style to non rounded
-xplr.config.general.panel_ui.default.border_type = nil
