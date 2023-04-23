@@ -1,5 +1,11 @@
+local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-config = {
+
+local keybindings = require("productions.configurations.keybindings")
+
+local config = {
+  color_scheme = "One Dark (Gogh)",
+  disable_default_key_bindings = true,
 -- [NOTE] legacy tab bar configurations, subject to change
   use_fancy_tab_bar = false,
   enable_tab_bar = true,
@@ -45,45 +51,7 @@ config = {
     top = 0,
     bottom = 0
   },
-  keys = {
-    {
-      key = "p",
-      mods = "ALT",
-      action = wezterm.action.ActivateCommandPalette
-    },
-    {
-      key = "t",
-      mods = "ALT",
-      action = wezterm.action.SpawnTab("DefaultDomain")
-    },
-    {
-      key = "w",
-      mods = "ALT",
-      action = wezterm.action.CloseCurrentTab({
-        confirm = false
-      })
-    },
-    {
-      key = "j",
-      mods = "ALT",
-      action = wezterm.action.ActivateTabRelative(-1)
-    },
-    {
-      key = "l",
-      mods = "ALT",
-      action = wezterm.action.ActivateTabRelative(1)
-    },
-    color_scheme = "One Dark (Gogh)",
-    disable_default_key_bindings = true
-    -- [TODO] for loop to create tables 0-9
-    -- {
-    --   key = "0",
-    --   mods = "ALT",
-    --   action = wezterm.action.ActivateTab(0)
-    -- }
-  }
+  keys = keybindings
 }
-
-
 
 return config
