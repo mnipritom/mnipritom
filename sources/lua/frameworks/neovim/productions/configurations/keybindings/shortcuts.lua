@@ -105,6 +105,6 @@ vim.keymap.set("", "<C-a>", "gg<S-v>G", flags)
 -- [NOTE] remapping `escape` key
 -- [NOTE] setting `ctrl+h` from backspace to none
 vim.keymap.set("i", "<C-h>", "<NOP>", flags)
-vim.keymap.set("i", "<C-h>", "<ESC>", flags)
+--vim.keymap.set("i", "<C-h>", "<ESC>", flags)
 vim.keymap.set("", "<C-h>", "<C-[>", flags)
 -- vim.keymap.set("", "<C-[>", "<NOP>", flags)
