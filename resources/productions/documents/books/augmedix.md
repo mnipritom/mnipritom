@@ -1,0 +1,11 @@
+- medical summary
+  - 3 paragraphs and 300 words long
+  - first paragraph
+    - symptoms (reported by patient)
+      - affirmations
+      - denials
+  - second paragraph
+    - findings or signs (noted by doctor)
+  - third paragraph
+    - diagnosis
+    - prognosis
