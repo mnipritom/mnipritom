@@ -1,14 +1,15 @@
-- glands and hormones
-  - pineal
-  - pituitary
-    - hypothalamus
-  - thyroid
-    - parathyroid
-  - thymus
-  - andrenal
-  - pancreas (islets of Langerhans)
-  - ovaries
-  - testes
+- anatomy
+  - glands and hormones
+    - pineal
+    - pituitary
+      - hypothalamus
+    - thyroid
+      - parathyroid
+    - thymus
+    - andrenal
+    - pancreas (islets of Langerhans)
+    - ovaries
+    - testes
 - conventions
   - medical summary report
     - 3 paragraphs and 300 words long
