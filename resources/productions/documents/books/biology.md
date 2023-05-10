@@ -1,4 +1,41 @@
+- conventions
+  - medical summary report
+    - 3 paragraphs and 300 words long
+    - first paragraph
+      - symptoms (reported by patient)
+        - affirmations
+        - denials
+    - second paragraph
+      - findings or signs (noted by doctor)
+    - third paragraph
+      - diagnosis
+      - prognosis
 - anatomy
+  - concepts
+    - polar 
+      - superior/ northern
+      - inferior/ southern
+    - directional
+      - anterior/ ventral/ frontal
+      - posterior/ dorsal/ rear
+    - positional
+      - context: joints
+        - proximal/ near
+        - distal/ distant
+    - sectional
+      - context: midline
+        - medial/ closer
+        - lateral/ further
+    - movements
+      - context: limbs/ joints
+        - flexion/ concentric
+        - extension/ eccentric
+      - context: midline
+        - adduction/ closer
+        - abduction/ further
+      - context: palms/ carpal joints
+        - supination
+        - pronation
   - thorax
     - clavicle
       - collar bone
@@ -7,6 +44,12 @@
     - sternum
       - breast bone
     - ribs: 12
+    - vertebrae
+      - cervical [C1-C7]
+      - thoracic [T1-T12]
+      - lumber [L1-L5]
+      - sacrum: 5
+      - coccyx: 4
   - arms + forearms + hands
     - humerus
     - ulna
@@ -27,15 +70,3 @@
     - pancreas (islets of Langerhans)
     - ovaries
     - testes
-- conventions
-  - medical summary report
-    - 3 paragraphs and 300 words long
-    - first paragraph
-      - symptoms (reported by patient)
-        - affirmations
-        - denials
-    - second paragraph
-      - findings or signs (noted by doctor)
-    - third paragraph
-      - diagnosis
-      - prognosis
