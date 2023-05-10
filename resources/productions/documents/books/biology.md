@@ -10,6 +10,29 @@
     - third paragraph
       - diagnosis
       - prognosis
+  - prescriptions
+    - q.i.d or QID
+      - four times a day
+      - "quater in die"
+    - t.i.d or TID
+      - "ter in die"
+      - three times a day
+    - q_h
+      - "q" stands for "quaque", "h" indicates number of hours
+    - p.r.n
+      - whenever necessary
+      - as circumstances require, as needed
+      - for an occasion that has arisen
+      - "pro re nata"
+    - b.i.d or BID
+      - twice a day
+      - "bis in die"
+    - p.o or PO
+      - by mouth, orally
+      - "per os"
+    - q.a.m or QAM
+      - every morning
+      - "quaque ante meridiem"
 - anatomy
   - concepts
     - polar 
