@@ -1,4 +1,21 @@
 - anatomy
+  - thorax
+    - clavicle
+      - collar bone
+    - scapula
+      - shoulder blades
+    - sternum
+      - breast bone
+    - ribs: 12
+  - arms + forearms + hands
+    - humerus
+    - ulna
+    - radius
+    - carpal: 8
+      - metacarpal: 5
+    - phalanges: 14
+      - 2 in thumbs
+      - 3 in all other fingers
   - glands and hormones
     - pineal
     - pituitary
