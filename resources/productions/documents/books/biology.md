@@ -36,6 +36,9 @@
       - context: palms/ carpal joints
         - supination
         - pronation
+      - context: soles/ tarsal joints
+        - inversion/ inward/ medial
+        - eversion/ outward/ lateral
   - thorax
     - clavicle
       - collar bone
